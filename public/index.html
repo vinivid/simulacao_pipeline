@@ -6,15 +6,40 @@
     <title>Simulação de pipeline</title>
 </head>
 <body>
-    <div id="prg-counter" class="rect-box">
-        <div>PC</div>
-    </div>
-    <div id="bco-reg" class="rect-box">
-        <div>Bil</div>
-    </div>
-    <div id="alu"></div>
-    <div id="memory" class="rect-box">
-        <div>Mem</div>
+    <div id="architecture-grid">
+        <div id="prg-counter" class="block-box">
+            <div class="block-name">PC</div>
+        </div>
+
+        <div id="inst-mem" class="block-box">
+            <div class="block-name">Memória de instrução</div>
+            <div class="block-entry-exit">Endereço</div>
+        </div>
+
+        <div id="reg-if-id"></div>
+
+        <div id="bco-reg" class="block-box">
+            <div class="block-name">Banco de registradoras</div>
+            <div class="block-entry-exit">Ler reg 1</div>
+            <div class="block-entry-exit">Ler reg 2</div>
+            <div class="block-entry-exit">Escrever na reg</div>
+            <div class="block-entry-exit">Dados para escrita</div>
+            <div class="block-entry-exit">Valor lido 1</div>
+            <div class="block-entry-exit">Valor lido 2</div>
+        </div>
+
+        <div id="reg-id-ex"></div>
+
+        <div id="alu" class="alu-symbol"></div>
+
+        <div id="reg-ex-mem"></div>
+
+        <div id="memory" class="block-box">
+            <div class="block-name">Mem</div>
+        </div>
+
+        <div id="reg-mem-wb"></div>
+
     </div>
 </body>
 </html>

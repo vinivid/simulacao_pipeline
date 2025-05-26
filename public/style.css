@@ -1,19 +1,83 @@
-.rect-box {
-    border: 2px solid black;
+body {
+    background-color: #01010a;
+}
+
+.alu-symbol {
+    background: white;
+    clip-path: polygon(0 0, 100% 25%, 100% 75%, 0 100%, 0 60%, 25% 50%, 0 40%);
+}
+
+.block-box {
+    background-color: white;
+}
+
+.block-name {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.block-entry-exit {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#architecture-grid {
+    display: grid;
+    grid-template-columns: repeat(30, 3.3vw);
+    grid-template-rows: repeat(10, 10vh);
 }
 
 #prg-counter {
-    position: absolute;
-    top: 150px;
-    left: 200px;
-    height: 70px;
-    width: 30px;
+    grid-row: 3;
+    grid-column: 2;
+}
+
+#inst-mem {
+    display: grid;
 }
 
 #bco-reg {
-    position: absolute;
-    top: 150px;
-    left: 400px;
-    height: 300px;
-    width: 200px;
+    grid-row: 3;
+    grid-column: 5;
+
+    grid-row-start: 3;
+    grid-row-end: 8;
+
+    grid-column-start: 5;
+    grid-column-end: 8;
+
+    display: inline-grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Banco de registradoras nome*/
+#bco-reg :nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 1;
+}
+
+/* Ler reg 1*/
+#bco-reg :nth-child(2) {
+    grid-row: 2;
+}
+
+/* Ler reg 2*/
+#bco-reg :nth-child(3) {
+    grid-row: 3;
+}
+
+/* Escrever na reg */
+#bco-reg :nth-child(4) {
+    grid-row: 4;
+}
+
+/* Dados para escrita */
+#bco-reg :nth-child(5) {
+    grid-row: 5;
+}
+
+#memory {
+    grid-row: 5;
+    grid-column: 20;
 }
