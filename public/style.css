@@ -3,11 +3,17 @@
 }
 
 #prg-counter {
-    height: 50px;
-    width: 100px;
+    position: absolute;
+    top: 150px;
+    left: 200px;
+    height: 70px;
+    width: 30px;
 }
 
 #bco-reg {
-    height: 100px;
-    width: 10px;
+    position: absolute;
+    top: 150px;
+    left: 400px;
+    height: 300px;
+    width: 200px;
 }
