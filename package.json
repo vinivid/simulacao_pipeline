@@ -1,0 +1,25 @@
+{
+  "name": "simulacao_pipeline",
+  "version": "1.0.0",
+  "description": "Trabalho da AEX da sarita",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinivid/simulacao_pipeline.git"
+  },
+  "keywords": [
+    "Sarita"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vinivid/simulacao_pipeline/issues"
+  },
+  "homepage": "https://github.com/vinivid/simulacao_pipeline#readme",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

@@ -1,0 +1,13 @@
+.rect-box {
+    border: 2px solid black;
+}
+
+#prg-counter {
+    height: 50px;
+    width: 100px;
+}
+
+#bco-reg {
+    height: 100px;
+    width: 10px;
+}
