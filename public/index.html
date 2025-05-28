@@ -38,7 +38,6 @@
 
         <div id="pc4" class="alu-symbol"></div>
 
-
         <div id="inst-mem" class="block-box">
             <div class="block-name">Memória de instrução</div>
             <div class="block-entry-exit">Endereço</div>
@@ -52,29 +51,84 @@
         </div>
         
         <!-- Fim do if -->
+        <!-- Parte do id -->
 
-        <!-- <div id="bco-reg" class="block-box">
+        <div id="bco-reg" class="block-box">
             <div class="block-name">Banco de registradoras</div>
-            <div class="block-entry-exit">Ler reg 1</div>
-            <div class="block-entry-exit">Ler reg 2</div>
-            <div class="block-entry-exit">Escrever na reg</div>
-            <div class="block-entry-exit">Dados para escrita</div>
-            <div class="block-entry-exit">Valor lido 1</div>
-            <div class="block-entry-exit">Valor lido 2</div>
+            <div class="block-entry-exit">rs1</div>
+            <div class="block-entry-exit">rs2</div>
+            <div class="block-entry-exit">rd</div>
+            <div class="block-entry-exit">write data</div>
+            <div class="block-entry-exit">A</div>
+            <div class="block-entry-exit">B</div>
         </div>
 
-        <div id="reg-id-ex"></div>
+        <div id="cu" class="block-box">
+            <div class="block-name">Unidade de controle</div>
+            <div class="block-entry-exit">WB</div>
+            <div class="block-entry-exit">M</div>
+            <div class="block-entry-exit">EX</div>
+        </div>
 
+        <div id="imm-gen" class="block-box">
+            <div class="block-name">Imm gen</div>
+        </div>
+
+        <div id="reg-id" class="block-box">
+            <div class="block-entry-exit">WB</div>
+            <div class="block-entry-exit">M</div>
+            <div class="block-entry-exit">EX</div>
+            <div class="block-entry-exit">PC</div>
+            <div class="block-entry-exit">A</div>
+            <div class="block-entry-exit">B</div>
+            <div class="block-entry-exit">IMM</div>
+            <div class="block-entry-exit">INST</div>
+            <div class="block-entry-exit">RD</div>
+        </div>
+
+        <!-- Fim do id -->
+
+        <!-- inicio do ex-->
         <div id="alu" class="alu-symbol"></div>
 
-        <div id="reg-ex-mem"></div>
+        <div id="pc-plus-imm" class="alu-symbol"></div>
 
-        <div id="memory" class="block-box">
-            <div class="block-name">Mem</div>
+        <div id="alu-src-mux" class="mux-symbol"></div>
+        
+        <div id="alu-ctrl" class="block-box">
+            <div class="block-name">Controle ula</div>
         </div>
 
-        <div id="reg-mem-wb"></div> -->
+        <div id="reg-ex" class="block-box">
+            <div class="block-entry-exit">WB</div>
+            <div class="block-entry-exit">M</div>
+            <div class="block-entry-exit">B-TARG</div>
+            <div class="block-entry-exit">ZERO</div>
+            <div class="block-entry-exit">ULA</div>
+            <div class="block-entry-exit">RD</div>
+        </div>
 
+        <!-- Fim do ex-->
+        <!-- Inicio do mem -->
+
+        <div id="and-branch" class="and-gate"></div>
+
+        <div id="memory" class="block-box">
+            <div class="block-name">Memória de dados</div>
+            <div class="block-entry-exit">Endereço</div>
+            <div class="block-entry-exit">Dado de escrita</div>
+        </div>
+
+        <div id="reg-mem" class="block-box">
+            <div class="block-entry-exit">WB</div>
+            <div class="block-entry-exit">MEM</div>
+            <div class="block-entry-exit">ULA</div>
+        </div>
+
+        <!-- Fim do mem-->
+        <!-- Wb -->
+
+        <div id="data-select-mux" class="mux-symbol"></div>
     </div>
 </body>
 </html>
