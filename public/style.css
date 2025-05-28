@@ -2,6 +2,32 @@ body {
     background-color: #01010a;
 }
 
+/* Faz o cabo da esquerda pra cima*/
+.left_cable {
+    background-color: white;
+    clip-path: polygon(
+        20% 0, 40% 0, 
+        40% 100%, 20% 100%
+        );
+}
+
+#left-cable {
+    background-color: white;
+    clip-path: polygon(
+        20% 0, 40% 0, 
+        40% 100%, 20% 100%
+        );
+}
+
+.right_cable {
+    background-color: white;
+    clip-path: polygon(
+        60% 0, 80% 0%, 
+        80% 100%, 60% 100%
+        );
+}
+
+/* Faz o simbolo da ula em css*/
 .alu-symbol {
     background: white;
     clip-path: polygon(0 0, 100% 25%, 100% 75%, 0 100%, 0 60%, 25% 50%, 0 40%);
@@ -32,6 +58,8 @@ body {
 }
 
 #inst-mem {
+    grid-row: 9;
+    grid-column: 10;
     display: grid;
 }
 
