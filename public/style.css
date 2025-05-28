@@ -11,6 +11,12 @@ body {
    clip-path: polygon(0 100%, 100% 100%, 100% 95%, 0 95%); 
 }
 
+.half-bhl {
+    background-color: white;
+    clip-path: polygon(0 100%, 52.5% 100%, 52.5% 95%, 0 95%);
+}
+
+
 .bh-to-mv {
     background-color: white;
     clip-path: polygon(0 100%, 52.5% 100%, 52.5% 0, 47.5% 0, 47.5% 95%, 0 95%);
@@ -31,9 +37,24 @@ body {
     clip-path: polygon(47.5% 47.5%, 47.5% 52.5%, 100% 52.5%, 100% 47.5%);
 }
 
+.half-mhl {
+    background-color: white;
+    clip-path: polygon(0 47.5%, 0 52.5%, 50% 52.5%, 50% 47.5%);
+}
+
+.half-mvt {
+    background-color: white;
+    clip-path: polygon(47.5% 0%, 47.5% 52.5%, 52.5% 52.5%, 52.5% 0%);
+}
+
 .mvb-to-mhl {
     background-color: white;
     clip-path: polygon(47.5% 100%, 52.5% 100%, 52.5% 47.5%, 0% 47.5%, 0 52.5%, 47.5% 52.5%);
+}
+
+.mh-to-mvt {
+    background-color: white;
+    clip-path: polygon(0 52.5%, 52.5% 52.5%, 52.5% 0, 47.5% 0, 47.5% 47.5%, 0 47.5%);
 }
 
 .mvb-to-mhr {
@@ -78,6 +99,12 @@ body {
     background-color: white;
     border: none;
     border-radius: 9999px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1vw;
 }
 
 /* Caixa de entradas e saidas de um blocco */
@@ -273,6 +300,136 @@ body {
 
 /* ### Fim do if ###*/
 /* ####Id ### */
+
+#if-inst-pipe-exit {
+    grid-column: 10;
+    grid-row: 9;
+}
+
+#inst-s_10_4-14 {
+    grid-column: 10;
+    grid-row-start: 4;
+    grid-row-end: 15;
+}
+
+#inst-s_10_3 {
+    grid-column: 10;
+    grid-row: 3;
+}
+
+#inst-s_11_3 {
+    grid-column: 11;
+    grid-row: 3;
+}
+
+#inst-s_10_15 {
+    grid-column: 10;
+    grid-row: 15;
+}
+
+#rs1_10_7 {
+    grid-column: 10;
+    grid-row: 7;
+}
+
+#rs1_11_7 {
+    grid-column: 11;
+    grid-row: 7;
+}
+
+#rs1_15_7 {
+    grid-column: 15;
+    grid-row: 7;
+}
+
+#rs2_10_8 {
+    grid-column: 10;
+    grid-row: 8;
+}
+
+#rs2_11_8 {
+    grid-column: 11;
+    grid-row: 8;
+}
+
+#rs2_15_10 {
+    grid-column: 15;
+    grid-row: 10;
+}
+
+#id-imm_10_13 {
+    grid-column: 10;
+    grid-row: 13;
+}
+
+#id-imm_11-12_13 {
+    grid-column-start: 11;
+    grid-column-end: 13;
+    grid-row: 13;
+}
+
+#id-imm_15_13 {
+    grid-column: 15;
+    grid-row: 13;
+}
+
+#id-inst_10_14 {
+    grid-column: 10;
+    grid-row: 14;
+}
+
+#id-inst_11-15_14 {
+    grid-column-start: 11;
+    grid-column-end: 16;
+    grid-row: 14;
+}
+
+#id-rd_10_15 {
+    grid-column: 10;
+    grid-row: 15;
+}
+
+#id-rd_11-15_15 {
+    grid-column-start: 11;
+    grid-column-end: 16;
+    grid-row: 15;
+}
+
+#id-wb {
+    grid-column: 15;
+    grid-row: 2;
+}
+
+#id-m {
+    grid-column: 15;
+    grid-row: 3;
+}
+
+#id-ex {
+    grid-column: 15;
+    grid-row: 4;
+}
+
+#id-pc_10_6 {
+    grid-column: 10;
+    grid-row: 6;
+}
+
+#id-pc_11_6 {
+    grid-column: 11;
+    grid-row: 6;
+}
+
+#id-pc_11_5 {
+    grid-column: 11;
+    grid-row: 5;
+}
+
+#id-pc_12-15_5 {
+    grid-column-start: 12;
+    grid-column-end: 16;
+    grid-row: 5;
+}
 
 #bco-reg {
     grid-column-start: 12;

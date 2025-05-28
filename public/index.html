@@ -20,7 +20,11 @@
 
             <div id="mux-to-pc" class="bh"></div>
 
-        <div id="pc-src" class="mux-symbol"></div>
+        <div id="pc-src" class="mux-symbol">
+            <div>M</div>
+            <div>U</div>
+            <div>X</div>
+        </div>
 
             <!-- Cabos do pc até o pipe e a ula -->
             <div id="pc-to-instmem" class="bh pc-to-things"></div>
@@ -52,6 +56,51 @@
         
         <!-- Fim do if -->
         <!-- Parte do id -->
+
+            <!-- Cabo do IR que leva para varios lugares e para cu -->
+            <div id="if-inst-pipe-exit" class="half-bhl inst-shower"></div>
+            <div id="inst-s_10_4-14" class="mv inst-shower"></div>
+            <div id="inst-s_10_3" class="mvb-to-mhr inst-shower"></div>
+            <div id="inst-s_11_3" class="mh inst-shower"></div>
+            <div id="inst-s_10_15" class="half-mvt inst-shower"></div>
+
+            <!-- Cabos do rs1 -->
+            <div id="rs1_10_7" class="half-mhr rs1"></div>
+            <div id="rs1_11_7" class="mh rs1"></div>
+            <div id="rs1_15_7" class="mh rs1"></div>
+
+            <!-- Cabos do rs2 -->
+            <div id="rs2_10_8" class="half-mhr rs2"></div>
+            <div id="rs2_11_8" class="mh rs2"></div>
+            <div id="rs2_15_10" class="mh rs2"></div>
+
+            <!-- Cabos do Imm-->
+            <div id="id-imm_10_13" class="half-mhr id-imm"></div>
+            <div id="id-imm_11-12_13" class="mh id-imm"></div>
+            <div id="id-imm_15_13" class="mh id-imm"></div>
+
+            <!-- Cabos do inst -->
+            <div id="id-inst_10_14" class="half-mhr id-inst"></div>
+            <div id="id-inst_11-15_14" class="mh id-inst"></div>
+
+            <!-- Cabos do rd-->
+            <div id="id-rd_10_15" class="half-mhr id-rd"></div>
+            <div id="id-rd_11-15_15" class="mh id-rd"></div>
+
+            <!-- Wb da uc-->
+            <div id="id-wb" class="mh id-wb"></div>
+
+            <!--M Uc -->
+            <div id="id-m" class="mh id-m"></div>
+
+            <!-- Ex uc-->
+            <div id="id-ex" class="mh id-ex"></div>
+
+            <!-- Cabos do PC no id-->
+            <div id="id-pc_10_6" class="mh id-pc"></div>
+            <div id="id-pc_11_6" class="mh-to-mvt id-pc"></div>
+            <div id="id-pc_11_5" class="mvb-to-mhr id-pc"></div>
+            <div id="id-pc_12-15_5" class="mh id-pc"></div>
 
         <div id="bco-reg" class="block-box">
             <div class="block-name">Banco de registradoras</div>
@@ -93,7 +142,11 @@
 
         <div id="pc-plus-imm" class="alu-symbol"></div>
 
-        <div id="alu-src-mux" class="mux-symbol"></div>
+        <div id="alu-src-mux" class="mux-symbol">
+            <div>M</div>
+            <div>U</div>
+            <div>X</div>
+        </div>
         
         <div id="alu-ctrl" class="block-box">
             <div class="block-name">Controle ula</div>
@@ -128,7 +181,11 @@
         <!-- Fim do mem-->
         <!-- Wb -->
 
-        <div id="data-select-mux" class="mux-symbol"></div>
+        <div id="data-select-mux" class="mux-symbol">
+            <div>M</div>
+            <div>U</div>
+            <div>X</div>
+        </div>
     </div>
 </body>
 </html>
