@@ -2,94 +2,268 @@ body {
     background-color: #01010a;
 }
 
-/* Faz o cabo da esquerda pra cima*/
-.left_cable {
+/* ############################ 
+  Simbolos e cabos da arquitetura
+   ########################## */
+
+.bh {
+   background-color: white;
+   clip-path: polygon(0 100%, 100% 100%, 100% 95%, 0 95%); 
+}
+
+.bh-to-mv {
+    background-color: white;
+    clip-path: polygon(0 100%, 52.5% 100%, 52.5% 0, 47.5% 0, 47.5% 95%, 0 95%);
+}
+
+.mv {
+    background-color: white;
+    clip-path: polygon(47.5% 0, 47.5% 100%, 52.5% 100%, 52.5% 0);
+}
+
+.mh {
+    background-color: white;
+    clip-path: polygon(0 47.5%, 100% 47.5%, 100% 52.5%, 0 52.5%);
+}
+
+.half-mhr {
+    background-color: white;
+    clip-path: polygon(47.5% 47.5%, 47.5% 52.5%, 100% 52.5%, 100% 47.5%);
+}
+
+.mvb-to-mhl {
+    background-color: white;
+    clip-path: polygon(47.5% 100%, 52.5% 100%, 52.5% 47.5%, 0% 47.5%, 0 52.5%, 47.5% 52.5%);
+}
+
+.mvb-to-mhr {
+    background-color: white;
+    clip-path: polygon(47.5% 100%, 47.5% 47.5%, 100% 47.5%, 100% 52.5%, 52.5% 52.5%, 52.5% 100%);
+}
+
+.mhr-to-qrvb {
+    background-color: white;
+    clip-path: polygon(100% 47.5%, 70% 47.5%, 70% 100%, 75% 100%, 75% 52.5%, 100% 52.5%);
+}
+
+.qlv {
     background-color: white;
     clip-path: polygon(
-        20% 0, 40% 0, 
-        40% 100%, 20% 100%
+        20% 0, 25% 0, 
+        25% 100%, 20% 100%
+    );
+}
+
+.qrv {
+    background-color: white;
+    clip-path: polygon(
+        70% 0, 75% 0%, 
+        75% 100%, 70% 100%
         );
 }
 
-#left-cable {
+.qrvt-to-mhr {
     background-color: white;
-    clip-path: polygon(
-        20% 0, 40% 0, 
-        40% 100%, 20% 100%
-        );
+    clip-path: polygon(70% 0, 70% 52.5%, 100% 52.5%, 100% 47.5%, 75% 47.5%, 75% 0%);
 }
 
-.right_cable {
-    background-color: white;
-    clip-path: polygon(
-        60% 0, 80% 0%, 
-        80% 100%, 60% 100%
-        );
-}
-
-/* Faz o simbolo da ula em css*/
+/* Faz o simbolo da ula*/
 .alu-symbol {
-    background: white;
+    background-color: white;
     clip-path: polygon(0 0, 100% 25%, 100% 75%, 0 100%, 0 60%, 25% 50%, 0 40%);
 }
 
+/* Faz o simbolo do mux */
+.mux-symbol {
+    background-color: white;
+    border: none;
+    border-radius: 9999px;
+}
+
+/* Caixa de entradas e saidas de um blocco */
 .block-box {
     background-color: white;
 }
 
+/* Fonte do nome do bloco dentro de um bloco*/
 .block-name {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9vw;
     font-weight: bold;
+    align-content: center;
+    margin: auto
 }
 
+/* Texto da entra/saida de um bloco */
 .block-entry-exit {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.8vw;
+    align-content: center;
+    margin: auto
 }
 
+/* ############################ 
+  Componentes e cabos da arquitetura
+   ########################## */
 #architecture-grid {
     display: grid;
-    grid-template-columns: repeat(30, 3.3vw);
-    grid-template-rows: repeat(20, 5vh);
+    grid-template-columns: repeat(32, 3.125%);
+    grid-template-rows: repeat(16, 6.25vh);
 }
 
-#prg-counter {
+/* #### Parte do if ### */
+
+#pcp-4_8_4 {
+    grid-column: 8;
+    grid-row: 4;
+}
+
+#pcp-4_8_3 {
+    grid-column: 8;
+    grid-row: 3;
+}
+
+#pcp-4_2-7_3 {
+    grid-column-start: 2;
+    grid-column-end: 8;
+
+    grid-row: 3;
+}
+
+#pcp-4_1_3 {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+#pcp-4_1_4-8 {
+    grid-column: 1;
+    grid-row-start: 4;
+    grid-row-end: 9;
+}
+
+#pcp-4_1_9 {
+    grid-column: 1;
     grid-row: 9;
+}
+
+#pc-src {
     grid-column: 2;
 
     grid-row-start: 9;
     grid-row-end: 11;
 }
 
-#pc4 {
+#mux-to-pc {
+    grid-row: 9;
+    grid-column: 3;
+}
+
+#prg-counter {
+    grid-column: 4;
+
+    grid-row-start: 9;
+    grid-row-end: 11;
+
+    display: flex;
+}
+
+#pc-to-instmem {
+    grid-column: 5;
+    grid-row: 9;
+}
+
+#pc-tt_5_5-9 {
+    grid-column: 5;
     
+    grid-row-start: 5;
+    grid-row-end: 10;
+}
+
+#pc-tt_5_4 {
+    grid-column: 5;
+    grid-row: 4;
+}
+
+#pc-tt_6_4 {
+    grid-column: 6;
+    grid-row: 4;
+}
+
+#pc-tt_5_6 {
+    grid-column: 5;
+    grid-row: 6;
+}
+
+#pc-tt_6-8_6 {
+    grid-column-start: 6;
+    grid-column-end: 9;
+
+    grid-row: 6;
+}
+
+#four-to-add {
+    grid-column: 6;
+    grid-row: 5;
 }
 
 #inst-mem {
-    grid-row: 9;
-    grid-column: 10;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    
-    grid-row: 8;
-    grid-column: 4;
+    grid-column-start: 6;
+    grid-column-end: 8;
 
     grid-row-start: 8;
-    grid-row-end: 12;
+    grid-row-end: 11;
 
-    grid-column-start: 4;
-    grid-column-end: 6;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+#inst-mem :nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    grid-row: 1;
+}
+
+#inst-mem :nth-child(2) {
+    grid-column: 1;
+
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+#inst-mem-to-pipe {
+    grid-column: 8;
+    grid-row: 9;
+}
+
+#pc4 {
+    grid-column: 7;
+
+    grid-row-start: 4;
+    grid-row-end: 6;
 }
 
 #reg-if-id {
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    
-    grid-row: 6;
-    grid-column: 7;
+    grid-column: 9;
 
-    grid-row-start: 5;
-    grid-row-end: 13;
+    grid-row-start: 6;
+    grid-row-end: 12;
+
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
 }
+
+#reg-if-id :nth-child(1) {
+    grid-row: 1;
+}
+
+#reg-if-id :nth-child(2) {
+    grid-row-start: 4;
+    grid-row-end: 6;
+}
+
+/* ### Fim do if ###*/
 
 #bco-reg {
     grid-row: 3;

@@ -7,12 +7,30 @@
 </head>
 <body>
     <div id="architecture-grid">
-        <!-- Parte do if-Id-->
+        <!-- Parte do if -->
 
-        <div id="cable-test"">
-            <div id="left-cable" class="left_cable"></div>
-            <div id="right-cable"></div>
-        </div>
+            <!-- Cabos do pc + 4 até o pc src-->
+            <div id="pcp-4_8_4" class="bh-to-mv pcp-4"></div>
+            <div id="pcp-4_8_3" class="mvb-to-mhl pcp-4"></div>
+            <div id="pcp-4_2-7_3" class="mh pcp-4"></div>
+            <div id="pcp-4_1_3" class="mhr-to-qrvb pcp-4"></div>
+            <div id="pcp-4_1_4-8" class="qrv pcp-4 pcp-4"></div>
+            <div id="pcp-4_1_9" class="qrvt-to-mhr pcp-4"></div>
+            <!-- #### -->
+
+            <div id="mux-to-pc" class="bh"></div>
+
+        <div id="pc-src" class="mux-symbol"></div>
+
+            <!-- Cabos do pc até o pipe e a ula -->
+            <div id="pc-to-instmem" class="bh pc-to-things"></div>
+            <div id="pc-tt_5_5-9" class="mv pc-to-things"></div>
+            <div id="pc-tt_5_4" class="mvb-to-mhr pc-to-things"></div>
+            <div id="pc-tt_6_4" class="mh pc-to-things"></div>
+            <div id="pc-tt_5_6" class="half-mhr pc-to-things"></div>
+            <div id="pc-tt_6-8_6" class="mh pc-to-things"></div>
+            <div id="four-to-add"  class="mh"></div>
+            <!-- ### -->
 
         <div id="prg-counter" class="block-box">
             <div class="block-name">PC</div>
@@ -20,16 +38,22 @@
 
         <div id="pc4" class="alu-symbol"></div>
 
+
         <div id="inst-mem" class="block-box">
             <div class="block-name">Memória de instrução</div>
             <div class="block-entry-exit">Endereço</div>
         </div>
 
-        <div id="reg-if-id" class="block-box"></div>
-        
-        <!-- Fim do if-Id-->
+        <div id="inst-mem-to-pipe" class="bh"></div>
 
-        <div id="bco-reg" class="block-box">
+        <div id="reg-if-id" class="block-box">
+            <div class="block-entry-exit">PC</div>
+            <div class="block-entry-exit">INST</div>
+        </div>
+        
+        <!-- Fim do if -->
+
+        <!-- <div id="bco-reg" class="block-box">
             <div class="block-name">Banco de registradoras</div>
             <div class="block-entry-exit">Ler reg 1</div>
             <div class="block-entry-exit">Ler reg 2</div>
@@ -49,7 +73,7 @@
             <div class="block-name">Mem</div>
         </div>
 
-        <div id="reg-mem-wb"></div>
+        <div id="reg-mem-wb"></div> -->
 
     </div>
 </body>
