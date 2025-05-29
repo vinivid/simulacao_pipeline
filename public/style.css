@@ -27,6 +27,11 @@ body {
     clip-path: polygon(47.5% 0, 47.5% 100%, 52.5% 100%, 52.5% 0);
 }
 
+.mvt-to-mhr {
+    background-color: white;
+    clip-path: polygon(47.5% 0, 52.5% 0, 52.5% 47.5%, 100% 47.5%, 100% 52.5%, 47.5% 52.5%);
+}
+
 .mv-to-qtvr {
     background-color: white;
     clip-path: polygon(47.5% 0, 47.5% 25%, 100% 25%, 100% 20%, 52.5% 20%, 52.5% 0);
@@ -1045,6 +1050,49 @@ body {
     grid-row: 10;  
 }
 
+#alu-ex-m_24_9 {
+    grid-column: 24;
+    grid-row: 9; 
+}
+
+#alu-ex-b_24_9 {
+    grid-column: 24;
+    grid-row: 9; 
+}
+
+#alu-ex-24_10-12 {
+    grid-column: 24;
+    grid-row-start: 10;
+    grid-row-end: 13;   
+}
+
+#alu-ex-24_13 {
+    grid-column: 24;
+    grid-row: 13;     
+}
+
+#alu-ex-25-28_13 {
+    grid-column-start: 25;
+    grid-column-end: 29;
+    grid-row: 13;      
+}
+
+#ex-b_24_11 {
+    grid-column: 24;
+    grid-row: 11;     
+}
+
+#ex-mem_28_10 {
+    grid-column: 28;
+    grid-row: 10;     
+}
+
+#ex-rd_24-28_15 {
+    grid-column-start: 24;
+    grid-column-end: 29;
+    grid-row: 15;       
+}
+
 #and-branch {
     grid-column: 25;
     grid-row: 7;
@@ -1094,6 +1142,10 @@ body {
 
 #reg-mem :nth-child(3) {
     grid-row: 12;
+}
+
+#reg-mem :nth-child(4) {
+    grid-row: 14;
 }
 
 /* ### Fim do mem ###*/
