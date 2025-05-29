@@ -276,6 +276,35 @@ body {
     clip-path: ellipse(100% 50% at 0 50%);
 }
 
+/* Telinha de qual instrução ta em tal estado */
+
+#pipe-stages-display {
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 12;
+    grid-row-end: 17;
+
+    display: flex;
+    flex-direction: column;
+    color: aliceblue;
+}
+
+#pipe-stages-display :nth-child(1) {
+    flex: 1 1 auto;
+}
+
+#pipe-stages-display :nth-child(2) {
+    flex: 1 1 auto;
+}
+
+#pipe-stages-display :nth-child(3) {
+    flex: 1 1 auto;
+}
+
+#pipe-stages-display :nth-child(4) {
+    flex: 1 1 auto;
+}
+
 /* ############################ 
   Componentes e cabos da arquitetura
    ########################## */
