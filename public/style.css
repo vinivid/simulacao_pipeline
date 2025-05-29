@@ -11,6 +11,11 @@ body {
    clip-path: polygon(0 100%, 100% 100%, 100% 95%, 0 95%); 
 }
 
+.half-bhl-to-qlv {
+    background-color: white;
+    clip-path: polygon(0 100%, 25% 100%, 25% 95%, 0 95%);
+}
+
 .half-bhl {
     background-color: white;
     clip-path: polygon(0 100%, 52.5% 100%, 52.5% 95%, 0 95%);
@@ -132,6 +137,16 @@ body {
         );
 }
 
+.qlvb-to-mhr {
+    background-color: white;
+    clip-path: polygon(20% 100%, 20% 47.5%, 100% 47.5%, 100% 52.5%, 25% 52.5%, 25% 100%);
+}
+
+.mhl-to-qrlvb {
+    background-color: white;
+    clip-path: polygon(0 47.5%, 25% 47.5%, 25% 100%, 20% 100%, 20% 52.5%, 0 52.5%);
+}
+
 .mhr-to-qrvt {
     background-color: white;
     clip-path: polygon(100% 47.5%, 75% 47.5%, 75% 0%, 70% 0%, 70% 52.5%, 100% 52.5%);
@@ -172,6 +187,11 @@ body {
     clip-path: polygon(100% 20%, 20% 20%, 20% 100%, 25% 100%, 25% 25%, 100% 25%);
 }
 
+.qthl-to-qlvt {
+    background-color: white;
+    clip-path: polygon(100% 25%, 20% 25%, 20% 0, 25% 0, 25% 20%, 100% 20%);
+}
+
 .qbh {
     background-color: white;
     clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%);
@@ -200,6 +220,11 @@ body {
 .qlvt-to-mh {
     background-color: white;
     clip-path: polygon(20% 0, 20% 52.5%, 100% 52.5%, 100% 47.5%, 25% 47.5%, 25% 0);
+}
+
+.qlvt-to-qthl {
+    background-color: white;
+    clip-path: polygon(20% 0, 25% 0, 25% 25%, 0 25%, 0 20%, 20% 20%);
 }
 
 /* Faz o simbolo da ula*/
@@ -1277,6 +1302,63 @@ body {
 #write-data_11_10 {
     grid-column: 11;
     grid-row: 10;     
+}
+
+#wb-alu-l_30_13 {
+    grid-column: 30;
+    grid-row: 13;     
+}
+
+#wb-alu-t_30_13 {
+    grid-column: 30;
+    grid-row: 13; 
+}
+
+#wb-alu_30_12 {
+    grid-column: 30;
+    grid-row: 12;     
+}
+
+#wb-alu-b_30_11 {
+    grid-column: 30;
+    grid-row: 11;     
+}
+
+#wb-alu-r_30_11 {
+    grid-column: 30;
+    grid-row: 11;     
+}
+
+#rd_30_15 {
+    grid-column: 30;
+    grid-row: 15;    
+}
+
+#rd_30_16 {
+    grid-column: 30;
+    grid-row: 16;    
+}
+
+#rd_12-29_16 {
+    grid-column-start: 12;
+    grid-column-end: 30;
+    grid-row: 16;     
+}
+
+#rd_11_16 {
+    grid-column: 11;
+    grid-row: 16;    
+}
+
+#rd_11_10-15 {
+    grid-column: 11;
+    grid-row-start: 10;
+    grid-row-end: 16;     
+}
+
+#rd_11_9 {
+    grid-column: 11;
+    grid-row: 9; 
 }
 
 #data-select-mux {
