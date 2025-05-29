@@ -47,6 +47,11 @@ body {
     clip-path: polygon(47.5% 0%, 47.5% 52.5%, 52.5% 52.5%, 52.5% 0%);
 }
 
+.half-mvb {
+    background-color: white;
+    clip-path: polygon(47.5% 52.5%, 52.5% 52.5%, 52.5% 100%, 47.5% 100%);
+}
+
 .mvb-to-mhl {
     background-color: white;
     clip-path: polygon(47.5% 100%, 52.5% 100%, 52.5% 47.5%, 0% 47.5%, 0 52.5%, 47.5% 52.5%);
@@ -67,6 +72,11 @@ body {
     clip-path: polygon(100% 47.5%, 70% 47.5%, 70% 100%, 75% 100%, 75% 52.5%, 100% 52.5%);
 }
 
+.mh-pos-qrv {
+    background-color: white;
+    clip-path: polygon(70% 47.5%, 100% 47.5%, 100% 52.5%, 70% 52.5%);
+}
+
 .qlv {
     background-color: white;
     clip-path: polygon(
@@ -83,9 +93,49 @@ body {
         );
 }
 
+.mh-to-qrvt {
+    background-color: white;
+    clip-path: polygon(0 47.5%, 70% 47.5%, 70% 0, 75% 0, 75% 52.5%, 0 52.5%);
+}
+
+.qrvb-to-mh {
+    background-color: white;
+    clip-path: polygon(70% 100%, 70% 47.5%, 100% 47.5%, 100% 52.5%, 75% 52.5%, 75% 100%);
+}
+
 .qrvt-to-mhr {
     background-color: white;
     clip-path: polygon(70% 0, 70% 52.5%, 100% 52.5%, 100% 47.5%, 75% 47.5%, 75% 0%);
+}
+
+.qth {
+    background-color: white;
+    clip-path: polygon(0 20%, 100% 20%, 100% 25.5%, 0 25.5%);
+}
+
+.qth-to-mvb {
+    background-color: white;
+    clip-path: polygon(0% 20%, 52.5% 20%, 52.5% 100%, 47.5% 100%, 47.5% 25%, 0% 25%);
+}
+
+.qbh {
+    background-color: white;
+    clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%);
+}
+
+.qbh-to-mvb {
+    background-color: white;
+    clip-path: polygon(0 70%, 52.5% 70%, 52.5% 100%, 47.5% 100%, 47.5% 75%, 0 75%);
+}
+
+.qlvb-from-mh {
+    background-color: white;
+    clip-path: polygon(20% 52.5%, 20% 100%, 25% 100%, 25% 52.5%);
+}
+
+.qlvt-to-mh {
+    background-color: white;
+    clip-path: polygon(20% 0, 20% 52.5%, 100% 52.5%, 100% 47.5%, 25% 47.5%, 25% 0);
 }
 
 /* Faz o simbolo da ula*/
@@ -549,6 +599,174 @@ body {
 /* ### Fim do id ###*/
 
 /* ###Ex */
+
+#ex-wb {
+    grid-column-start: 17;
+    grid-column-end: 23;
+    grid-row: 2;
+}
+
+#ex-m {
+    grid-column-start: 17;
+    grid-column-end: 23;
+    grid-row: 3;
+}
+
+#ex_17-21_4 {
+    grid-column-start: 17;
+    grid-column-end: 22;
+    grid-row: 4;
+}
+
+#ex_22_4 {
+    grid-column: 22;
+    grid-row: 4;
+}
+
+#ex_22_5-13 {
+    grid-column: 22;
+    grid-row-start: 5;
+    grid-row-end: 14;
+}
+
+#ex_t_22_14 {
+    grid-column: 22;
+    grid-row: 14;
+}
+
+#ex_l_22_14 {
+    grid-column: 22;
+    grid-row: 14;
+}
+
+#ex_17-18_4 {
+    grid-column-start: 17;
+    grid-column-end: 19;
+    grid-row: 4;
+}
+
+#ex_19_4 {
+    grid-column: 19;
+    grid-row: 4; 
+}
+
+#ex_19_5-7 {
+    grid-column: 19;
+    grid-row-start: 5;
+    grid-row-end: 8;
+}
+
+#ex_t_19_8 {
+    grid-column: 19;
+    grid-row: 8;
+}
+
+#ex_l_19_8 {
+    grid-column: 19;
+    grid-row: 8;
+}
+
+#ex_r_18_8 {
+    grid-column: 18;
+    grid-row: 8;
+}
+
+#ex_b_18_8 {
+    grid-column: 18;
+    grid-row: 8;
+}
+
+#ex-pc_17_5 {
+    grid-column: 17;
+    grid-row: 5;
+}
+
+#ex-pc_19-22_5 {
+    grid-column-start: 19;
+    grid-column-end: 23;
+    grid-row: 5;
+}
+
+#a_17-19_7 {
+    grid-column-start: 17;
+    grid-column-end: 20;
+    grid-row: 7;
+}
+
+#ex-zero {
+    grid-column: 22;
+    grid-row: 8;
+}
+
+#ex-B_17_10 {
+    grid-column: 17;
+    grid-row: 10;
+}
+
+#ex-B-b_17_10 {
+    grid-column: 17;
+    grid-row: 10;
+}
+
+#ex-B_17_11 {
+    grid-column: 17;
+    grid-row: 11;
+}
+
+#ex-B_18-22_11 {
+    grid-column-start: 18;
+    grid-column-end: 23;
+    grid-row: 11;   
+}
+
+#ex-imm_17_13 {
+    grid-column: 17;
+    grid-row: 13;    
+}
+
+#ex-imm_17_7-12 {
+    grid-column: 17;
+    grid-row-start: 7;
+    grid-row-end: 13;
+}
+
+#ex-imm_17_9 {
+    grid-column: 17;
+    grid-row: 9; 
+}
+
+#ex-imm_17_6 {
+    grid-column: 17;
+    grid-row: 6;     
+}
+
+#ex-alu_19_9 {
+    grid-column: 19;
+    grid-row: 9;   
+}
+
+#ex-alu_22_9 {
+    grid-column: 22;
+    grid-row: 9; 
+}
+
+#alu-c_20_10-13 {
+    grid-column: 20;
+    grid-row-start: 10;
+    grid-row-end: 14;
+}
+
+#alu-c_17-19_14 {
+    grid-column-start: 17;
+    grid-column-end: 20;
+    grid-row: 14;  
+}
+
+#ex-rd_17-22_15 {
+    grid-column-start: 17;
+    grid-column-end: 23;
+    grid-row: 15; 
+}
 
 #pc-plus-imm {
     grid-column: 18;
