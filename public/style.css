@@ -16,6 +16,10 @@ body {
     clip-path: polygon(0 100%, 52.5% 100%, 52.5% 95%, 0 95%);
 }
 
+.bhr-to-mv {
+    background-color: white;
+    clip-path: polygon(100% 95%, 52.5% 95%, 52.5% 0, 47.5% 0, 47.5% 100%, 100% 100%);
+}
 
 .bh-to-mv {
     background-color: white;
@@ -110,12 +114,27 @@ body {
     );
 }
 
+.qrvt-to-bh {
+    background-color: white;
+    clip-path: polygon(70% 0%, 70% 95%, 0% 95%, 0% 100%, 75% 100%, 75% 0);
+}
+
+.qbhl-to-qlvb {
+    background-color: white;
+    clip-path: polygon(0 70%, 75% 70%, 75% 100%, 70% 100%, 70% 75%, 0 75%);
+}
+
 .qrv {
     background-color: white;
     clip-path: polygon(
         70% 0, 75% 0%, 
         75% 100%, 70% 100%
         );
+}
+
+.mhr-to-qrvt {
+    background-color: white;
+    clip-path: polygon(100% 47.5%, 75% 47.5%, 75% 0%, 70% 0%, 70% 52.5%, 100% 52.5%);
 }
 
 .mh-to-qrvt {
@@ -131,6 +150,11 @@ body {
 .qrvt-to-mhr {
     background-color: white;
     clip-path: polygon(70% 0, 70% 52.5%, 100% 52.5%, 100% 47.5%, 75% 47.5%, 75% 0%);
+}
+
+.qrvb-to-mhr {
+    background-color: white;
+    clip-path: polygon(70% 100%, 70% 47.5%, 100% 47.5%, 100% 52.5%, 75% 52.5%, 75% 100%);
 }
 
 .qth {
@@ -166,6 +190,11 @@ body {
 .qlvb-from-mh {
     background-color: white;
     clip-path: polygon(20% 52.5%, 20% 100%, 25% 100%, 25% 52.5%);
+}
+
+.qlvt-to-mhl {
+    background-color: white;
+    clip-path: polygon(20% 0%, 20% 47.5%, 0 47.5%, 0 52.5%, 25% 52.5%, 25% 0);
 }
 
 .qlvt-to-mh {
@@ -1151,6 +1180,104 @@ body {
 /* ### Fim do mem ###*/
 
 /* ###Wb ###*/
+
+#mem-to-reg_30_2 {
+    grid-column: 30;
+    grid-row: 2;    
+}
+
+#mem-to-reg_31_2 {
+    grid-column: 31;
+    grid-row: 2;     
+}
+
+#mem-to-reg_31_3-9 {
+    grid-column: 31;
+    grid-row-start: 3;
+    grid-row-end: 10;      
+}
+
+#reg-write_30-31_2 {
+    grid-column-start: 30;
+    grid-column-end: 32;
+    grid-row: 2;    
+}
+
+#reg-write_32_2 {
+    grid-column: 32;
+    grid-row: 2;      
+}
+
+#reg-write_32_3-15 {
+    grid-column: 32;
+    grid-row-start: 3;
+    grid-row-end: 16;   
+}
+
+#reg-write_32_16 {
+    grid-column: 32;
+    grid-row: 16;  
+}
+
+#reg-write_13-31_16 {
+    grid-column-start: 13;
+    grid-column-end: 32;
+    grid-row: 16;      
+}
+
+#reg-write_12_16 {
+    grid-column: 12;
+    grid-row: 16;    
+}
+
+#reg-write_12_12-15 {
+    grid-column: 12;
+    grid-row-start: 12;
+    grid-row-end: 16;    
+}
+
+#wb-mem_30_10 {
+    grid-column: 30;
+    grid-row: 10;     
+}
+
+#write-data_32_10 {
+    grid-column: 32;
+    grid-row: 10;    
+}
+
+#write-data_32_11-15 {
+    grid-column: 32;
+    grid-row-start: 11;
+    grid-row-end: 16;      
+}
+
+#write-data_32_16 {
+    grid-column: 32;
+    grid-row: 16;     
+}
+
+#write-data_12-31_16 {
+    grid-column-start: 12;
+    grid-column-end: 32;
+    grid-row: 16;     
+}
+
+#write-data_11_16 {
+    grid-column: 11;
+    grid-row: 16;     
+}
+
+#write-data_11_11-15 {
+    grid-column: 11;
+    grid-row-start: 11;
+    grid-row-end: 16;     
+}
+
+#write-data_11_10 {
+    grid-column: 11;
+    grid-row: 10;     
+}
 
 #data-select-mux {
     grid-column: 31;
