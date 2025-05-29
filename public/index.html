@@ -163,17 +163,17 @@
             <div id="ex-pc_17_5" class="mh ex-pc"></div>
             <div id="ex-pc_19-22_5" class="bh ex-pc"></div>
 
-            <!-- A -->
-            <div id="a_17-19_7" class="mh A"></div>
+            <!-- ex A -->
+            <div id="a_17-19_7" class="mh ex-a"></div>
 
-            <!-- Zero -->
+            <!-- ex Zero -->
             <div id="ex-zero" class="mh ex-zero"></div>
 
             <!-- B ex -->
-            <div id="ex-B_17_10" class="mh ex-B"></div>
-            <div id="ex-B-b_17_10" class="qlvb-from-mh ex-B"></div>
-            <div id="ex-B_17_11" class="qlvt-to-mh ex-B"></div>
-            <div id="ex-B_18-22_11" class="mh ex-B"></div>
+            <div id="ex-B_17_10" class="mh ex-b"></div>
+            <div id="ex-B-b_17_10" class="qlvb-from-mh ex-b"></div>
+            <div id="ex-B_17_11" class="qlvt-to-mh ex-b"></div>
+            <div id="ex-B_18-22_11" class="mh ex-b"></div>
 
             <!-- Imm ex-->
             <div id="ex-imm_17_13" class="mh-to-qrvt ex-imm"></div>
@@ -212,11 +212,58 @@
             <div class="block-entry-exit">B-TARG</div>
             <div class="block-entry-exit">ZERO</div>
             <div class="block-entry-exit">ULA</div>
+            <div class="block-entry-exit">B</div>
             <div class="block-entry-exit">RD</div>
         </div>
 
         <!-- Fim do ex-->
         <!-- Inicio do mem -->
+        
+        <!-- Wb mem-->
+            <div id="mem-wb_24-28_2" class="mh mem-wb"></div>
+        
+        <!-- mem M -->
+            <div id="mem-m_24-27_3" class="qth mem-read"></div>
+            <div id="mem-m_28_3" class="qth-to-mvb mem-read"></div>
+            <div id="mem-m_28_4-11" class="mv mem-read"></div>
+            <div id="mem-m-t_28_12" class="half-mvt mem-read"></div>
+            <div id="mem-m-l_28_12" class="half-mhl mem-read"></div>
+            <div id="mem-m_27_12" class="mh mem-read"></div>
+            <div id="mem-m-r_26_12" class="half-mhr mem-read"></div>
+            <div id="mem-m-t_26_12" class="half-mvt mem-read"></div>
+
+            <div id="mem-m_24-26_3" class="qbh mem-write"></div>
+            <div id="mem-m_27_3" class="qbh-to-mvb mem-write"></div>
+            <div id="mem-m_27_4-8" class="mv mem-write"></div>
+
+            <div id="mem-m-l_24_4" class="half-mhl branch"></div>
+            <div id="mem-m-b_24_4" class="half-mvb branch"></div>
+            <div id="mem-m_24_5-6" class="mv branch"></div>
+            <div id="mem-m-branch_24_7" class="mv-to-qtvr"></div>
+
+        <!-- mem zero-->
+            <div id="mem-zero-l_24_8" class="half-mhl mem-zer"></div>
+            <div id="mem-zero-t_24_8" class="half-mvt mem-zero"></div>
+            <div id="mem-zero_24_7" class="mv-to-qbvr"></div>
+
+        <!-- Branch target -->
+            <div id="b-targ_24_5" class="bh b-targ"></div>
+            <div id="b-targ_25_5" class="bh-to-mv b-targ"></div>
+            <div id="b-targ_25_2-5" class="mv b-targ"></div>
+            <div id="b-targ_25_1" class="mv-to-qthl b-targ"></div>
+            <div id="b-targ_2-24_1" class="qth b-targ"></div>
+            <div id="b-targ_1_1" class="qthr-to-qlv b-targ"></div>
+            <div id="b-targ_1_2-9" class="qlv b-targ"></div>
+            <div id="b-targ_1_10" class="qlvt-to-mh b-targ"></div>
+
+        <!-- PC src-->
+            <div id="pc-src-l_26_7" class="half-mhl pc-src"></div>
+            <div id="pc-src-t_26_7" class="half-mvt pc-src"></div>
+            <div id="pc-src_26_2-6" class="mv pc-src"></div>
+            <div id="pc-src_26_1" class="mvb-to-qbhl pc-src"></div>
+            <div id="pc-src_3-25_1" class="qbh pc-src"></div>
+            <div id="pc-src_2_1" class="qbhr-to-mvb pc-src"></div>
+            <div id="pc-src_2_2-8" class="mv pc-src"></div>
 
         <div id="and-branch" class="and-gate"></div>
 
