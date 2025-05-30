@@ -1,3 +1,9 @@
+/* Tipos que codificam os valores do risc-v,
+ são Mapas para transformar strings em
+ strings de binario assim como enums para 
+ representar o tipo de instrução e o estado
+ de uma instrução */
+
 enum InstructionType {
     R,
     I,
@@ -6,78 +12,87 @@ enum InstructionType {
 }
 
 enum State {
-    IF,
-    ID,
-    EX,
-    MEM,
-    WB
+    IF = 0,
+    ID = 1,
+    EX = 2,
+    MEM = 3,
+    WB = 4
 }
 
-interface Dictionary<T> {
-    [key: string]: T;
-}
+const InstructionTypeMap = new Map<string, InstructionType>([
+    ["add" , InstructionType.R],
+    ["sub" , InstructionType.R],
+    ["xor" , InstructionType.R],
+    ["or" , InstructionType.R],
+    ["and" , InstructionType.R],
+    ["addi" , InstructionType.I],
+    ["lw" , InstructionType.I],
+    ["xori" , InstructionType.I],
+    ["ori" , InstructionType.I],
+    ["sw" , InstructionType.S],
+    ["beq" , InstructionType.B],
+])
 
-const InstructionTypeDict : Dictionary<InstructionType> = {
-    "add"  : InstructionType.R,
-    "sub"  : InstructionType.R,
-    "xor"  : InstructionType.R,
-    "or"   : InstructionType.R, 
-    "and"  : InstructionType.R,
-    "addi" : InstructionType.I, 
-    "lw"   : InstructionType.I,
-    "xori" : InstructionType.I,
-    "ori"  : InstructionType.I,
-    "sw"   : InstructionType.S,
-    "beq"  : InstructionType.B
-}
+const InstOpCodeMap = new Map<string, [string, string]>([
+    ["add" , ["0110011","000"]],
+    ["sub" , ["0110011","100"]],
+    ["xor" , ["0110011","110"]],
+    ["or" , ["0110011","111"]],
+    ["and" , ["0110011","001"]],
+    ["addi" , ["0010011","000"]],
+    ["xori" , ["0010011","110"]],
+    ["ori" , ["0010011","111"]],
+    ["lw" , ["0000011","010"]],
+    ["sw" , ["0100011","010"]],
+    ["beq" , ["1100011","000"]],
+])
 
-const InstOpCodeDict : Dictionary<[string, string]> = {
-    "add"  : ["0110011", "000"],
-    "sub"  : ["0110011", "100"],
-    "xor"  : ["0110011", "110"],
-    "or"   : ["0110011", "111"], 
-    "and"  : ["0110011", "001"],
-    "addi" : ["0010011", "000"], 
-    "xori" : ["0010011", "110"],
-    "ori"  : ["0010011", "111"],
-    "lw"   : ["0000011", "010"],
-    "sw"   : ["0100011", "010"],
-    "beq"  : ["1100011", "000"]   
-}
+const RegisterMap = new Map<string, string>([
+    ["x0" , "00000"],
+    ["x1" , "00001"],
+    ["x2" , "00010"],
+    ["x3" , "00011"],
+    ["x4" , "00100"],
+    ["x5" , "00101"],
+    ["x6" , "00110"],
+    ["x7" , "00111"],
+    ["x8" , "01000"],
+    ["x9" , "01001"],
+    ["x10" , "01010"],
+    ["x11" , "01011"],
+    ["x12" , "01100"],
+    ["x13" , "01101"],
+    ["x14" , "01110"],
+    ["x15" , "01111"],
+    ["x16" , "10000"],
+    ["x17" , "10001"],
+    ["x18" , "10010"],
+    ["x19" , "10011"],
+    ["x20" , "10100"],
+    ["x21" , "10101"],
+    ["x22" , "10110"],
+    ["x23" , "10111"],
+    ["x24" , "11000"],
+    ["x25" , "11001"],
+    ["x26" , "11010"],
+    ["x27" , "11011"],
+    ["x28" , "11100"],
+    ["x29" , "11101"],
+    ["x30" , "11110"],
+    ["x31" , "11111"],
+])
 
-const RegisterDict : Dictionary<string> = {
-    "x0"  : "00000",
-    "x1"  : "00001",
-    "x2"  : "00010",
-    "x3"  : "00011",
-    "x4"  : "00100",
-    "x5"  : "00101",
-    "x6"  : "00110",
-    "x7"  : "00111",
-    "x8"  : "01000",
-    "x9"  : "01001",
-    "x10" : "01010",
-    "x11" : "01011",
-    "x12" : "01100",
-    "x13" : "01101",
-    "x14" : "01110",
-    "x15" : "01111",
-    "x16" : "10000",
-    "x17" : "10001",
-    "x18" : "10010",
-    "x19" : "10011",
-    "x20" : "10100",
-    "x21" : "10101",
-    "x22" : "10110",
-    "x23" : "10111",
-    "x24" : "11000",
-    "x25" : "11001",
-    "x26" : "11010",
-    "x27" : "11011",
-    "x28" : "11100",
-    "x29" : "11101",
-    "x30" : "11110",
-    "x31" : "11111",
+/* Maps que guardam os elementos dos cabos de cada
+estado */
+
+/* document.getElementsByClassName('pcp-4')
+const IfStageConnections : Dictionary<HTMLCollectionOf<Element>> {
+    "pcp-4" : 
+} */
+
+
+function reverseString(str : string) : string {
+    return str.split("").reverse().join("");
 }
 
 class Instruction {
@@ -91,7 +106,7 @@ class Instruction {
     de forma que a função de criar a representação binaria possa usa-la*/
     private dec_to_bin(int : number) : string {
         let str_val : string = (int >>> 0).toString(2)
-        return str_val.padEnd(11, '0');
+        return reverseString(str_val.padStart(11, '0'));
     }
 
     /* Cria a representção binaria da instrução passada, em essência 
@@ -105,10 +120,10 @@ class Instruction {
         let imm : string
         switch (type) {
             case InstructionType.R:
-                op_and_f3 = InstOpCodeDict[tokens[0]]
-                rd = RegisterDict[tokens[1]]
-                rs1 = RegisterDict[tokens[2]]
-                rs2 = RegisterDict[tokens[3]]
+                op_and_f3 = InstOpCodeMap.get(tokens[0])!
+                rd = RegisterMap.get(tokens[1])!
+                rs1 = RegisterMap.get(tokens[2])!
+                rs2 = RegisterMap.get(tokens[3])!
                 let funct7 : string;
 
                 if (tokens[0] === 'sub') {
@@ -117,37 +132,37 @@ class Instruction {
                     funct7 = "00000000"
                 }
 
-                return op_and_f3[0] + rd + op_and_f3[1] + rs1 + rs2 + funct7; 
+                return funct7 + rs2 + rs1 + op_and_f3[1] + rd + op_and_f3[0]; 
             case InstructionType.I:
                 /* A operação de load tem o imediato em uma posição diferente entao 
                 tem q ter um caso especifico*/
                 if (tokens[0].startsWith('l')) {
-                    op_and_f3 = InstOpCodeDict[tokens[0]]
-                    rd = RegisterDict[tokens[1]]
-                    rs1 = RegisterDict[tokens[3]]
+                    op_and_f3 = InstOpCodeMap.get(tokens[0])!
+                    rd = RegisterMap.get(tokens[1])!
+                    rs1 = RegisterMap.get(tokens[3])!
                     imm = this.dec_to_bin(parseInt(tokens[2]))
                 } else {
-                    op_and_f3 = InstOpCodeDict[tokens[0]]
-                    rd = RegisterDict[tokens[1]]
-                    rs1 = RegisterDict[tokens[2]]
+                    op_and_f3 = InstOpCodeMap.get(tokens[0])!
+                    rd = RegisterMap.get(tokens[1])!
+                    rs1 = RegisterMap.get(tokens[2])!
                     imm = this.dec_to_bin(parseInt(tokens[3]))
                 }
 
-                return op_and_f3[0] + rd + op_and_f3[1] + rs1 + imm
+                return imm + op_and_f3[1] + rd + op_and_f3[0]
             case InstructionType.S:
-                op_and_f3 = InstOpCodeDict[tokens[0]]
-                rs1 = RegisterDict[tokens[2]]
+                op_and_f3 = InstOpCodeMap.get(tokens[0])!
+                rs1 = RegisterMap.get(tokens[2])!
                 imm = this.dec_to_bin(parseInt(tokens[3]))
-                rs2 = RegisterDict[tokens[4]]
+                rs2 = RegisterMap.get(tokens[4])!
 
-                return op_and_f3[0] + imm.slice(0, 5) + op_and_f3[1] + rs1 + rs2 + imm.slice(5, 12)
+                return imm.slice(5, 12) + rs2 + rs1 + op_and_f3[1] + imm.slice(0, 5) + op_and_f3[0]
             case InstructionType.B:
-                op_and_f3 = InstOpCodeDict[tokens[0]]
-                rs1 = RegisterDict[tokens[1]]
-                rs2 = RegisterDict[tokens[2]]
+                op_and_f3 = InstOpCodeMap.get(tokens[0])!
+                rs1 = RegisterMap.get(tokens[1])!
+                rs2 = RegisterMap.get(tokens[2])!
                 imm = this.dec_to_bin(parseInt(tokens[3]))
                 
-                return op_and_f3[0] + imm[10] + imm.slice(1, 5) + op_and_f3[1] + rs1 + rs2 + imm.slice(5, 11) + imm[11]
+                return imm[9] + imm.slice(5, 11) + rs2 + rs1 + op_and_f3[1] + imm.slice(1, 5) + imm[10] + op_and_f3[0]
         }
     }
 
@@ -155,7 +170,7 @@ class Instruction {
         this.string_representation = str_inst.trim()
         let tokens : string[] = str_inst.split(new RegExp(/[,\s()]+/)).filter(Boolean)
 
-        this.instruction_type = InstructionTypeDict[tokens[0]]
+        this.instruction_type = InstructionTypeMap.get(tokens[0])!
         this.state_current = State.IF
         this.binary_representation = this.creat_bin_rep(tokens, this.instruction_type)
     }
@@ -204,4 +219,6 @@ class Instruction {
     }
 }
 
-console.log(new Instruction("lw x1, 4(x2)").toString())
+class ArquitectureController {
+    
+}
