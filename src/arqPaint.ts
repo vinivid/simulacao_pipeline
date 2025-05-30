@@ -8,6 +8,12 @@ export function paint_if() {
 }
 
 export function remove_paint_if() {
-      IF.get("pcp-4")!.forEach((cable) => cable.style.backgroundColor = 'white')
+    IF.get("pcp-4")!.forEach((cable) => cable.style.backgroundColor = 'white')
     IF.get("pc-to-things")!.forEach((cable) => cable.style.backgroundColor = 'white')
+}
+
+export function paint_id(op : ArqOp) {
+    if (op === ArqOp.R) {
+        
+    }
 }

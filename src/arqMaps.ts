@@ -26,7 +26,8 @@ export const EX = new Map <string, HTMLElement[]>([
     ["ex-zero", Array.from(document.getElementsByClassName("ex-zero")) as HTMLElement[]],
     ["ex-b", Array.from(document.getElementsByClassName("ex-wb")) as HTMLElement[]],
     ["ex-imm", Array.from(document.getElementsByClassName("ex-imm")) as HTMLElement[]],
-    ["ex-rd", Array.from(document.getElementsByClassName("ex-rd")) as HTMLElement[]]
+    ["ex-rd", Array.from(document.getElementsByClassName("ex-rd")) as HTMLElement[]],
+    ["ex-inst", Array.from(document.getElementsByClassName("ex-inst")) as HTMLElement[]]
 ])
 
 export const MEM = new Map <string, HTMLElement[]>([
