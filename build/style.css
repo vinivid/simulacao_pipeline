@@ -1,0 +1,1486 @@
+body {
+    background-color: #01010a;
+}
+
+.center-contents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#simu-screen {
+    display: flex;
+    flex-direction: row;
+}
+
+#side-bar {
+    display: flex;
+    flex-direction: column;
+}
+
+.side-bartext {
+    color: black;
+    background-color: white;
+}
+
+/* Telinha de qual instrução ta em tal estado */
+/*
+ if = aqua
+ id = #f58916
+ ex = #eb1a21
+ mem = limegreen
+ wb = slateblue
+*/
+#pipe-stages-display {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 12;
+    grid-row-end: 16;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas:
+    "a b b b"
+    "c d d d"
+    "e f f f"
+    "g h h h"
+    "i j j j";
+}
+
+#pipe-stages-display :nth-child(1) {
+    grid-area: a;
+    background-color: white;
+    color: black;
+    border: black solid 3px;
+}
+
+#pipe-stages-display :nth-child(2) {
+    grid-area: b;
+    background-color: white;
+    color: black;
+    border-bottom: black solid 3px;
+}
+
+#pipe-stages-display :nth-child(3) {
+    grid-area: c;
+    background-color: white;
+    color: black;
+    border-left: black solid 3px;
+    border-right: black solid 3px;
+}
+
+#pipe-stages-display :nth-child(4) {
+    grid-area: d;
+    background-color: white;
+    color: black;  
+    border-bottom: black solid 3px;
+}
+
+#pipe-stages-display :nth-child(5) {
+    grid-area: e;
+    background-color: white;
+    color: black;
+    border: black solid 3px;       
+}
+
+#pipe-stages-display :nth-child(6) {
+    grid-area: f;
+    background-color: white;
+    color: black;
+    border-bottom: black solid 3px;
+}
+
+#pipe-stages-display :nth-child(7) {
+    grid-area: g;
+    background-color: white;
+    border-left: black solid 3px;
+    border-right: black solid 3px;
+}
+
+#pipe-stages-display :nth-child(8) {
+    grid-area: h;
+    background-color: white;
+    color: black;   
+    border-bottom: black solid 3px;  
+}
+
+#pipe-stages-display :nth-child(9) {
+    grid-area: i;
+    background-color: white;
+    color: black;     
+    border: black solid 3px;
+}
+
+#pipe-stages-display :nth-child(10) {
+    grid-area: j;
+    background-color: white;
+    color: black;   
+    border-bottom: black solid 3px; 
+}
+
+/* ############################ 
+  Simbolos e cabos da arquitetura
+   ########################## */
+
+.bh {
+   background-color: white;
+   clip-path: polygon(0 100%, 100% 100%, 100% 95%, 0 95%); 
+}
+
+.half-bhl-to-qlv {
+    background-color: white;
+    clip-path: polygon(0 100%, 25% 100%, 25% 95%, 0 95%);
+}
+
+.half-bhl {
+    background-color: white;
+    clip-path: polygon(0 100%, 52.5% 100%, 52.5% 95%, 0 95%);
+}
+
+.bhr-to-mv {
+    background-color: white;
+    clip-path: polygon(100% 95%, 52.5% 95%, 52.5% 0, 47.5% 0, 47.5% 100%, 100% 100%);
+}
+
+.bh-to-mv {
+    background-color: white;
+    clip-path: polygon(0 100%, 52.5% 100%, 52.5% 0, 47.5% 0, 47.5% 95%, 0 95%);
+}
+
+.mv {
+    background-color: white;
+    clip-path: polygon(47.5% 0, 47.5% 100%, 52.5% 100%, 52.5% 0);
+}
+
+.mvt-to-mhr {
+    background-color: white;
+    clip-path: polygon(47.5% 0, 52.5% 0, 52.5% 47.5%, 100% 47.5%, 100% 52.5%, 47.5% 52.5%);
+}
+
+.mv-to-qtvr {
+    background-color: white;
+    clip-path: polygon(47.5% 0, 47.5% 25%, 100% 25%, 100% 20%, 52.5% 20%, 52.5% 0);
+}
+
+.mv-to-qbvr {
+    background-color: white;
+    clip-path: polygon(47.5% 100%, 47.5% 70%, 100% 70%, 100% 75%, 52.5% 75%, 52.5% 100%);
+}
+
+.mvb-to-qbhl {
+    background-color: white;
+    clip-path: polygon(47.5% 100%, 47.5% 75%, 0 75%, 0 70%, 52.5% 70%, 52.5% 100%);
+}
+
+.mv-to-qthl {
+    background-color: white;
+    clip-path: polygon(47.5% 100%, 47.5% 25%, 0 25%, 0 20%, 52.5% 20%, 52.5% 100%);
+}
+
+.mh {
+    background-color: white;
+    clip-path: polygon(0 47.5%, 100% 47.5%, 100% 52.5%, 0 52.5%);
+}
+
+.half-mhr {
+    background-color: white;
+    clip-path: polygon(47.5% 47.5%, 47.5% 52.5%, 100% 52.5%, 100% 47.5%);
+}
+
+.half-mhl {
+    background-color: white;
+    clip-path: polygon(0 47.5%, 0 52.5%, 50% 52.5%, 50% 47.5%);
+}
+
+.half-mvt {
+    background-color: white;
+    clip-path: polygon(47.5% 0%, 47.5% 52.5%, 52.5% 52.5%, 52.5% 0%);
+}
+
+.half-mvb {
+    background-color: white;
+    clip-path: polygon(47.5% 52.5%, 52.5% 52.5%, 52.5% 100%, 47.5% 100%);
+}
+
+.mvb-to-mhl {
+    background-color: white;
+    clip-path: polygon(47.5% 100%, 52.5% 100%, 52.5% 47.5%, 0% 47.5%, 0 52.5%, 47.5% 52.5%);
+}
+
+.mh-to-mvt {
+    background-color: white;
+    clip-path: polygon(0 52.5%, 52.5% 52.5%, 52.5% 0, 47.5% 0, 47.5% 47.5%, 0 47.5%);
+}
+
+.mvb-to-mhr {
+    background-color: white;
+    clip-path: polygon(47.5% 100%, 47.5% 47.5%, 100% 47.5%, 100% 52.5%, 52.5% 52.5%, 52.5% 100%);
+}
+
+.mhr-to-qrvb {
+    background-color: white;
+    clip-path: polygon(100% 47.5%, 70% 47.5%, 70% 100%, 75% 100%, 75% 52.5%, 100% 52.5%);
+}
+
+.mh-pos-qrv {
+    background-color: white;
+    clip-path: polygon(70% 47.5%, 100% 47.5%, 100% 52.5%, 70% 52.5%);
+}
+
+.qlv {
+    background-color: white;
+    clip-path: polygon(
+        20% 0, 25% 0, 
+        25% 100%, 20% 100%
+    );
+}
+
+.qrvt-to-bh {
+    background-color: white;
+    clip-path: polygon(70% 0%, 70% 95%, 0% 95%, 0% 100%, 75% 100%, 75% 0);
+}
+
+.qbhl-to-qlvb {
+    background-color: white;
+    clip-path: polygon(0 70%, 75% 70%, 75% 100%, 70% 100%, 70% 75%, 0 75%);
+}
+
+.qrv {
+    background-color: white;
+    clip-path: polygon(
+        70% 0, 75% 0%, 
+        75% 100%, 70% 100%
+        );
+}
+
+.qlvb-to-mhr {
+    background-color: white;
+    clip-path: polygon(20% 100%, 20% 47.5%, 100% 47.5%, 100% 52.5%, 25% 52.5%, 25% 100%);
+}
+
+.mhl-to-qrlvb {
+    background-color: white;
+    clip-path: polygon(0 47.5%, 25% 47.5%, 25% 100%, 20% 100%, 20% 52.5%, 0 52.5%);
+}
+
+.mhr-to-qrvt {
+    background-color: white;
+    clip-path: polygon(100% 47.5%, 75% 47.5%, 75% 0%, 70% 0%, 70% 52.5%, 100% 52.5%);
+}
+
+.mh-to-qrvt {
+    background-color: white;
+    clip-path: polygon(0 47.5%, 70% 47.5%, 70% 0, 75% 0, 75% 52.5%, 0 52.5%);
+}
+
+.qrvb-to-mh {
+    background-color: white;
+    clip-path: polygon(70% 100%, 70% 47.5%, 100% 47.5%, 100% 52.5%, 75% 52.5%, 75% 100%);
+}
+
+.qrvt-to-mhr {
+    background-color: white;
+    clip-path: polygon(70% 0, 70% 52.5%, 100% 52.5%, 100% 47.5%, 75% 47.5%, 75% 0%);
+}
+
+.qrvb-to-mhr {
+    background-color: white;
+    clip-path: polygon(70% 100%, 70% 47.5%, 100% 47.5%, 100% 52.5%, 75% 52.5%, 75% 100%);
+}
+
+.qth {
+    background-color: white;
+    clip-path: polygon(0 20%, 100% 20%, 100% 25.5%, 0 25.5%);
+}
+
+.qth-to-mvb {
+    background-color: white;
+    clip-path: polygon(0% 20%, 52.5% 20%, 52.5% 100%, 47.5% 100%, 47.5% 25%, 0% 25%);
+}
+
+.qthr-to-qlv {
+    background-color: white;
+    clip-path: polygon(100% 20%, 20% 20%, 20% 100%, 25% 100%, 25% 25%, 100% 25%);
+}
+
+.qthl-to-qlvt {
+    background-color: white;
+    clip-path: polygon(100% 25%, 20% 25%, 20% 0, 25% 0, 25% 20%, 100% 20%);
+}
+
+.qbh {
+    background-color: white;
+    clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%);
+}
+
+.qbhr-to-mvb {
+    background-color: white;
+    clip-path: polygon(100% 70%, 47.5% 70%, 47.5% 100%, 52.5% 100%, 52.5% 75%, 100% 75%);
+}
+
+.qbh-to-mvb {
+    background-color: white;
+    clip-path: polygon(0 70%, 52.5% 70%, 52.5% 100%, 47.5% 100%, 47.5% 75%, 0 75%);
+}
+
+.qlvb-from-mh {
+    background-color: white;
+    clip-path: polygon(20% 52.5%, 20% 100%, 25% 100%, 25% 52.5%);
+}
+
+.qlvt-to-mhl {
+    background-color: white;
+    clip-path: polygon(20% 0%, 20% 47.5%, 0 47.5%, 0 52.5%, 25% 52.5%, 25% 0);
+}
+
+.qlvt-to-mh {
+    background-color: white;
+    clip-path: polygon(20% 0, 20% 52.5%, 100% 52.5%, 100% 47.5%, 25% 47.5%, 25% 0);
+}
+
+.qlvt-to-qthl {
+    background-color: white;
+    clip-path: polygon(20% 0, 25% 0, 25% 25%, 0 25%, 0 20%, 20% 20%);
+}
+
+/* Faz o simbolo da ula*/
+.alu-symbol {
+    background-color: white;
+    clip-path: polygon(0 0, 100% 25%, 100% 75%, 0 100%, 0 60%, 25% 50%, 0 40%);
+}
+
+/* Faz o simbolo do mux */
+.mux-symbol {
+    background-color: white;
+    border: none;
+    border-radius: 9999px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1vw;
+}
+
+/* Caixa de entradas e saidas de um blocco */
+.block-box {
+    background-color: black;
+    border: 0.1vw white solid;
+}
+
+/* Fonte do nome do bloco dentro de um bloco*/
+.block-name {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9vw;
+    color: white;
+    font-weight: bold;
+    align-content: center;
+    margin: auto
+}
+
+/* Texto da entra/saida de um bloco */
+.block-entry-exit {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.8vw;
+    color: white;
+    align-content: center;
+    margin: auto
+}
+
+.and-gate {
+    background-color: white;
+    clip-path: ellipse(100% 50% at 0 50%);
+}
+
+/* ############################ 
+  Componentes e cabos da arquitetura
+   ########################## */
+#architecture-grid {
+    flex : 1 1 auto;
+    display: grid;
+    grid-template-columns: repeat(32, 3.125%);
+    grid-template-rows: repeat(16, 6.25vh);
+}
+
+/* ####If ### */
+
+#pcp-4_8_4 {
+    grid-column: 8;
+    grid-row: 4;
+}
+
+#pcp-4_8_3 {
+    grid-column: 8;
+    grid-row: 3;
+}
+
+#pcp-4_2-7_3 {
+    grid-column-start: 2;
+    grid-column-end: 8;
+
+    grid-row: 3;
+}
+
+#pcp-4_1_3 {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+#pcp-4_1_4-8 {
+    grid-column: 1;
+    grid-row-start: 4;
+    grid-row-end: 9;
+}
+
+#pcp-4_1_9 {
+    grid-column: 1;
+    grid-row: 9;
+}
+
+#pc-src {
+    grid-column: 2;
+
+    grid-row-start: 9;
+    grid-row-end: 11;
+}
+
+#mux-to-pc {
+    grid-row: 9;
+    grid-column: 3;
+}
+
+#prg-counter {
+    grid-column: 4;
+
+    grid-row-start: 9;
+    grid-row-end: 11;
+
+    display: flex;
+}
+
+#pc-to-instmem {
+    grid-column: 5;
+    grid-row: 9;
+}
+
+#pc-tt_5_5-9 {
+    grid-column: 5;
+    
+    grid-row-start: 5;
+    grid-row-end: 10;
+}
+
+#pc-tt_5_4 {
+    grid-column: 5;
+    grid-row: 4;
+}
+
+#pc-tt_6_4 {
+    grid-column: 6;
+    grid-row: 4;
+}
+
+#pc-tt_5_6 {
+    grid-column: 5;
+    grid-row: 6;
+}
+
+#pc-tt_6-8_6 {
+    grid-column-start: 6;
+    grid-column-end: 9;
+
+    grid-row: 6;
+}
+
+#four-to-add {
+    grid-column: 6;
+    grid-row: 5;
+}
+
+#inst-mem {
+    grid-column-start: 6;
+    grid-column-end: 8;
+
+    grid-row-start: 8;
+    grid-row-end: 11;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+#inst-mem :nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    grid-row: 1;
+}
+
+#inst-mem :nth-child(2) {
+    grid-column: 1;
+
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+#inst-mem-to-pipe {
+    grid-column: 8;
+    grid-row: 9;
+}
+
+#pc4 {
+    grid-column: 7;
+
+    grid-row-start: 4;
+    grid-row-end: 6;
+}
+
+#reg-if-id {
+    grid-column: 9;
+
+    grid-row-start: 6;
+    grid-row-end: 12;
+
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+}
+
+#reg-if-id :nth-child(1) {
+    grid-row: 1;
+}
+
+#reg-if-id :nth-child(2) {
+    grid-row-start: 4;
+    grid-row-end: 6;
+}
+
+/* ### Fim do if ###*/
+/* ####Id ### */
+
+#if-inst-pipe-exit {
+    grid-column: 10;
+    grid-row: 9;
+}
+
+#inst-s_10_4-14 {
+    grid-column: 10;
+    grid-row-start: 4;
+    grid-row-end: 15;
+}
+
+#inst-s_10_3 {
+    grid-column: 10;
+    grid-row: 3;
+}
+
+#inst-s_11_3 {
+    grid-column: 11;
+    grid-row: 3;
+}
+
+#inst-s_10_15 {
+    grid-column: 10;
+    grid-row: 15;
+}
+
+#rs1_10_7 {
+    grid-column: 10;
+    grid-row: 7;
+}
+
+#rs1_11_7 {
+    grid-column: 11;
+    grid-row: 7;
+}
+
+#rs1_15_7 {
+    grid-column: 15;
+    grid-row: 7;
+}
+
+#rs2_10_8 {
+    grid-column: 10;
+    grid-row: 8;
+}
+
+#rs2_11_8 {
+    grid-column: 11;
+    grid-row: 8;
+}
+
+#rs2_15_10 {
+    grid-column: 15;
+    grid-row: 10;
+}
+
+#id-imm_10_13 {
+    grid-column: 10;
+    grid-row: 13;
+}
+
+#id-imm_11-12_13 {
+    grid-column-start: 11;
+    grid-column-end: 13;
+    grid-row: 13;
+}
+
+#id-imm_15_13 {
+    grid-column: 15;
+    grid-row: 13;
+}
+
+#id-inst_10_14 {
+    grid-column: 10;
+    grid-row: 14;
+}
+
+#id-inst_11-15_14 {
+    grid-column-start: 11;
+    grid-column-end: 16;
+    grid-row: 14;
+}
+
+#id-rd_10_15 {
+    grid-column: 10;
+    grid-row: 15;
+}
+
+#id-rd_11-15_15 {
+    grid-column-start: 11;
+    grid-column-end: 16;
+    grid-row: 15;
+}
+
+#id-wb {
+    grid-column: 15;
+    grid-row: 2;
+}
+
+#id-m {
+    grid-column: 15;
+    grid-row: 3;
+}
+
+#id-ex {
+    grid-column: 15;
+    grid-row: 4;
+}
+
+#id-pc_10_6 {
+    grid-column: 10;
+    grid-row: 6;
+}
+
+#id-pc_11_6 {
+    grid-column: 11;
+    grid-row: 6;
+}
+
+#id-pc_11_5 {
+    grid-column: 11;
+    grid-row: 5;
+}
+
+#id-pc_12-15_5 {
+    grid-column-start: 12;
+    grid-column-end: 16;
+    grid-row: 5;
+}
+
+#bco-reg {
+    grid-column-start: 12;
+    grid-column-end: 15;
+    grid-row-start: 7;
+    grid-row-end: 12;
+
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#bco-reg :nth-child(1) {
+    grid-row: 5;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+#bco-reg :nth-child(2) {
+    grid-row: 1;
+}
+
+#bco-reg :nth-child(3) {
+    grid-row: 2;
+}
+
+#bco-reg :nth-child(4) {
+    grid-row: 3;
+}
+
+#bco-reg :nth-child(5) {
+    grid-row: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#bco-reg :nth-child(6) {
+    grid-row: 1;
+    grid-column: 3;
+}
+
+#bco-reg :nth-child(7) {
+    grid-row: 4;
+    grid-column: 3;
+}
+
+#cu {
+    grid-column-start: 12;
+    grid-column-end: 15;
+    grid-row-start: 2;
+    grid-row-end: 5;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+#cu :nth-child(1) {
+    grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#cu :nth-child(2) {
+    grid-row: 1;
+    grid-column: 3;
+}
+
+#cu :nth-child(3) {
+    grid-row: 2;
+    grid-column: 3;
+}
+
+#cu :nth-child(4) {
+    grid-row: 3;
+    grid-column: 3;
+}
+
+#imm-gen {
+    grid-column-start: 13;
+    grid-column-end: 15;
+    grid-row: 13;
+
+    display: flex;
+}
+
+#reg-id {
+    grid-column: 16;
+    grid-row-start: 2;
+    grid-row-end: 16;
+
+    display: grid;
+    grid-template-rows: repeat(14, 1fr);
+}
+
+#reg-id :nth-child(5) {
+    grid-row: 6;
+}
+
+#reg-id :nth-child(6) {
+    grid-row: 9;
+}
+
+#reg-id :nth-child(7) {
+    grid-row: 12;
+}
+
+#reg-id :nth-child(8) {
+    grid-row: 13;
+}
+
+#reg-id :nth-child(9) {
+    grid-row: 14;
+}
+
+
+/* ### Fim do id ###*/
+
+/* ###Ex */
+
+#ex-wb {
+    grid-column-start: 17;
+    grid-column-end: 23;
+    grid-row: 2;
+}
+
+#ex-m {
+    grid-column-start: 17;
+    grid-column-end: 23;
+    grid-row: 3;
+}
+
+#ex_17-21_4 {
+    grid-column-start: 17;
+    grid-column-end: 22;
+    grid-row: 4;
+}
+
+#ex_22_4 {
+    grid-column: 22;
+    grid-row: 4;
+}
+
+#ex_22_5-13 {
+    grid-column: 22;
+    grid-row-start: 5;
+    grid-row-end: 14;
+}
+
+#ex_t_22_14 {
+    grid-column: 22;
+    grid-row: 14;
+}
+
+#ex_l_22_14 {
+    grid-column: 22;
+    grid-row: 14;
+}
+
+#ex_17-18_4 {
+    grid-column-start: 17;
+    grid-column-end: 19;
+    grid-row: 4;
+}
+
+#ex_19_4 {
+    grid-column: 19;
+    grid-row: 4; 
+}
+
+#ex_19_5-7 {
+    grid-column: 19;
+    grid-row-start: 5;
+    grid-row-end: 8;
+}
+
+#ex_t_19_8 {
+    grid-column: 19;
+    grid-row: 8;
+}
+
+#ex_l_19_8 {
+    grid-column: 19;
+    grid-row: 8;
+}
+
+#ex_r_18_8 {
+    grid-column: 18;
+    grid-row: 8;
+}
+
+#ex_b_18_8 {
+    grid-column: 18;
+    grid-row: 8;
+}
+
+#ex-pc_17_5 {
+    grid-column: 17;
+    grid-row: 5;
+}
+
+#ex-pc_19-22_5 {
+    grid-column-start: 19;
+    grid-column-end: 23;
+    grid-row: 5;
+}
+
+#a_17-19_7 {
+    grid-column-start: 17;
+    grid-column-end: 20;
+    grid-row: 7;
+}
+
+#ex-zero {
+    grid-column: 22;
+    grid-row: 8;
+}
+
+#ex-B_17_10 {
+    grid-column: 17;
+    grid-row: 10;
+}
+
+#ex-B-b_17_10 {
+    grid-column: 17;
+    grid-row: 10;
+}
+
+#ex-B_17_11 {
+    grid-column: 17;
+    grid-row: 11;
+}
+
+#ex-B_18-22_11 {
+    grid-column-start: 18;
+    grid-column-end: 23;
+    grid-row: 11;   
+}
+
+#ex-imm_17_13 {
+    grid-column: 17;
+    grid-row: 13;    
+}
+
+#ex-imm_17_7-12 {
+    grid-column: 17;
+    grid-row-start: 7;
+    grid-row-end: 13;
+}
+
+#ex-imm_17_9 {
+    grid-column: 17;
+    grid-row: 9; 
+}
+
+#ex-imm_17_6 {
+    grid-column: 17;
+    grid-row: 6;     
+}
+
+#ex-alu_19_9 {
+    grid-column: 19;
+    grid-row: 9;   
+}
+
+#ex-alu_22_9 {
+    grid-column: 22;
+    grid-row: 9; 
+}
+
+#alu-c_20_10-13 {
+    grid-column: 20;
+    grid-row-start: 10;
+    grid-row-end: 14;
+}
+
+#alu-c_17-19_14 {
+    grid-column-start: 17;
+    grid-column-end: 20;
+    grid-row: 14;  
+}
+
+#ex-rd_17-22_15 {
+    grid-column-start: 17;
+    grid-column-end: 23;
+    grid-row: 15; 
+}
+
+#pc-plus-imm {
+    grid-column: 18;
+    grid-row-start: 5;
+    grid-row-end: 7;
+}
+
+#alu-src-mux {
+    grid-column: 18;
+    grid-row-start: 9;
+    grid-row-end: 11;
+}
+
+#alu-ctrl {
+    grid-column-start: 20;
+    grid-column-end: 22;
+    grid-row: 14;
+
+    display: flex;
+}
+
+#alu {
+    grid-column-start: 20;
+    grid-column-end: 22;
+    grid-row-start: 7;
+    grid-row-end: 11;
+}
+
+#reg-ex {
+    grid-column: 23;
+    grid-row-start: 2;
+    grid-row-end: 16;
+
+    display: grid;
+    grid-template-rows: repeat(14, 1fr);
+}
+
+#reg-ex :nth-child(2) {
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+#reg-ex :nth-child(3) {
+    grid-row-start: 4;
+    grid-row-end: 6; 
+}
+
+#reg-ex :nth-child(4) {
+    grid-row: 7; 
+}
+
+#reg-ex :nth-child(5) {
+    grid-row: 8; 
+}
+
+#reg-ex :nth-child(6) {
+    grid-row: 10; 
+}
+
+#reg-ex :nth-child(7) {
+    grid-row: 14; 
+}
+/* ### Fim do ex ###*/
+
+/* ###Mem ###*/
+
+#mem-wb_24-28_2 {
+    grid-column-start: 24;
+    grid-column-end: 29;
+    grid-row: 2; 
+}
+
+#mem-m_24-27_3 {
+    grid-column-start: 24;
+    grid-column-end: 28;
+    grid-row: 3;  
+}
+
+#mem-m_28_3 {
+    grid-column: 28;
+    grid-row: 3; 
+}
+
+#mem-m_28_4-11 {
+    grid-column: 28;
+    grid-row-start: 4;
+    grid-row-end: 12;    
+}
+
+#mem-m-t_28_12 {
+    grid-column: 28;
+    grid-row: 12; 
+}
+
+#mem-m-l_28_12 {
+    grid-column: 28;
+    grid-row: 12; 
+}
+
+#mem-m_27_12 {
+    grid-column: 27;
+    grid-row: 12; 
+}
+
+#mem-m-r_26_12 {
+    grid-column: 26;
+    grid-row: 12;    
+}
+
+#mem-m-t_26_12 {
+    grid-column: 26;
+    grid-row: 12;    
+}
+
+#mem-m_24-26_3 {
+    grid-column-start: 24;
+    grid-column-end: 27;
+    grid-row: 3;     
+}
+
+#mem-m_27_3 {
+    grid-column: 27;
+    grid-row: 3; 
+}
+
+#mem-m_27_4-8 {
+    grid-column: 27;
+    grid-row-start: 4;
+    grid-row-end: 9; 
+}
+
+#mem-m-l_24_4 {
+    grid-column: 24;
+    grid-row: 4;     
+}
+
+#mem-m-b_24_4 {
+    grid-column: 24;
+    grid-row: 4;
+}
+
+#mem-m_24_5-6 {
+    grid-column: 24;
+    grid-row-start: 5;
+    grid-row-end: 7;     
+}
+
+#mem-m-branch_24_7 {
+    grid-column: 24;
+    grid-row: 7;
+}
+
+#mem-zero-l_24_8 {
+    grid-column: 24;
+    grid-row: 8;    
+}
+
+#mem-zero-t_24_8 {
+    grid-column: 24;
+    grid-row: 8;    
+}
+
+#mem-zero_24_7 {
+    grid-column: 24;
+    grid-row: 7;  
+}
+
+#pc-src-l_26_7 {
+    grid-column: 26;
+    grid-row: 7;  
+}
+
+#pc-src-t_26_7 {
+    grid-column: 26;
+    grid-row: 7;  
+}
+
+#pc-src_26_2-6 {
+    grid-column: 26;
+    grid-row-start: 2;
+    grid-row-end: 7; 
+}
+
+#pc-src_26_1 {
+    grid-column: 26;
+    grid-row: 1;    
+}
+
+#pc-src_3-25_1 {
+    grid-column-start: 3;
+    grid-column-end: 26;
+    grid-row: 1;  
+}
+
+#pc-src_2_1 {
+    grid-column: 2;
+    grid-row: 1; 
+}
+
+#pc-src_2_2-8 {
+    grid-column: 2;
+    grid-row-start: 2;
+    grid-row-end: 9;    
+}
+
+#b-targ_24_5 {
+    grid-column: 24;
+    grid-row: 5;
+}
+
+#b-targ_25_5 {
+    grid-column: 25;
+    grid-row: 5;
+}
+
+#b-targ_25_2-5 {
+    grid-column: 25;
+    grid-row-start: 2;
+    grid-row-end: 6;    
+}
+
+#b-targ_25_1 {
+    grid-column: 25;
+    grid-row: 1;    
+}
+
+#b-targ_2-24_1 {
+    grid-column-start: 2;
+    grid-column-end: 25;
+    grid-row: 1;     
+}
+
+#b-targ_1_1 {
+    grid-column: 1;
+    grid-row: 1;    
+}
+
+#b-targ_1_2-9 {
+    grid-column: 1;
+    grid-row-start: 2;
+    grid-row-end: 10;      
+}
+
+#b-targ_1_10 {
+    grid-column: 1;
+    grid-row: 10;  
+}
+
+#alu-ex-m_24_9 {
+    grid-column: 24;
+    grid-row: 9; 
+}
+
+#alu-ex-b_24_9 {
+    grid-column: 24;
+    grid-row: 9; 
+}
+
+#alu-ex-24_10-12 {
+    grid-column: 24;
+    grid-row-start: 10;
+    grid-row-end: 13;   
+}
+
+#alu-ex-24_13 {
+    grid-column: 24;
+    grid-row: 13;     
+}
+
+#alu-ex-25-28_13 {
+    grid-column-start: 25;
+    grid-column-end: 29;
+    grid-row: 13;      
+}
+
+#ex-b_24_11 {
+    grid-column: 24;
+    grid-row: 11;     
+}
+
+#ex-mem_28_10 {
+    grid-column: 28;
+    grid-row: 10;     
+}
+
+#ex-rd_24-28_15 {
+    grid-column-start: 24;
+    grid-column-end: 29;
+    grid-row: 15;       
+}
+
+#and-branch {
+    grid-column: 25;
+    grid-row: 7;
+}
+
+#memory {
+    grid-column-start: 25;
+    grid-column-end: 28;
+    grid-row-start: 9;
+    grid-row-end: 12;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+#memory :nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row: 2;
+}
+
+#memory :nth-child(2) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 1;
+}
+
+#memory :nth-child(3) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 3;
+}
+
+#reg-mem {
+    grid-column: 29;
+    grid-row-start: 2;
+    grid-row-end: 16;
+
+    display: grid;
+    grid-template-rows: repeat(14, 1fr);
+}
+
+#reg-mem :nth-child(2) {
+    grid-row: 9;
+}
+
+#reg-mem :nth-child(3) {
+    grid-row: 12;
+}
+
+#reg-mem :nth-child(4) {
+    grid-row: 14;
+}
+
+/* ### Fim do mem ###*/
+
+/* ###Wb ###*/
+
+#mem-to-reg_30_2 {
+    grid-column: 30;
+    grid-row: 2;    
+}
+
+#mem-to-reg_31_2 {
+    grid-column: 31;
+    grid-row: 2;     
+}
+
+#mem-to-reg_31_3-9 {
+    grid-column: 31;
+    grid-row-start: 3;
+    grid-row-end: 10;      
+}
+
+#reg-write_30-31_2 {
+    grid-column-start: 30;
+    grid-column-end: 32;
+    grid-row: 2;    
+}
+
+#reg-write_32_2 {
+    grid-column: 32;
+    grid-row: 2;      
+}
+
+#reg-write_32_3-15 {
+    grid-column: 32;
+    grid-row-start: 3;
+    grid-row-end: 16;   
+}
+
+#reg-write_32_16 {
+    grid-column: 32;
+    grid-row: 16;  
+}
+
+#reg-write_13-31_16 {
+    grid-column-start: 13;
+    grid-column-end: 32;
+    grid-row: 16;      
+}
+
+#reg-write_12_16 {
+    grid-column: 12;
+    grid-row: 16;    
+}
+
+#reg-write_12_12-15 {
+    grid-column: 12;
+    grid-row-start: 12;
+    grid-row-end: 16;    
+}
+
+#wb-mem_30_10 {
+    grid-column: 30;
+    grid-row: 10;     
+}
+
+#write-data_32_10 {
+    grid-column: 32;
+    grid-row: 10;    
+}
+
+#write-data_32_11-15 {
+    grid-column: 32;
+    grid-row-start: 11;
+    grid-row-end: 16;      
+}
+
+#write-data_32_16 {
+    grid-column: 32;
+    grid-row: 16;     
+}
+
+#write-data_12-31_16 {
+    grid-column-start: 12;
+    grid-column-end: 32;
+    grid-row: 16;     
+}
+
+#write-data_11_16 {
+    grid-column: 11;
+    grid-row: 16;     
+}
+
+#write-data_11_11-15 {
+    grid-column: 11;
+    grid-row-start: 11;
+    grid-row-end: 16;     
+}
+
+#write-data_11_10 {
+    grid-column: 11;
+    grid-row: 10;     
+}
+
+#wb-alu-l_30_13 {
+    grid-column: 30;
+    grid-row: 13;     
+}
+
+#wb-alu-t_30_13 {
+    grid-column: 30;
+    grid-row: 13; 
+}
+
+#wb-alu_30_12 {
+    grid-column: 30;
+    grid-row: 12;     
+}
+
+#wb-alu-b_30_11 {
+    grid-column: 30;
+    grid-row: 11;     
+}
+
+#wb-alu-r_30_11 {
+    grid-column: 30;
+    grid-row: 11;     
+}
+
+#rd_30_15 {
+    grid-column: 30;
+    grid-row: 15;    
+}
+
+#rd_30_16 {
+    grid-column: 30;
+    grid-row: 16;    
+}
+
+#rd_12-29_16 {
+    grid-column-start: 12;
+    grid-column-end: 30;
+    grid-row: 16;     
+}
+
+#rd_11_16 {
+    grid-column: 11;
+    grid-row: 16;    
+}
+
+#rd_11_10-15 {
+    grid-column: 11;
+    grid-row-start: 10;
+    grid-row-end: 16;     
+}
+
+#rd_11_9 {
+    grid-column: 11;
+    grid-row: 9; 
+}
+
+#data-select-mux {
+    grid-column: 31;
+    grid-row-start: 10;
+    grid-row-end: 12;
+}

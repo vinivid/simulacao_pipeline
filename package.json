@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/vinivid/simulacao_pipeline#readme",
   "devDependencies": {
-    "typescript": "^5.8.3"
+    "@types/node": "^22.15.28",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
   }
 }
