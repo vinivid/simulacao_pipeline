@@ -1,5 +1,8 @@
-var a = /* @__PURE__ */ ((m) => (m.R = "0110011", m.I = "0010011", m.S = "0100011", m.LI = "0000011", m.B = "1100011", m))(a || {}), h = /* @__PURE__ */ ((m) => (m[m.IF = 0] = "IF", m[m.ID = 1] = "ID", m[m.EX = 2] = "EX", m[m.MEM = 3] = "MEM", m[m.WB = 4] = "WB", m))(h || {});
-const _ = /* @__PURE__ */ new Map([
+var C = Object.defineProperty;
+var N = (t, r, i) => r in t ? C(t, r, { enumerable: !0, configurable: !0, writable: !0, value: i }) : t[r] = i;
+var b = (t, r, i) => N(t, typeof r != "symbol" ? r + "" : r, i);
+var n = /* @__PURE__ */ ((t) => (t.R = "0110011", t.I = "0010011", t.S = "0100011", t.LI = "0000011", t.B = "1100011", t))(n || {}), E = /* @__PURE__ */ ((t) => (t[t.IF = 0] = "IF", t[t.ID = 1] = "ID", t[t.EX = 2] = "EX", t[t.MEM = 3] = "MEM", t[t.WB = 4] = "WB", t))(E || {});
+const A = /* @__PURE__ */ new Map([
   [
     "add",
     "0110011"
@@ -65,7 +68,7 @@ const _ = /* @__PURE__ */ new Map([
     "1100011"
     /* B */
   ]
-]), w = /* @__PURE__ */ new Map([
+]), x = /* @__PURE__ */ new Map([
   ["add", "000"],
   ["sub", "100"],
   ["xor", "110"],
@@ -79,7 +82,7 @@ const _ = /* @__PURE__ */ new Map([
   ["lw", "010"],
   ["sw", "010"],
   ["beq", "000"]
-]), u = /* @__PURE__ */ new Map([
+]), f = /* @__PURE__ */ new Map([
   ["x0", "00000"],
   ["x1", "00001"],
   ["x2", "00010"],
@@ -113,40 +116,40 @@ const _ = /* @__PURE__ */ new Map([
   ["x30", "11110"],
   ["x31", "11111"]
 ]);
-function C(m) {
-  return m.split("").reverse().join("");
+function I(t) {
+  return t.split("").reverse().join("");
 }
-function B(m) {
-  return C((parseInt(m) >> 0).toString(2).padStart(11, "0"));
+function w(t) {
+  return I((parseInt(t) >> 0).toString(2).padStart(11, "0"));
 }
-function N(m, n, l, c, b) {
-  const d = w.get(m), f = u.get(l), x = u.get(c), o = u.get(b);
-  let y;
-  return m === "sub" ? y = "00100000" : y = "00000000", y + o + x + d + f + n;
+function v(t, r, i, c, l) {
+  const d = x.get(t), p = f.get(i), _ = f.get(c), u = f.get(l);
+  let h;
+  return t === "sub" ? h = "00100000" : h = "00000000", h + u + _ + d + p + r;
 }
-function E(m, n, l, c, b) {
-  const d = w.get(m), f = u.get(l), x = u.get(c);
-  return B(b) + x + d + f + n;
+function y(t, r, i, c, l) {
+  const d = x.get(t), p = f.get(i), _ = f.get(c);
+  return w(l) + _ + d + p + r;
 }
-function p(m, n, l, c, b) {
-  const d = w.get(m), f = u.get(l), x = u.get(c), o = B(b);
-  return o.slice(5, 12) + x + f + d + o.slice(0, 5) + n;
+function M(t, r, i, c, l) {
+  const d = x.get(t), p = f.get(i), _ = f.get(c), u = w(l);
+  return u.slice(5, 12) + _ + p + d + u.slice(0, 5) + r;
 }
-function A(m, n, l, c, b) {
-  const d = w.get(m), f = u.get(l), x = u.get(c), o = B(b);
-  return o[9] + o.slice(5, 11) + x + f + d + o.slice(1, 5) + o[10] + n;
+function z(t, r, i, c, l) {
+  const d = x.get(t), p = f.get(i), _ = f.get(c), u = w(l);
+  return u[9] + u.slice(5, 11) + _ + p + d + u.slice(1, 5) + u[10] + r;
 }
-function I(m, n) {
-  return n === a.R ? N(m[0], n, m[1], m[2], m[3]) : n === a.I ? E(m[0], n, m[1], m[2], m[3]) : n === a.LI ? E(m[0], n, m[1], m[3], m[2]) : n === a.S ? p(m[0], n, m[1], m[3], m[2]) : n === a.B ? A(m[0], n, m[1], m[2], m[3]) : "Erro";
+function L(t, r) {
+  return r === n.R ? v(t[0], r, t[1], t[2], t[3]) : r === n.I ? y(t[0], r, t[1], t[2], t[3]) : r === n.LI ? y(t[0], r, t[1], t[3], t[2]) : r === n.S ? M(t[0], r, t[1], t[3], t[2]) : r === n.B ? z(t[0], r, t[1], t[2], t[3]) : "Erro";
 }
-function M(m) {
-  const n = m.trim(), l = n.split(new RegExp(/[,\s()]+/)).filter(Boolean), c = _.get(l[0]), b = h.IF, d = I(l, c);
-  return { state: b, binary_repr: d, string_repr: n, inst_op: c };
+function R(t) {
+  const r = t.trim(), i = r.split(new RegExp(/[,\s()]+/)).filter(Boolean), c = A.get(i[0]), l = E.IF, d = L(i, c);
+  return { state: l, binary_repr: d, string_repr: r, inst_op: c };
 }
 const g = /* @__PURE__ */ new Map([
   ["pcp-4", Array.from(document.getElementsByClassName("pcp-4"))],
   ["pc-to-things", Array.from(document.getElementsByClassName("pc-to-things"))]
-]), i = /* @__PURE__ */ new Map([
+]), o = /* @__PURE__ */ new Map([
   ["rs1", Array.from(document.getElementsByClassName("rs1"))],
   ["rs2", Array.from(document.getElementsByClassName("rs2"))],
   ["id-imm", Array.from(document.getElementsByClassName("id-imm"))],
@@ -157,7 +160,7 @@ const g = /* @__PURE__ */ new Map([
   ["id-ex", Array.from(document.getElementsByClassName("id-ex"))],
   ["id-pc", Array.from(document.getElementsByClassName("id-pc"))],
   ["inst-shower", Array.from(document.getElementsByClassName("inst-shower"))]
-]), t = /* @__PURE__ */ new Map([
+]), m = /* @__PURE__ */ new Map([
   ["ex-wb", Array.from(document.getElementsByClassName("ex-wb"))],
   ["ex-m", Array.from(document.getElementsByClassName("ex-m"))],
   ["alu-ctrl", Array.from(document.getElementsByClassName("alu-ctrl"))],
@@ -171,7 +174,7 @@ const g = /* @__PURE__ */ new Map([
   ["ex-alu-mux", Array.from(document.getElementsByClassName("ex-alu-mux"))],
   ["ex-alu-res", Array.from(document.getElementsByClassName("ex-alu-res"))],
   ["ex-inst", Array.from(document.getElementsByClassName("ex-inst"))]
-]), r = /* @__PURE__ */ new Map([
+]), s = /* @__PURE__ */ new Map([
   ["mem-wb", Array.from(document.getElementsByClassName("mem-wb"))],
   ["mem-read", Array.from(document.getElementsByClassName("mem-read"))],
   ["mem-write", Array.from(document.getElementsByClassName("mem-write"))],
@@ -183,7 +186,7 @@ const g = /* @__PURE__ */ new Map([
   ["mem-mem", Array.from(document.getElementsByClassName("mem-mem"))],
   ["mem-rd", Array.from(document.getElementsByClassName("mem-rd"))],
   ["mem-alu", Array.from(document.getElementsByClassName("mem-alu"))]
-]), s = /* @__PURE__ */ new Map([
+]), a = /* @__PURE__ */ new Map([
   ["mem-to-reg", Array.from(document.getElementsByClassName("mem-to-reg"))],
   ["reg-write", Array.from(document.getElementsByClassName("reg-write"))],
   ["wb-mem", Array.from(document.getElementsByClassName("wb-mem"))],
@@ -191,47 +194,130 @@ const g = /* @__PURE__ */ new Map([
   ["wb-alu", Array.from(document.getElementsByClassName("wb-alu"))],
   ["wb-rd", Array.from(document.getElementsByClassName("wb-rd"))]
 ]);
-function e(m, n, l) {
-  m.get(n).forEach((c) => c.style.backgroundColor = l);
+function e(t, r, i) {
+  t.get(r).forEach((c) => c.style.backgroundColor = i);
 }
-function z() {
+function F(t) {
   e(g, "pcp-4", "aqua"), e(g, "pc-to-things", "aqua");
 }
-function v() {
+function q() {
   e(g, "pcp-4", "white"), e(g, "pc-to-things", "white");
 }
-function R(m) {
-  m === a.R ? (e(i, "rs1", "#f58916"), e(i, "rs2", "#f58916"), e(i, "id-imm", "#1b1a29"), e(i, "id-rd", "white"), e(i, "id-pc", "#1b1a29")) : m === a.I || m === a.LI ? (e(i, "rs1", "#f58916"), e(i, "rs2", "#1b1a29"), e(i, "id-imm", "#f58916"), e(i, "id-rd", "white"), e(i, "id-pc", "#1b1a29")) : (m === a.S || m === a.B) && (e(i, "rs1", "#f58916"), e(i, "rs2", "#f58916"), e(i, "id-imm", "#f58916"), e(i, "id-rd", "#1b1a29"), e(i, "id-pc", "#1b1a29"));
+function D(t) {
+  t === n.R ? (e(o, "rs1", "#f58916"), e(o, "rs2", "#f58916"), e(o, "id-imm", "#1b1a29"), e(o, "id-rd", "white"), e(o, "id-pc", "#1b1a29")) : t === n.I || t === n.LI ? (e(o, "rs1", "#f58916"), e(o, "rs2", "#1b1a29"), e(o, "id-imm", "#f58916"), e(o, "id-rd", "white"), e(o, "id-pc", "#1b1a29")) : (t === n.S || t === n.B) && (e(o, "rs1", "#f58916"), e(o, "rs2", "#f58916"), e(o, "id-imm", "#f58916"), e(o, "id-rd", "#1b1a29"), e(o, "id-pc", "#1b1a29"));
 }
-function F() {
-  e(i, "rs1", "white"), e(i, "rs2", "white"), e(i, "id-imm", "white"), e(i, "id-rd", "white"), e(i, "id-pc", "white");
+function W() {
+  e(o, "rs1", "white"), e(o, "rs2", "white"), e(o, "id-imm", "white"), e(o, "id-rd", "white"), e(o, "id-pc", "white");
 }
-function L(m) {
-  e(t, "alu-ctrl", "green"), e(t, "ex-inst", "#eb1a21"), m === a.R ? (e(t, "alu-src", "#28f793"), e(t, "ex-pc", "#1b1a29"), e(t, "ex-a", "#eb1a21"), e(t, "ex-zero", "#1b1a29"), e(t, "ex-b", "#eb1a21"), e(t, "ex-imm", "#1b1a29"), e(t, "ex-rd", "white")) : m === a.I || m === a.LI ? (e(t, "alu-src", "green"), e(t, "ex-pc", "#1b1a29"), e(t, "ex-a", "#eb1a21"), e(t, "ex-zero", "#1b1a29"), e(t, "ex-b", "#1b1a29"), e(t, "ex-imm", "#eb1a21"), e(t, "ex-rd", "white")) : m === a.S ? (e(t, "alu-src", "green"), e(t, "ex-pc", "#1b1a29"), e(t, "ex-a", "#eb1a21"), e(t, "ex-zero", "#1b1a29"), e(t, "ex-b", "#1b1a29"), e(t, "ex-imm", "#eb1a21"), e(t, "ex-rd", "#1b1a29")) : (e(t, "alu-src", "green"), e(t, "ex-pc", "#1b1a29"), e(t, "ex-a", "#eb1a21"), e(t, "ex-zero", "white"), e(t, "ex-b", "#1b1a29"), e(t, "ex-imm", "#eb1a21"), e(t, "ex-rd", "#1b1a29"));
+function X(t) {
+  e(m, "alu-ctrl", "green"), e(m, "ex-inst", "#eb1a21"), t === n.R ? (e(m, "alu-src", "#28f793"), e(m, "ex-pc", "#1b1a29"), e(m, "ex-a", "#eb1a21"), e(m, "ex-zero", "#1b1a29"), e(m, "ex-b", "#eb1a21"), e(m, "ex-imm", "#1b1a29"), e(m, "ex-rd", "white")) : t === n.I || t === n.LI ? (e(m, "alu-src", "green"), e(m, "ex-pc", "#1b1a29"), e(m, "ex-a", "#eb1a21"), e(m, "ex-zero", "#1b1a29"), e(m, "ex-b", "#1b1a29"), e(m, "ex-imm", "#eb1a21"), e(m, "ex-rd", "white")) : t === n.S ? (e(m, "alu-src", "green"), e(m, "ex-pc", "#1b1a29"), e(m, "ex-a", "#eb1a21"), e(m, "ex-zero", "#1b1a29"), e(m, "ex-b", "#1b1a29"), e(m, "ex-imm", "#eb1a21"), e(m, "ex-rd", "#1b1a29")) : (e(m, "alu-src", "green"), e(m, "ex-pc", "#1b1a29"), e(m, "ex-a", "#eb1a21"), e(m, "ex-zero", "white"), e(m, "ex-b", "#1b1a29"), e(m, "ex-imm", "#eb1a21"), e(m, "ex-rd", "#1b1a29"));
 }
-function D() {
-  e(t, "alu-ctrl", "#28f793"), e(t, "ex-inst", "white"), e(t, "alu-src", "#28f793"), e(t, "ex-pc", "white"), e(t, "ex-a", "white"), e(t, "ex-zero", "white"), e(t, "ex-b", "white"), e(t, "ex-imm", "white"), e(t, "ex-rd", "white");
+function H() {
+  e(m, "alu-ctrl", "#28f793"), e(m, "ex-inst", "white"), e(m, "alu-src", "#28f793"), e(m, "ex-pc", "white"), e(m, "ex-a", "white"), e(m, "ex-zero", "white"), e(m, "ex-b", "white"), e(m, "ex-imm", "white"), e(m, "ex-rd", "white");
 }
-function W(m) {
-  m === a.R || m === a.I ? (e(r, "mem-read", "#28f793"), e(r, "mem-write", "#28f793"), e(r, "branch", "#28f793"), e(r, "mem-zero", "#1b1a29"), e(r, "b-targ", "#1b1a29"), e(r, "pc-src", "#28f793"), e(r, "mem-b", "#1b1a29"), e(r, "mem-mem", "#1b1a29"), e(r, "mem-rd", "white"), e(r, "mem-alu", "white")) : m === a.LI ? (e(r, "mem-read", "green"), e(r, "mem-write", "#28f793"), e(r, "branch", "#28f793"), e(r, "mem-zero", "#1b1a29"), e(r, "b-targ", "#1b1a29"), e(r, "pc-src", "#28f793"), e(r, "mem-b", "#1b1a29"), e(r, "mem-mem", "white"), e(r, "mem-rd", "white"), e(r, "mem-alu", "#ede732")) : m === a.S ? (e(r, "mem-read", "#28f793"), e(r, "mem-write", "green"), e(r, "branch", "#28f793"), e(r, "mem-zero", "#1b1a29"), e(r, "b-targ", "#1b1a29"), e(r, "pc-src", "#28f793"), e(r, "mem-b", "#ede732"), e(r, "mem-mem", "#1b1a29"), e(r, "mem-rd", "#1b1a29"), e(r, "mem-alu", "#ede732")) : (e(r, "mem-read", "#28f793"), e(r, "mem-write", "#28f793"), e(r, "branch", "#green"), e(r, "mem-zero", "#ede732"), e(r, "b-targ", "#ede732"), e(r, "pc-src", "green"), e(r, "mem-b", "#1b1a29"), e(r, "mem-mem", "#1b1a29"), e(r, "mem-rd", "#1b1a29"), e(r, "mem-alu", "#1b1a29"));
+function T(t) {
+  t === n.R || t === n.I ? (e(s, "mem-read", "#28f793"), e(s, "mem-write", "#28f793"), e(s, "branch", "#28f793"), e(s, "mem-zero", "#1b1a29"), e(s, "b-targ", "#1b1a29"), e(s, "pc-src", "#28f793"), e(s, "mem-b", "#1b1a29"), e(s, "mem-mem", "#1b1a29"), e(s, "mem-rd", "white"), e(s, "mem-alu", "white")) : t === n.LI ? (e(s, "mem-read", "green"), e(s, "mem-write", "#28f793"), e(s, "branch", "#28f793"), e(s, "mem-zero", "#1b1a29"), e(s, "b-targ", "#1b1a29"), e(s, "pc-src", "#28f793"), e(s, "mem-b", "#1b1a29"), e(s, "mem-mem", "white"), e(s, "mem-rd", "white"), e(s, "mem-alu", "#ede732")) : t === n.S ? (e(s, "mem-read", "#28f793"), e(s, "mem-write", "green"), e(s, "branch", "#28f793"), e(s, "mem-zero", "#1b1a29"), e(s, "b-targ", "#1b1a29"), e(s, "pc-src", "#28f793"), e(s, "mem-b", "#ede732"), e(s, "mem-mem", "#1b1a29"), e(s, "mem-rd", "#1b1a29"), e(s, "mem-alu", "#ede732")) : (e(s, "mem-read", "#28f793"), e(s, "mem-write", "#28f793"), e(s, "branch", "#green"), e(s, "mem-zero", "#ede732"), e(s, "b-targ", "#ede732"), e(s, "pc-src", "green"), e(s, "mem-b", "#1b1a29"), e(s, "mem-mem", "#1b1a29"), e(s, "mem-rd", "#1b1a29"), e(s, "mem-alu", "#1b1a29"));
 }
-function X() {
-  e(r, "mem-read", "#28f793"), e(r, "mem-write", "#28f793"), e(r, "branch", "#28f793"), e(r, "mem-zero", "white"), e(r, "b-targ", "white"), e(r, "pc-src", "#28f793"), e(r, "mem-b", "white"), e(r, "mem-mem", "white"), e(r, "mem-rd", "white"), e(r, "mem-alu", "white");
+function j() {
+  e(s, "mem-read", "#28f793"), e(s, "mem-write", "#28f793"), e(s, "branch", "#28f793"), e(s, "mem-zero", "white"), e(s, "b-targ", "white"), e(s, "pc-src", "#28f793"), e(s, "mem-b", "white"), e(s, "mem-mem", "white"), e(s, "mem-rd", "white"), e(s, "mem-alu", "white");
 }
-function j(m) {
-  m === a.R || m === a.I ? (e(s, "mem-to-reg", "#28f793"), e(s, "reg-write", "green"), e(s, "wb-mem", "#1b1a29"), e(s, "write-data", "slateblue"), e(s, "wb-alu", "slateblue"), e(s, "wb-rd", "slateblue")) : m === a.S || m === a.B ? (e(s, "mem-to-reg", "#28f793"), e(s, "reg-write", "#28f793"), e(s, "wb-mem", "#1b1a29"), e(s, "write-data", "#1b1a29"), e(s, "wb-alu", "#1b1a29"), e(s, "wb-rd", "#1b1a29")) : (e(s, "mem-to-reg", "green"), e(s, "reg-write", "green"), e(s, "wb-mem", "slateblue"), e(s, "write-data", "slateblue"), e(s, "wb-alu", "#1b1a29"), e(s, "wb-rd", "slateblue"));
+function G(t) {
+  t === n.R || t === n.I ? (e(a, "mem-to-reg", "#28f793"), e(a, "reg-write", "green"), e(a, "wb-mem", "#1b1a29"), e(a, "write-data", "slateblue"), e(a, "wb-alu", "slateblue"), e(a, "wb-rd", "slateblue")) : t === n.S || t === n.B ? (e(a, "mem-to-reg", "#28f793"), e(a, "reg-write", "#28f793"), e(a, "wb-mem", "#1b1a29"), e(a, "write-data", "#1b1a29"), e(a, "wb-alu", "#1b1a29"), e(a, "wb-rd", "#1b1a29")) : (e(a, "mem-to-reg", "green"), e(a, "reg-write", "green"), e(a, "wb-mem", "slateblue"), e(a, "write-data", "slateblue"), e(a, "wb-alu", "#1b1a29"), e(a, "wb-rd", "slateblue"));
 }
-function q() {
-  e(s, "mem-to-reg", "#28f793"), e(s, "reg-write", "#28f793"), e(s, "wb-mem", "white"), e(s, "write-data", "white"), e(s, "wb-alu", "white"), e(s, "wb-rd", "white");
+function J() {
+  e(a, "mem-to-reg", "#28f793"), e(a, "reg-write", "#28f793"), e(a, "wb-mem", "white"), e(a, "write-data", "white"), e(a, "wb-alu", "white"), e(a, "wb-rd", "white");
 }
-console.log(M("addi x0, x1, 16"));
-z();
-R(a.B);
-L(a.B);
-W(a.R);
-j(a.LI);
-v();
-F();
-D();
-X();
-q();
+class K {
+  constructor() {
+    /* São as instruções todas as instruções colocadas para
+    simular */
+    b(this, "insts");
+    /* Piped inst é um array que representa qual instrução
+    esta em um determinado estagio do pipeline.
+       A posição 0 é o IF, 1 = ID, 2 = EX, 3 = MEM,
+    4 = WB. Para saber se um estado possui ou não instrução
+    é necessario verificar o array pipe_occupied, que guarda se
+    uma posição esta ocupada ou não */
+    b(this, "piped_insts");
+    b(this, "pipe_occupied");
+    b(this, "insts_on_pipe");
+    //Quantidade de instruções que estão no pipe
+    b(this, "paint_funcs");
+    b(this, "remove_paints");
+    b(this, "stage_inst_table");
+    this.insts = [], this.piped_insts = [], this.pipe_occupied = [!1, !1, !1, !1, !1], this.insts_on_pipe = 0, this.paint_funcs = [
+      F,
+      D,
+      X,
+      T,
+      G
+    ], this.remove_paints = [
+      q,
+      W,
+      H,
+      j,
+      J
+    ];
+    const r = Array.from(document.getElementsByClassName("center-contents-stage-display"));
+    this.stage_inst_table = r.filter((i, c) => c % 2 == 1);
+  }
+  /**
+   *    Coloca as instruções a serem simuladas, cehcando também
+   * se elas são validas.
+   * 
+   * @param instructions As linhas das instruções que serão 
+   * simuladas.
+   */
+  setInstructions(r) {
+    this.insts = [], r.reverse().forEach((i) => {
+      this.insts.push(R(i));
+    });
+  }
+  paint_piped_instructions() {
+    this.pipe_occupied.forEach((r, i) => {
+      r ? this.paint_funcs[i](this.piped_insts[i].inst_op) : this.remove_paints[i]();
+    });
+  }
+  update_stage_inst_table() {
+    this.pipe_occupied.forEach((r, i) => {
+      r ? this.stage_inst_table[i].innerHTML = this.piped_insts[i].string_repr : this.stage_inst_table[i].innerHTML = "";
+    });
+  }
+  /**
+   *   move_pipe_stage_right move os dois arrays relacionados, piped_inst e 
+   * ocuppied uma posição para direita. Após mover o primeiro elemento do 
+   * pipe sera considerado como desocupado.
+   */
+  move_pipe_stage_right() {
+    if (this.piped_insts.length > 0) {
+      this.pipe_occupied[4] && (this.pipe_occupied[4] = !1, this.insts_on_pipe -= 1);
+      let r = this.pipe_occupied[0], i = this.piped_insts[0];
+      this.pipe_occupied[0] = !1;
+      for (let c = 1; c < 5; ++c) {
+        const l = this.piped_insts[c], d = this.pipe_occupied[c];
+        this.piped_insts[c] = i, this.pipe_occupied[c] = r, i = l, r = d;
+      }
+    }
+  }
+  /**
+   *    Da um passo na simulução, pintando a arquitetura e atualizando a 
+   * tabela do estagio das instruções.
+   * 
+   * @returns returna true se acabaou de simular todas as isntruções
+   * e false caso contrario
+   */
+  step() {
+    if (this.insts.length == 0 && this.insts_on_pipe == 0)
+      return !0;
+    if (this.move_pipe_stage_right(), this.insts.length > 0) {
+      const r = this.insts.pop();
+      this.piped_insts[0] = r, this.insts_on_pipe += 1, this.pipe_occupied[0] = !0;
+    }
+    return this.paint_piped_instructions(), this.update_stage_inst_table(), !1;
+  }
+}
+const P = ["addi x0, x1, 3", "sw x12, 0(x3)", "sub x0, x1, x2", "beq x4, x7, 10", "lw x1, 0(x4)", "add x18, x21, x23"], B = new K();
+B.setInstructions(P);
+document.getElementById("step-buttom").addEventListener("click", () => {
+  B.step();
+});

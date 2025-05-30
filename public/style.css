@@ -2,12 +2,6 @@ body {
     background-color: #01010a;
 }
 
-.center-contents {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 #simu-screen {
     display: flex;
     flex-direction: row;
@@ -18,7 +12,7 @@ body {
     flex-direction: column;
 }
 
-.side-bartext {
+.side-bar-text {
     color: black;
     background-color: white;
 }
@@ -31,6 +25,12 @@ body {
  mem = limegreen
  wb = slateblue
 */
+.center-contents-stage-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #pipe-stages-display {
     grid-column-start: 2;
     grid-column-end: 6;

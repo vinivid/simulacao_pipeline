@@ -9,7 +9,7 @@ function paint_cables(cable_map : Map<string, HTMLElement[]>,
 }
 
 /* Em todas as operações o estado de if é igual */
-export function paint_if() {
+export function paint_if(op : ArqOp) {
     paint_cables(IF, "pcp-4", "aqua")
     paint_cables(IF, "pc-to-things", "aqua")
 }
