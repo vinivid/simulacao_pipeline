@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,14 +7,20 @@
     <title>Simulação de pipeline</title>
 </head>
 <body>
-    <div id="architecture-grid">
+    <div id="simu-screen">
+        <div id="architecture-grid">
         <div id="pipe-stages-display">
-            <div>IF:</div>
-            <div>ID:</div>
-            <div>EX:</div>
-            <div>WB:</div>
+            <span class="center-contents">IF</span>
+            <span class="center-contents">addi x0, a0, 12</span>
+            <span class="center-contents">ID</span>
+            <span class="center-contents"></span>
+            <span class="center-contents">EX</span>
+            <span class="center-contents"></span>
+            <span class="center-contents">MEM</span>
+            <span class="center-contents"></span>
+            <span class="center-contents">WB</span>
+            <span class="center-contents"></span>
         </div>
-
         <!-- Parte do if -->
 
             <!-- Cabos do pc + 4 até o pc src-->
@@ -352,6 +359,12 @@
             <div>U</div>
             <div>X</div>
         </div>
+        </div>
+        <div id="side-bar">
+            <span class="side-bartext">Sim</span>
+            <span class="side-bartext">Prox</span>
+        </div>
     </div>
 </body>
+<script src="../build/index.js"></script>
 </html>
