@@ -1,5 +1,5 @@
-var _ = /* @__PURE__ */ ((r) => (r.R = "0110011", r.I = "0010011", r.S = "0100011", r.LI = "0000011", r.B = "1100011", r))(_ || {}), m = /* @__PURE__ */ ((r) => (r[r.IF = 0] = "IF", r[r.ID = 1] = "ID", r[r.EX = 2] = "EX", r[r.MEM = 3] = "MEM", r[r.WB = 4] = "WB", r))(m || {});
-const d = /* @__PURE__ */ new Map([
+var i = /* @__PURE__ */ ((e) => (e.R = "0110011", e.I = "0010011", e.S = "0100011", e.LI = "0000011", e.B = "1100011", e))(i || {}), x = /* @__PURE__ */ ((e) => (e[e.IF = 0] = "IF", e[e.ID = 1] = "ID", e[e.EX = 2] = "EX", e[e.MEM = 3] = "MEM", e[e.WB = 4] = "WB", e))(x || {});
+const E = /* @__PURE__ */ new Map([
   [
     "add",
     "0110011"
@@ -65,7 +65,7 @@ const d = /* @__PURE__ */ new Map([
     "1100011"
     /* B */
   ]
-]), f = /* @__PURE__ */ new Map([
+]), u = /* @__PURE__ */ new Map([
   ["add", "000"],
   ["sub", "100"],
   ["xor", "110"],
@@ -79,7 +79,7 @@ const d = /* @__PURE__ */ new Map([
   ["lw", "010"],
   ["sw", "010"],
   ["beq", "000"]
-]), e = /* @__PURE__ */ new Map([
+]), o = /* @__PURE__ */ new Map([
   ["x0", "00000"],
   ["x1", "00001"],
   ["x2", "00010"],
@@ -113,34 +113,46 @@ const d = /* @__PURE__ */ new Map([
   ["x30", "11110"],
   ["x31", "11111"]
 ]);
-function a(r) {
-  return r.split("").reverse().join("");
+function b(e) {
+  return e.split("").reverse().join("");
 }
-function b(r) {
-  return a((parseInt(r) >> 0).toString(2).padStart(11, "0"));
+function g(e) {
+  return b((parseInt(e) >> 0).toString(2).padStart(11, "0"));
 }
-function I(r, n, i, t, c) {
-  const x = f.get(r), o = e.get(i), u = e.get(t), s = e.get(c);
-  let l;
-  return r === "sub" ? l = "00100000" : l = "00000000", l + s + u + x + o + n;
+function B(e, r, m, t, n) {
+  const a = u.get(e), l = o.get(m), c = o.get(t), s = o.get(n);
+  let d;
+  return e === "sub" ? d = "00100000" : d = "00000000", d + s + c + a + l + r;
 }
-function g(r, n, i, t, c) {
-  const x = f.get(r), o = e.get(i), u = e.get(t);
-  return b(c) + u + x + o + n;
+function y(e, r, m, t, n) {
+  const a = u.get(e), l = o.get(m), c = o.get(t);
+  return g(n) + c + a + l + r;
 }
-function M(r, n, i, t, c) {
-  const x = f.get(r), o = e.get(i), u = e.get(t), s = b(c);
-  return s.slice(5, 12) + u + o + x + s.slice(0, 5) + n;
+function C(e, r, m, t, n) {
+  const a = u.get(e), l = o.get(m), c = o.get(t), s = g(n);
+  return s.slice(5, 12) + c + l + a + s.slice(0, 5) + r;
 }
-function w(r, n, i, t, c) {
-  const x = f.get(r), o = e.get(i), u = e.get(t), s = b(c);
-  return s[9] + s.slice(5, 11) + u + o + x + s.slice(1, 5) + s[10] + n;
+function N(e, r, m, t, n) {
+  const a = u.get(e), l = o.get(m), c = o.get(t), s = g(n);
+  return s[9] + s.slice(5, 11) + c + l + a + s.slice(1, 5) + s[10] + r;
 }
-function E(r, n) {
-  return n === _.R ? I(r[0], n, r[1], r[2], r[3]) : n === _.I ? g(r[0], n, r[1], r[2], r[3]) : n === _.LI ? g(r[0], n, r[1], r[3], r[2]) : n === _.S ? M(r[0], n, r[1], r[3], r[2]) : n === _.B ? w(r[0], n, r[1], r[2], r[3]) : "Erro";
+function A(e, r) {
+  return r === i.R ? B(e[0], r, e[1], e[2], e[3]) : r === i.I ? y(e[0], r, e[1], e[2], e[3]) : r === i.LI ? y(e[0], r, e[1], e[3], e[2]) : r === i.S ? C(e[0], r, e[1], e[3], e[2]) : r === i.B ? N(e[0], r, e[1], e[2], e[3]) : "Erro";
 }
-function p(r) {
-  const n = r.trim(), i = n.split(new RegExp(/[,\s()]+/)).filter(Boolean), t = d.get(i[0]), c = m.IF, x = E(i, t);
-  return { state: c, binary_repr: x, string_repr: n, inst_op: t };
+function _(e) {
+  const r = e.trim(), m = r.split(new RegExp(/[,\s()]+/)).filter(Boolean), t = E.get(m[0]), n = x.IF, a = A(m, t);
+  return { state: n, binary_repr: a, string_repr: r, inst_op: t };
 }
-console.log(p("addi x0, x1, 16"));
+const f = /* @__PURE__ */ new Map([
+  ["pcp-4", Array.from(document.getElementsByClassName("pcp-4"))],
+  ["pc-to-things", Array.from(document.getElementsByClassName("pc-to-things"))]
+]);
+Array.from(document.getElementsByClassName("rs1")), Array.from(document.getElementsByClassName("rs2")), Array.from(document.getElementsByClassName("id-imm")), Array.from(document.getElementsByClassName("id-inst")), Array.from(document.getElementsByClassName("id-rd")), Array.from(document.getElementsByClassName("id-wb")), Array.from(document.getElementsByClassName("id-m")), Array.from(document.getElementsByClassName("id-ex")), Array.from(document.getElementsByClassName("id-pc"));
+Array.from(document.getElementsByClassName("ex-wb")), Array.from(document.getElementsByClassName("ex-m")), Array.from(document.getElementsByClassName("alu-ctrl")), Array.from(document.getElementsByClassName("alu-src")), Array.from(document.getElementsByClassName("ex-pc")), Array.from(document.getElementsByClassName("ex-a")), Array.from(document.getElementsByClassName("ex-zero")), Array.from(document.getElementsByClassName("ex-wb")), Array.from(document.getElementsByClassName("ex-imm")), Array.from(document.getElementsByClassName("ex-rd"));
+Array.from(document.getElementsByClassName("mem-wb")), Array.from(document.getElementsByClassName("mem-read")), Array.from(document.getElementsByClassName("mem-write")), Array.from(document.getElementsByClassName("branch")), Array.from(document.getElementsByClassName("mem-zer")), Array.from(document.getElementsByClassName("b-targ")), Array.from(document.getElementsByClassName("pc-src")), Array.from(document.getElementsByClassName("mem-b")), Array.from(document.getElementsByClassName("mem-mem")), Array.from(document.getElementsByClassName("mem-rd"));
+Array.from(document.getElementsByClassName("mem-to-reg")), Array.from(document.getElementsByClassName("reg-write")), Array.from(document.getElementsByClassName("wb-mem")), Array.from(document.getElementsByClassName("write-data")), Array.from(document.getElementsByClassName("wb-alu")), Array.from(document.getElementsByClassName("wb-rd"));
+function w() {
+  f.get("pcp-4").forEach((e) => e.style.backgroundColor = "aqua"), f.get("pc-to-things").forEach((e) => e.style.backgroundColor = "aqua");
+}
+console.log(_("addi x0, x1, 16"));
+w();

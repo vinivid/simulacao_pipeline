@@ -1,6 +1,6 @@
 import * as risc_v from "./risc-v_enconding"
 
-export type Instruction = {
+export interface Instruction {
     state : risc_v.State;
     binary_repr : string;
     string_repr : string;
