@@ -101,7 +101,6 @@ export function init_add_button() {
         if (inst !== "") {
             const op = ArqOpMap.get(inst)!
 
-            console.log(inst)
             if (op === ArqOp.R) {
                 const rd = document.getElementById("reg1-sel")!.children[0].innerHTML
                 const rs1 = document.getElementById("reg2-sel")!.children[0].innerHTML
@@ -165,7 +164,6 @@ export function init_sim_buttom(arq : ArqController) {
         const insts_to_sim : string[] = []
 
         Array.from(insts_added.children).forEach((ele) => insts_to_sim.push(ele.innerHTML))
-        console.log(insts_to_sim)
         arq.setInstructions(insts_to_sim)
     })
 }
