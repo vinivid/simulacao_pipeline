@@ -361,9 +361,84 @@
             <div>X</div>
         </div>
         </div>
+        <div id="memory-editor">
+            <div id="ins-builder">  
+                <div id="inst-select" class="value-selector">
+                    <span></span>
+                    <div class="dropdown">
+                        <button>add</button>
+                        <button>sub</button>
+                        <button>xor</button>
+                        <button>or</button>
+                        <button>and</button>
+                        <button>addi</button>
+                        <button>xori</button>
+                        <button>ori</button>
+                        <button>lb</button>
+                        <button>lh</button>
+                        <button>lw</button>
+                        <button>sw</button>
+                        <button>beq</button>
+                    </div>
+                </div>
+                <div id="reg1-sel" class="value-selector">
+                    <span></span>
+                    <div class="dropdown">
+                        <button>x0</button><button>x1</button><button>x2</button><button>x3</button>
+                        <button>x4</button><button>x5</button><button>x6</button><button>x7</button>
+                        <button>x8</button><button>x9</button><button>x10</button><button>x11</button>
+                        <button>x12</button><button>x13</button><button>x14</button><button>x15</button>
+                        <button>x16</button><button>x17</button><button>x18</button><button>x19</button>
+                        <button>x20</button><button>x21</button><button>x22</button><button>x23</button>
+                        <button>x24</button><button>x25</button><button>x26</button><button>x27</button>
+                        <button>x28</button><button>x29</button><button>x30</button><button>x31</button>
+                    </div>
+                </div>
+                <span id="comma-one" class="comma">
+                    ,
+                </span>
+                <span id="comma-and-ofsset-1" class="comma">
+                    ,4(
+                </span>
+                <div id="reg2-sel" class="value-selector">
+                    <span></span>
+                    <div class="dropdown">
+                        <button>x0</button><button>x1</button><button>x2</button><button>x3</button>
+                        <button>x4</button><button>x5</button><button>x6</button><button>x7</button>
+                        <button>x8</button><button>x9</button><button>x10</button><button>x11</button>
+                        <button>x12</button><button>x13</button><button>x14</button><button>x15</button>
+                        <button>x16</button><button>x17</button><button>x18</button><button>x19</button>
+                        <button>x20</button><button>x21</button><button>x22</button><button>x23</button>
+                        <button>x24</button><button>x25</button><button>x26</button><button>x27</button>
+                        <button>x28</button><button>x29</button><button>x30</button><button>x31</button>
+                    </div>
+                </div>
+                <span id="comma-and-ofsset-2" class="comma">
+                    )
+                </span>
+                <span id="comma-two" class="comma">
+                    ,
+                </span>
+                <span id="shitty-imm" class="comma"></span>
+                <div id="reg3-sel" class="value-selector">
+                    <span></span>
+                    <div class="dropdown">
+                        <button>x0</button><button>x1</button><button>x2</button><button>x3</button>
+                        <button>x4</button><button>x5</button><button>x6</button><button>x7</button>
+                        <button>x8</button><button>x9</button><button>x10</button><button>x11</button>
+                        <button>x12</button><button>x13</button><button>x14</button><button>x15</button>
+                        <button>x16</button><button>x17</button><button>x18</button><button>x19</button>
+                        <button>x20</button><button>x21</button><button>x22</button><button>x23</button>
+                        <button>x24</button><button>x25</button><button>x26</button><button>x27</button>
+                        <button>x28</button><button>x29</button><button>x30</button><button>x31</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="side-bar">
             <button id="sim-buttom" class="side-bar-text">Sim</button>
-            <button id="step-buttom" class="side-bar-text">Step</button>            
+            <button id="mem-buttom" class="side-bar-tex">Mem</button>
+            <button id="step-buttom" class="side-bar-text">Step</button>           
         </div>
     </div>
 </body>

@@ -10,11 +10,122 @@ body {
 #side-bar {
     display: flex;
     flex-direction: column;
+    background-color: white;
 }
 
 .side-bar-text {
     color: black;
     background-color: white;
+}
+
+#memory-editor {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-right: black 5px solid;
+    width: 15vw;
+}
+
+#ins-builder {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    width: 100%;
+    height: 5%;
+}
+
+.value-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    position: relative;
+    border-radius: 6px;
+    height: 100%;
+    width: 33%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+    flex : 1 1 auto;
+}
+
+.comma {
+    position: relative;
+    top: 30%;
+    height: 100%;
+    font-size: 2.5vh;
+    flex : 1 1 auto;
+}
+
+#comma-and-ofsset-1 {
+    display: none;
+}
+
+#comma-and-ofsset-2 {
+    display: none;
+}
+
+#reg1-sel {
+    display: none;
+}
+
+#reg2-sel {
+    display: none;
+}
+
+#reg3-sel {
+    display: none;
+}
+
+#comma-one {
+    display: none;
+}
+
+#comma-and-ofsset {
+    display: none;
+}
+
+#comma-two {
+    display: none;
+}
+
+#shitty-imm {
+    display: none;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: auto;
+    right: 30%;
+    display: none;
+    flex-wrap: wrap;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    padding: 10px;
+    z-index: 100;
+    width: 320px;
+}
+
+.value-selector:hover .dropdown {
+    display: flex;
+}
+
+.dropdown button {
+    margin: 5px;
+    padding: 8px 12px;
+
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown button:hover {
+    background-color: #0056b3;
 }
 
 /* Telinha de qual instrução ta em tal estado */

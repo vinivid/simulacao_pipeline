@@ -1,7 +1,7 @@
-var C = Object.defineProperty;
-var N = (t, r, i) => r in t ? C(t, r, { enumerable: !0, configurable: !0, writable: !0, value: i }) : t[r] = i;
-var b = (t, r, i) => N(t, typeof r != "symbol" ? r + "" : r, i);
-var n = /* @__PURE__ */ ((t) => (t.R = "0110011", t.I = "0010011", t.S = "0100011", t.LI = "0000011", t.B = "1100011", t))(n || {}), E = /* @__PURE__ */ ((t) => (t[t.IF = 0] = "IF", t[t.ID = 1] = "ID", t[t.EX = 2] = "EX", t[t.MEM = 3] = "MEM", t[t.WB = 4] = "WB", t))(E || {});
+var N = Object.defineProperty;
+var I = (t, s, r) => s in t ? N(t, s, { enumerable: !0, configurable: !0, writable: !0, value: r }) : t[s] = r;
+var b = (t, s, r) => I(t, typeof s != "symbol" ? s + "" : s, r);
+var m = /* @__PURE__ */ ((t) => (t.R = "0110011", t.I = "0010011", t.S = "0100011", t.LI = "0000011", t.B = "1100011", t))(m || {}), C = /* @__PURE__ */ ((t) => (t[t.IF = 0] = "IF", t[t.ID = 1] = "ID", t[t.EX = 2] = "EX", t[t.MEM = 3] = "MEM", t[t.WB = 4] = "WB", t))(C || {});
 const A = /* @__PURE__ */ new Map([
   [
     "add",
@@ -82,7 +82,7 @@ const A = /* @__PURE__ */ new Map([
   ["lw", "010"],
   ["sw", "010"],
   ["beq", "000"]
-]), f = /* @__PURE__ */ new Map([
+]), g = /* @__PURE__ */ new Map([
   ["x0", "00000"],
   ["x1", "00001"],
   ["x2", "00010"],
@@ -116,37 +116,37 @@ const A = /* @__PURE__ */ new Map([
   ["x30", "11110"],
   ["x31", "11111"]
 ]);
-function I(t) {
+function M(t) {
   return t.split("").reverse().join("");
 }
-function w(t) {
-  return I((parseInt(t) >> 0).toString(2).padStart(11, "0"));
+function E(t) {
+  return M((parseInt(t) >> 0).toString(2).padStart(11, "0"));
 }
-function v(t, r, i, c, l) {
-  const d = x.get(t), p = f.get(i), _ = f.get(c), u = f.get(l);
-  let h;
-  return t === "sub" ? h = "00100000" : h = "00000000", h + u + _ + d + p + r;
+function L(t, s, r, a, c) {
+  const d = x.get(t), y = g.get(r), p = g.get(a), u = g.get(c);
+  let f;
+  return t === "sub" ? f = "00100000" : f = "00000000", f + u + p + d + y + s;
 }
-function y(t, r, i, c, l) {
-  const d = x.get(t), p = f.get(i), _ = f.get(c);
-  return w(l) + _ + d + p + r;
+function B(t, s, r, a, c) {
+  const d = x.get(t), y = g.get(r), p = g.get(a);
+  return E(c) + p + d + y + s;
 }
-function M(t, r, i, c, l) {
-  const d = x.get(t), p = f.get(i), _ = f.get(c), u = w(l);
-  return u.slice(5, 12) + _ + p + d + u.slice(0, 5) + r;
+function v(t, s, r, a, c) {
+  const d = x.get(t), y = g.get(r), p = g.get(a), u = E(c);
+  return u.slice(5, 12) + p + y + d + u.slice(0, 5) + s;
 }
-function z(t, r, i, c, l) {
-  const d = x.get(t), p = f.get(i), _ = f.get(c), u = w(l);
-  return u[9] + u.slice(5, 11) + _ + p + d + u.slice(1, 5) + u[10] + r;
+function H(t, s, r, a, c) {
+  const d = x.get(t), y = g.get(r), p = g.get(a), u = E(c);
+  return u[9] + u.slice(5, 11) + p + y + d + u.slice(1, 5) + u[10] + s;
 }
-function L(t, r) {
-  return r === n.R ? v(t[0], r, t[1], t[2], t[3]) : r === n.I ? y(t[0], r, t[1], t[2], t[3]) : r === n.LI ? y(t[0], r, t[1], t[3], t[2]) : r === n.S ? M(t[0], r, t[1], t[3], t[2]) : r === n.B ? z(t[0], r, t[1], t[2], t[3]) : "Erro";
+function T(t, s) {
+  return s === m.R ? L(t[0], s, t[1], t[2], t[3]) : s === m.I ? B(t[0], s, t[1], t[2], t[3]) : s === m.LI ? B(t[0], s, t[1], t[3], t[2]) : s === m.S ? v(t[0], s, t[1], t[3], t[2]) : s === m.B ? H(t[0], s, t[1], t[2], t[3]) : "Erro";
 }
-function R(t) {
-  const r = t.trim(), i = r.split(new RegExp(/[,\s()]+/)).filter(Boolean), c = A.get(i[0]), l = E.IF, d = L(i, c);
-  return { state: l, binary_repr: d, string_repr: r, inst_op: c };
+function z(t) {
+  const s = t.trim(), r = s.split(new RegExp(/[,\s()]+/)).filter(Boolean), a = A.get(r[0]), c = C.IF, d = T(r, a);
+  return { state: c, binary_repr: d, string_repr: s, inst_op: a };
 }
-const g = /* @__PURE__ */ new Map([
+const h = /* @__PURE__ */ new Map([
   ["pcp-4", Array.from(document.getElementsByClassName("pcp-4"))],
   ["pc-to-things", Array.from(document.getElementsByClassName("pc-to-things"))]
 ]), o = /* @__PURE__ */ new Map([
@@ -160,7 +160,7 @@ const g = /* @__PURE__ */ new Map([
   ["id-ex", Array.from(document.getElementsByClassName("id-ex"))],
   ["id-pc", Array.from(document.getElementsByClassName("id-pc"))],
   ["inst-shower", Array.from(document.getElementsByClassName("inst-shower"))]
-]), m = /* @__PURE__ */ new Map([
+]), i = /* @__PURE__ */ new Map([
   ["ex-wb", Array.from(document.getElementsByClassName("ex-wb"))],
   ["ex-m", Array.from(document.getElementsByClassName("ex-m"))],
   ["alu-ctrl", Array.from(document.getElementsByClassName("alu-ctrl"))],
@@ -174,7 +174,7 @@ const g = /* @__PURE__ */ new Map([
   ["ex-alu-mux", Array.from(document.getElementsByClassName("ex-alu-mux"))],
   ["ex-alu-res", Array.from(document.getElementsByClassName("ex-alu-res"))],
   ["ex-inst", Array.from(document.getElementsByClassName("ex-inst"))]
-]), s = /* @__PURE__ */ new Map([
+]), n = /* @__PURE__ */ new Map([
   ["mem-wb", Array.from(document.getElementsByClassName("mem-wb"))],
   ["mem-read", Array.from(document.getElementsByClassName("mem-read"))],
   ["mem-write", Array.from(document.getElementsByClassName("mem-write"))],
@@ -186,7 +186,7 @@ const g = /* @__PURE__ */ new Map([
   ["mem-mem", Array.from(document.getElementsByClassName("mem-mem"))],
   ["mem-rd", Array.from(document.getElementsByClassName("mem-rd"))],
   ["mem-alu", Array.from(document.getElementsByClassName("mem-alu"))]
-]), a = /* @__PURE__ */ new Map([
+]), l = /* @__PURE__ */ new Map([
   ["mem-to-reg", Array.from(document.getElementsByClassName("mem-to-reg"))],
   ["reg-write", Array.from(document.getElementsByClassName("reg-write"))],
   ["wb-mem", Array.from(document.getElementsByClassName("wb-mem"))],
@@ -194,40 +194,40 @@ const g = /* @__PURE__ */ new Map([
   ["wb-alu", Array.from(document.getElementsByClassName("wb-alu"))],
   ["wb-rd", Array.from(document.getElementsByClassName("wb-rd"))]
 ]);
-function e(t, r, i) {
-  t.get(r).forEach((c) => c.style.backgroundColor = i);
+function e(t, s, r) {
+  t.get(s).forEach((a) => a.style.backgroundColor = r);
 }
-function F(t) {
-  e(g, "pcp-4", "aqua"), e(g, "pc-to-things", "aqua");
+function R(t) {
+  e(h, "pcp-4", "aqua"), e(h, "pc-to-things", "aqua");
 }
-function q() {
-  e(g, "pcp-4", "white"), e(g, "pc-to-things", "white");
+function F() {
+  e(h, "pcp-4", "white"), e(h, "pc-to-things", "white");
 }
-function D(t) {
-  t === n.R ? (e(o, "rs1", "#f58916"), e(o, "rs2", "#f58916"), e(o, "id-imm", "#1b1a29"), e(o, "id-rd", "white"), e(o, "id-pc", "#1b1a29")) : t === n.I || t === n.LI ? (e(o, "rs1", "#f58916"), e(o, "rs2", "#1b1a29"), e(o, "id-imm", "#f58916"), e(o, "id-rd", "white"), e(o, "id-pc", "#1b1a29")) : (t === n.S || t === n.B) && (e(o, "rs1", "#f58916"), e(o, "rs2", "#f58916"), e(o, "id-imm", "#f58916"), e(o, "id-rd", "#1b1a29"), e(o, "id-pc", "#1b1a29"));
+function q(t) {
+  t === m.R ? (e(o, "rs1", "#f58916"), e(o, "rs2", "#f58916"), e(o, "id-imm", "#1b1a29"), e(o, "id-rd", "white"), e(o, "id-pc", "#1b1a29")) : t === m.I || t === m.LI ? (e(o, "rs1", "#f58916"), e(o, "rs2", "#1b1a29"), e(o, "id-imm", "#f58916"), e(o, "id-rd", "white"), e(o, "id-pc", "#1b1a29")) : (t === m.S || t === m.B) && (e(o, "rs1", "#f58916"), e(o, "rs2", "#f58916"), e(o, "id-imm", "#f58916"), e(o, "id-rd", "#1b1a29"), e(o, "id-pc", "#1b1a29"));
 }
-function W() {
+function D() {
   e(o, "rs1", "white"), e(o, "rs2", "white"), e(o, "id-imm", "white"), e(o, "id-rd", "white"), e(o, "id-pc", "white");
 }
-function X(t) {
-  e(m, "alu-ctrl", "green"), e(m, "ex-inst", "#eb1a21"), t === n.R ? (e(m, "alu-src", "#28f793"), e(m, "ex-pc", "#1b1a29"), e(m, "ex-a", "#eb1a21"), e(m, "ex-zero", "#1b1a29"), e(m, "ex-b", "#eb1a21"), e(m, "ex-imm", "#1b1a29"), e(m, "ex-rd", "white")) : t === n.I || t === n.LI ? (e(m, "alu-src", "green"), e(m, "ex-pc", "#1b1a29"), e(m, "ex-a", "#eb1a21"), e(m, "ex-zero", "#1b1a29"), e(m, "ex-b", "#1b1a29"), e(m, "ex-imm", "#eb1a21"), e(m, "ex-rd", "white")) : t === n.S ? (e(m, "alu-src", "green"), e(m, "ex-pc", "#1b1a29"), e(m, "ex-a", "#eb1a21"), e(m, "ex-zero", "#1b1a29"), e(m, "ex-b", "#1b1a29"), e(m, "ex-imm", "#eb1a21"), e(m, "ex-rd", "#1b1a29")) : (e(m, "alu-src", "green"), e(m, "ex-pc", "#1b1a29"), e(m, "ex-a", "#eb1a21"), e(m, "ex-zero", "white"), e(m, "ex-b", "#1b1a29"), e(m, "ex-imm", "#eb1a21"), e(m, "ex-rd", "#1b1a29"));
+function W(t) {
+  e(i, "alu-ctrl", "green"), e(i, "ex-inst", "#eb1a21"), t === m.R ? (e(i, "alu-src", "#28f793"), e(i, "ex-pc", "#1b1a29"), e(i, "ex-a", "#eb1a21"), e(i, "ex-zero", "#1b1a29"), e(i, "ex-b", "#eb1a21"), e(i, "ex-imm", "#1b1a29"), e(i, "ex-rd", "white")) : t === m.I || t === m.LI ? (e(i, "alu-src", "green"), e(i, "ex-pc", "#1b1a29"), e(i, "ex-a", "#eb1a21"), e(i, "ex-zero", "#1b1a29"), e(i, "ex-b", "#1b1a29"), e(i, "ex-imm", "#eb1a21"), e(i, "ex-rd", "white")) : t === m.S ? (e(i, "alu-src", "green"), e(i, "ex-pc", "#1b1a29"), e(i, "ex-a", "#eb1a21"), e(i, "ex-zero", "#1b1a29"), e(i, "ex-b", "#1b1a29"), e(i, "ex-imm", "#eb1a21"), e(i, "ex-rd", "#1b1a29")) : (e(i, "alu-src", "green"), e(i, "ex-pc", "#1b1a29"), e(i, "ex-a", "#eb1a21"), e(i, "ex-zero", "white"), e(i, "ex-b", "#1b1a29"), e(i, "ex-imm", "#eb1a21"), e(i, "ex-rd", "#1b1a29"));
 }
-function H() {
-  e(m, "alu-ctrl", "#28f793"), e(m, "ex-inst", "white"), e(m, "alu-src", "#28f793"), e(m, "ex-pc", "white"), e(m, "ex-a", "white"), e(m, "ex-zero", "white"), e(m, "ex-b", "white"), e(m, "ex-imm", "white"), e(m, "ex-rd", "white");
+function X() {
+  e(i, "alu-ctrl", "#28f793"), e(i, "ex-inst", "white"), e(i, "alu-src", "#28f793"), e(i, "ex-pc", "white"), e(i, "ex-a", "white"), e(i, "ex-zero", "white"), e(i, "ex-b", "white"), e(i, "ex-imm", "white"), e(i, "ex-rd", "white");
 }
-function T(t) {
-  t === n.R || t === n.I ? (e(s, "mem-read", "#28f793"), e(s, "mem-write", "#28f793"), e(s, "branch", "#28f793"), e(s, "mem-zero", "#1b1a29"), e(s, "b-targ", "#1b1a29"), e(s, "pc-src", "#28f793"), e(s, "mem-b", "#1b1a29"), e(s, "mem-mem", "#1b1a29"), e(s, "mem-rd", "white"), e(s, "mem-alu", "white")) : t === n.LI ? (e(s, "mem-read", "green"), e(s, "mem-write", "#28f793"), e(s, "branch", "#28f793"), e(s, "mem-zero", "#1b1a29"), e(s, "b-targ", "#1b1a29"), e(s, "pc-src", "#28f793"), e(s, "mem-b", "#1b1a29"), e(s, "mem-mem", "white"), e(s, "mem-rd", "white"), e(s, "mem-alu", "#ede732")) : t === n.S ? (e(s, "mem-read", "#28f793"), e(s, "mem-write", "green"), e(s, "branch", "#28f793"), e(s, "mem-zero", "#1b1a29"), e(s, "b-targ", "#1b1a29"), e(s, "pc-src", "#28f793"), e(s, "mem-b", "#ede732"), e(s, "mem-mem", "#1b1a29"), e(s, "mem-rd", "#1b1a29"), e(s, "mem-alu", "#ede732")) : (e(s, "mem-read", "#28f793"), e(s, "mem-write", "#28f793"), e(s, "branch", "#green"), e(s, "mem-zero", "#ede732"), e(s, "b-targ", "#ede732"), e(s, "pc-src", "green"), e(s, "mem-b", "#1b1a29"), e(s, "mem-mem", "#1b1a29"), e(s, "mem-rd", "#1b1a29"), e(s, "mem-alu", "#1b1a29"));
+function $(t) {
+  t === m.R || t === m.I ? (e(n, "mem-read", "#28f793"), e(n, "mem-write", "#28f793"), e(n, "branch", "#28f793"), e(n, "mem-zero", "#1b1a29"), e(n, "b-targ", "#1b1a29"), e(n, "pc-src", "#28f793"), e(n, "mem-b", "#1b1a29"), e(n, "mem-mem", "#1b1a29"), e(n, "mem-rd", "white"), e(n, "mem-alu", "white")) : t === m.LI ? (e(n, "mem-read", "green"), e(n, "mem-write", "#28f793"), e(n, "branch", "#28f793"), e(n, "mem-zero", "#1b1a29"), e(n, "b-targ", "#1b1a29"), e(n, "pc-src", "#28f793"), e(n, "mem-b", "#1b1a29"), e(n, "mem-mem", "white"), e(n, "mem-rd", "white"), e(n, "mem-alu", "#ede732")) : t === m.S ? (e(n, "mem-read", "#28f793"), e(n, "mem-write", "green"), e(n, "branch", "#28f793"), e(n, "mem-zero", "#1b1a29"), e(n, "b-targ", "#1b1a29"), e(n, "pc-src", "#28f793"), e(n, "mem-b", "#ede732"), e(n, "mem-mem", "#1b1a29"), e(n, "mem-rd", "#1b1a29"), e(n, "mem-alu", "#ede732")) : (e(n, "mem-read", "#28f793"), e(n, "mem-write", "#28f793"), e(n, "branch", "#green"), e(n, "mem-zero", "#ede732"), e(n, "b-targ", "#ede732"), e(n, "pc-src", "green"), e(n, "mem-b", "#1b1a29"), e(n, "mem-mem", "#1b1a29"), e(n, "mem-rd", "#1b1a29"), e(n, "mem-alu", "#1b1a29"));
 }
-function j() {
-  e(s, "mem-read", "#28f793"), e(s, "mem-write", "#28f793"), e(s, "branch", "#28f793"), e(s, "mem-zero", "white"), e(s, "b-targ", "white"), e(s, "pc-src", "#28f793"), e(s, "mem-b", "white"), e(s, "mem-mem", "white"), e(s, "mem-rd", "white"), e(s, "mem-alu", "white");
+function S() {
+  e(n, "mem-read", "#28f793"), e(n, "mem-write", "#28f793"), e(n, "branch", "#28f793"), e(n, "mem-zero", "white"), e(n, "b-targ", "white"), e(n, "pc-src", "#28f793"), e(n, "mem-b", "white"), e(n, "mem-mem", "white"), e(n, "mem-rd", "white"), e(n, "mem-alu", "white");
 }
-function G(t) {
-  t === n.R || t === n.I ? (e(a, "mem-to-reg", "#28f793"), e(a, "reg-write", "green"), e(a, "wb-mem", "#1b1a29"), e(a, "write-data", "slateblue"), e(a, "wb-alu", "slateblue"), e(a, "wb-rd", "slateblue")) : t === n.S || t === n.B ? (e(a, "mem-to-reg", "#28f793"), e(a, "reg-write", "#28f793"), e(a, "wb-mem", "#1b1a29"), e(a, "write-data", "#1b1a29"), e(a, "wb-alu", "#1b1a29"), e(a, "wb-rd", "#1b1a29")) : (e(a, "mem-to-reg", "green"), e(a, "reg-write", "green"), e(a, "wb-mem", "slateblue"), e(a, "write-data", "slateblue"), e(a, "wb-alu", "#1b1a29"), e(a, "wb-rd", "slateblue"));
+function j(t) {
+  t === m.R || t === m.I ? (e(l, "mem-to-reg", "#28f793"), e(l, "reg-write", "green"), e(l, "wb-mem", "#1b1a29"), e(l, "write-data", "slateblue"), e(l, "wb-alu", "slateblue"), e(l, "wb-rd", "slateblue")) : t === m.S || t === m.B ? (e(l, "mem-to-reg", "#28f793"), e(l, "reg-write", "#28f793"), e(l, "wb-mem", "#1b1a29"), e(l, "write-data", "#1b1a29"), e(l, "wb-alu", "#1b1a29"), e(l, "wb-rd", "#1b1a29")) : (e(l, "mem-to-reg", "green"), e(l, "reg-write", "green"), e(l, "wb-mem", "slateblue"), e(l, "write-data", "slateblue"), e(l, "wb-alu", "#1b1a29"), e(l, "wb-rd", "slateblue"));
 }
-function J() {
-  e(a, "mem-to-reg", "#28f793"), e(a, "reg-write", "#28f793"), e(a, "wb-mem", "white"), e(a, "write-data", "white"), e(a, "wb-alu", "white"), e(a, "wb-rd", "white");
+function G() {
+  e(l, "mem-to-reg", "#28f793"), e(l, "reg-write", "#28f793"), e(l, "wb-mem", "white"), e(l, "write-data", "white"), e(l, "wb-alu", "white"), e(l, "wb-rd", "white");
 }
-class K {
+class J {
   constructor() {
     /* São as instruções todas as instruções colocadas para
     simular */
@@ -246,20 +246,20 @@ class K {
     b(this, "remove_paints");
     b(this, "stage_inst_table");
     this.insts = [], this.piped_insts = [], this.pipe_occupied = [!1, !1, !1, !1, !1], this.insts_on_pipe = 0, this.paint_funcs = [
+      R,
+      q,
+      W,
+      $,
+      j
+    ], this.remove_paints = [
       F,
       D,
       X,
-      T,
+      S,
       G
-    ], this.remove_paints = [
-      q,
-      W,
-      H,
-      j,
-      J
     ];
-    const r = Array.from(document.getElementsByClassName("center-contents-stage-display"));
-    this.stage_inst_table = r.filter((i, c) => c % 2 == 1);
+    const s = Array.from(document.getElementsByClassName("center-contents-stage-display"));
+    this.stage_inst_table = s.filter((r, a) => a % 2 == 1);
   }
   /**
    *    Coloca as instruções a serem simuladas, cehcando também
@@ -268,19 +268,19 @@ class K {
    * @param instructions As linhas das instruções que serão 
    * simuladas.
    */
-  setInstructions(r) {
-    this.insts = [], r.reverse().forEach((i) => {
-      this.insts.push(R(i));
+  setInstructions(s) {
+    this.insts = [], s.reverse().forEach((r) => {
+      this.insts.push(z(r));
     });
   }
   paint_piped_instructions() {
-    this.pipe_occupied.forEach((r, i) => {
-      r ? this.paint_funcs[i](this.piped_insts[i].inst_op) : this.remove_paints[i]();
+    this.pipe_occupied.forEach((s, r) => {
+      s ? this.paint_funcs[r](this.piped_insts[r].inst_op) : this.remove_paints[r]();
     });
   }
   update_stage_inst_table() {
-    this.pipe_occupied.forEach((r, i) => {
-      r ? this.stage_inst_table[i].innerHTML = this.piped_insts[i].string_repr : this.stage_inst_table[i].innerHTML = "";
+    this.pipe_occupied.forEach((s, r) => {
+      s ? this.stage_inst_table[r].innerHTML = this.piped_insts[r].string_repr : this.stage_inst_table[r].innerHTML = "";
     });
   }
   /**
@@ -291,11 +291,11 @@ class K {
   move_pipe_stage_right() {
     if (this.piped_insts.length > 0) {
       this.pipe_occupied[4] && (this.pipe_occupied[4] = !1, this.insts_on_pipe -= 1);
-      let r = this.pipe_occupied[0], i = this.piped_insts[0];
+      let s = this.pipe_occupied[0], r = this.piped_insts[0];
       this.pipe_occupied[0] = !1;
-      for (let c = 1; c < 5; ++c) {
-        const l = this.piped_insts[c], d = this.pipe_occupied[c];
-        this.piped_insts[c] = i, this.pipe_occupied[c] = r, i = l, r = d;
+      for (let a = 1; a < 5; ++a) {
+        const c = this.piped_insts[a], d = this.pipe_occupied[a];
+        this.piped_insts[a] = r, this.pipe_occupied[a] = s, r = c, s = d;
       }
     }
   }
@@ -310,14 +310,50 @@ class K {
     if (this.insts.length == 0 && this.insts_on_pipe == 0)
       return !0;
     if (this.move_pipe_stage_right(), this.insts.length > 0) {
-      const r = this.insts.pop();
-      this.piped_insts[0] = r, this.insts_on_pipe += 1, this.pipe_occupied[0] = !0;
+      const s = this.insts.pop();
+      this.piped_insts[0] = s, this.insts_on_pipe += 1, this.pipe_occupied[0] = !0;
     }
     return this.paint_piped_instructions(), this.update_stage_inst_table(), !1;
   }
 }
-const P = ["addi x0, x1, 3", "sw x12, 0(x3)", "sub x0, x1, x2", "beq x4, x7, 10", "lw x1, 0(x4)", "add x18, x21, x23"], B = new K();
-B.setInstructions(P);
+function K(t) {
+  return Math.floor(Math.random() * t);
+}
+function P() {
+  const t = document.getElementById("inst-select"), s = document.getElementById("reg1-sel"), r = document.getElementById("comma-one"), a = document.getElementById("comma-and-ofsset-1"), c = document.getElementById("comma-and-ofsset-2"), d = document.getElementById("reg2-sel"), y = document.getElementById("comma-two"), p = document.getElementById("shitty-imm"), u = document.getElementById("reg3-sel");
+  Array.from(t.children[1].children).forEach((f) => {
+    const _ = A.get(f.innerHTML);
+    _ === m.R ? f.addEventListener("click", () => {
+      s.style.display = "flex", r.style.display = "flex", a.style.display = "none", c.style.display = "none", d.style.display = "flex", y.style.display = "flex", p.style.display = "none", u.style.display = "flex", console.log(`clicked ${f.innerHTML}`), t.children[0].innerHTML = f.innerHTML;
+    }) : _ === m.I ? f.addEventListener("click", () => {
+      s.style.display = "flex", r.style.display = "flex", a.style.display = "none", c.style.display = "none", d.style.display = "flex", y.style.display = "flex", p.style.display = "flex", u.style.display = "none", document.getElementById("shitty-imm").innerHTML = K(32767).toString(), console.log(`clicked ${f.innerHTML}`), t.children[0].innerHTML = f.innerHTML;
+    }) : _ === m.LI || _ === m.S ? f.addEventListener("click", () => {
+      s.style.display = "flex", r.style.display = "none", a.style.display = "flex", c.style.display = "flex", d.style.display = "flex", y.style.display = "none", p.style.display = "none", u.style.display = "none", console.log(`clicked ${f.innerHTML}`), t.children[0].innerHTML = f.innerHTML;
+    }) : f.addEventListener("click", () => {
+      s.style.display = "flex", r.style.display = "flex", a.style.display = "none", c.style.display = "none", d.style.display = "flex", y.style.display = "none", p.style.display = "flex", u.style.display = "none", document.getElementById("shitty-imm").innerHTML = "4", t.children[0].innerHTML = f.innerHTML;
+    });
+  });
+}
+function w(t) {
+  const s = document.getElementById(t);
+  Array.from(s.children[1].children).forEach((r) => {
+    r.addEventListener("click", () => {
+      s.children[0].innerHTML = r.innerHTML;
+    });
+  });
+}
+function Q() {
+  const t = document.getElementById("memory-editor");
+  document.getElementById("mem-buttom").addEventListener("click", () => {
+    t.style.display === "flex" ? t.style.display = "none" : t.style.display = "flex";
+  });
+}
+function U() {
+  P(), w("reg1-sel"), w("reg2-sel"), w("reg3-sel");
+}
+Q();
+U();
+const V = new J();
 document.getElementById("step-buttom").addEventListener("click", () => {
-  B.step();
+  V.step();
 });
