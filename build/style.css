@@ -20,7 +20,8 @@ body {
 
 #memory-editor {
     background-color: white;
-    display: flex;
+    display: none;
+    gap: 1%;
     flex-direction: column;
     border-right: black 5px solid;
     width: 15vw;
@@ -126,6 +127,17 @@ body {
 
 .dropdown button:hover {
     background-color: #0056b3;
+}
+
+#insts-added {
+    display: flex;
+    flex-direction: column;
+}
+
+.center-contents {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
 }
 
 /* Telinha de qual instrução ta em tal estado */

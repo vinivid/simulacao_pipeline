@@ -1,3 +1,4 @@
+import ArqController from "./ArqController";
 import { ArqOpMap, ArqOp } from "./risc-v_enconding"
 
 function getRandomInt(max : number) {
@@ -30,7 +31,6 @@ function init_inst_selector() {
                     imm.style.display = 'none'
                     reg3.style.display = 'flex'
 
-                    console.log(`clicked ${ele.innerHTML}`)
                     inst_select.children[0].innerHTML = ele.innerHTML
                 })
             } else if (op === ArqOp.I) {
@@ -46,7 +46,6 @@ function init_inst_selector() {
                     document.getElementById('shitty-imm')! 
                         .innerHTML = getRandomInt(32767).toString()
 
-                    console.log(`clicked ${ele.innerHTML}`)
                     inst_select.children[0].innerHTML = ele.innerHTML
                 })                
             } else if (op === ArqOp.LI || op === ArqOp.S) {
@@ -60,7 +59,6 @@ function init_inst_selector() {
                     imm.style.display = 'none'
                     reg3.style.display = 'none'
 
-                    console.log(`clicked ${ele.innerHTML}`)
                     inst_select.children[0].innerHTML = ele.innerHTML
                 })    
             } else {
@@ -70,7 +68,7 @@ function init_inst_selector() {
                     com_of1.style.display = 'none'
                     com_of2.style.display = 'none'
                     reg2.style.display = 'flex'
-                    com2.style.display = 'none'
+                    com2.style.display = 'flex'
                     imm.style.display = 'flex'
                     reg3.style.display = 'none'
                     document.getElementById('shitty-imm')! 
@@ -93,16 +91,92 @@ function init_reg_sel(reg_sel : string) {
         })
 }
 
-export function init_mem_buttom() {
-    const mem_editor = document.getElementById('memory-editor')!
-    document.getElementById('mem-buttom')!
-        .addEventListener('click', () => {
-            if (mem_editor.style.display === 'flex') {
-                mem_editor.style.display = 'none'
+export function init_add_button() {
+    const add_button = document.getElementById('add-inst')!
+    const insts_added = document.getElementById('insts-added')!
+
+    add_button.addEventListener('click', () => {
+        const inst = document.getElementById('inst-select')!.children[0].innerHTML
+
+        if (inst !== "") {
+            const op = ArqOpMap.get(inst)!
+
+            console.log(inst)
+            if (op === ArqOp.R) {
+                const rd = document.getElementById("reg1-sel")!.children[0].innerHTML
+                const rs1 = document.getElementById("reg2-sel")!.children[0].innerHTML
+                const rs2 = document.getElementById("reg3-sel")!.children[0].innerHTML
+
+                if (rd !== "" && rs1 !== "" && rs2 !== "") {
+                    const new_op = document.createElement('p')
+                    const op_string = document.createTextNode(`${inst} ${rd}, ${rs1}, ${rs2}`)
+                    new_op.appendChild(op_string)
+                    new_op.classList.add("center-contents")
+    
+                    insts_added.appendChild(new_op)                   
+                }
+            } else if (op === ArqOp.I) {
+                const rd = document.getElementById("reg1-sel")!.children[0].innerHTML
+                const rs1 = document.getElementById("reg2-sel")!.children[0].innerHTML
+                const imm = document.getElementById("shitty-imm")!.innerHTML
+
+                if (rd !== "" && rs1 !== "") {
+                    const new_op = document.createElement('p')
+                    const op_string = document.createTextNode(`${inst} ${rd}, ${rs1}, ${imm}`)
+                    new_op.appendChild(op_string)
+                    new_op.classList.add("center-contents")                    
+
+                    insts_added.appendChild(new_op)  
+                }
+            } else if (op === ArqOp.LI || op === ArqOp.S) {
+                const r1 = document.getElementById("reg1-sel")!.children[0].innerHTML
+                const r2 = document.getElementById("reg2-sel")!.children[0].innerHTML
+
+                if (r1 !== "" && r2 !== "") {
+                    const new_op = document.createElement('p')
+                    const op_string = document.createTextNode(`${inst} ${r1}, 4(${r2})`)
+                    new_op.appendChild(op_string)
+                    new_op.classList.add("center-contents")
+
+                    insts_added.appendChild(new_op)  
+                }
             } else {
-                mem_editor.style.display = 'flex'
+                const rs1 = document.getElementById("reg1-sel")!.children[0].innerHTML
+                const rs2 = document.getElementById("reg2-sel")!.children[0].innerHTML
+
+                if (rs1 !== "" && rs2 !== "") {
+                    const new_op = document.createElement('p')
+                    const op_string = document.createTextNode(`${inst} ${rs1}, ${rs2}, 4`)
+                    new_op.appendChild(op_string)
+                    new_op.classList.add("center-contents")
+
+                    insts_added.appendChild(new_op)  
+                }
             }
-        })
+        }
+    })
+}
+
+export function init_sim_buttom(arq : ArqController) {
+    const sim_buttom = document.getElementById('sim-button')!
+    const insts_added = document.getElementById('insts-added')!
+
+    sim_buttom.addEventListener('click', () => {
+        const insts_to_sim : string[] = []
+
+        Array.from(insts_added.children).forEach((ele) => insts_to_sim.push(ele.innerHTML))
+        console.log(insts_to_sim)
+        arq.setInstructions(insts_to_sim)
+    })
+}
+
+export function init_reset_button() {
+    const reset_button = document.getElementById('reset-inst')!
+    const insts_added = document.getElementById('insts-added')!
+
+    reset_button.addEventListener('click', () => {
+        Array.from(insts_added.children).forEach((ele) => ele.remove())
+    })
 }
 
 export function init_dropdown_callbacks() {
@@ -110,4 +184,16 @@ export function init_dropdown_callbacks() {
     init_reg_sel("reg1-sel")
     init_reg_sel("reg2-sel")
     init_reg_sel("reg3-sel")
+}
+
+export function init_mem_button() {
+    const mem_editor = document.getElementById('memory-editor')!
+    document.getElementById('mem-button')!
+        .addEventListener('click', () => {
+            if (mem_editor.style.display === 'flex') {
+                mem_editor.style.display = 'none'
+            } else {
+                mem_editor.style.display = 'flex'
+            }
+        })
 }

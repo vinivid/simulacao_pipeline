@@ -1,8 +1,12 @@
 import ArqController from "./ArqController";
-import { init_dropdown_callbacks, init_mem_buttom } from "./Menu";
+import { init_add_button, init_dropdown_callbacks, init_mem_button, init_reset_button, init_sim_buttom } from "./Menu";
 
-init_mem_buttom()
+init_mem_button()
 init_dropdown_callbacks()
+init_add_button()
+init_reset_button()
 
 const arq = new ArqController()
-document.getElementById("step-buttom")!.addEventListener('click', () => {arq.step()})
+init_sim_buttom(arq)
+
+document.getElementById("step-button")!.addEventListener('click', () => {arq.step()})
