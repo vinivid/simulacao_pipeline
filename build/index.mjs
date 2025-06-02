@@ -300,7 +300,7 @@ class P {
       S,
       j
     ];
-    const n = Array.from(document.getElementsByClassName("center-contents-stage-display"));
+    const n = Array.from(document.getElementsByClassName("stage-display"));
     this.stage_inst_table = n.filter((s, m) => m % 2 == 1);
   }
   /**

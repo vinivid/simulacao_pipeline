@@ -38,7 +38,7 @@ export default class ArqController {
             cable.remove_paint_ex, cable.remove_paint_mem, cable.remove_paint_wb
         ]
 
-        const stage_display_thigs = Array.from(document.getElementsByClassName('center-contents-stage-display')) as HTMLElement[]
+        const stage_display_thigs = Array.from(document.getElementsByClassName('stage-display')) as HTMLElement[]
         this.stage_inst_table = stage_display_thigs.filter((val, index) => index % 2 == 1)
     }
 
