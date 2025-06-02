@@ -23,19 +23,28 @@ export function paint_id(op : ArqOp) {
     if (op === ArqOp.R) {
         paint_cables(ID, "rs1", "#f58916")
         paint_cables(ID, "rs2", "#f58916")
-        paint_cables(ID, "id-imm", "#1b1a29")
+        paint_cables(ID, "id-a", "#f58916")
+        paint_cables(ID, "id-b", "#f58916")
+        paint_cables(ID, "id-imm-b", "#1b1a29")
+        paint_cables(ID, "id-imm-a", "#1b1a29")
         paint_cables(ID, "id-rd", "white")
         paint_cables(ID, "id-pc", "#1b1a29")
     } else if (op === ArqOp.I || op === ArqOp.LI) {
         paint_cables(ID, "rs1", "#f58916")
         paint_cables(ID, "rs2", "#1b1a29")
-        paint_cables(ID, "id-imm", "#f58916")
+        paint_cables(ID, "id-a", "#f58916")
+        paint_cables(ID, "id-b", "#1b1a29")
+        paint_cables(ID, "id-imm-b", "#f58916")
+        paint_cables(ID, "id-imm-a", "#f58916")
         paint_cables(ID, "id-rd", "white")
         paint_cables(ID, "id-pc", "#1b1a29")        
     } else if (op === ArqOp.S || op === ArqOp.B) {
         paint_cables(ID, "rs1", "#f58916")
         paint_cables(ID, "rs2", "#f58916")
-        paint_cables(ID, "id-imm", "#f58916")
+        paint_cables(ID, "id-a", "#f58916")
+        paint_cables(ID, "id-b", "#f58916")
+        paint_cables(ID, "id-imm-b", "#f58916")
+        paint_cables(ID, "id-imm-a", "#f58916")
         paint_cables(ID, "id-rd", "#1b1a29")
         paint_cables(ID, "id-pc", "#1b1a29")
     }
@@ -195,4 +204,39 @@ export function remove_paint_wb() {
     paint_cables(WB, "write-data", "white")
     paint_cables(WB, "wb-alu", "white")
     paint_cables(WB, "wb-rd", "white") 
+}
+
+export function add_explanation_on_hover(ele : HTMLElement, exp : HTMLElement) 
+{
+    ele.addEventListener('mouseenter', () => {
+        exp.style.display = 'flex'; 
+        exp.style.pointerEvents = 'auto';
+        
+        requestAnimationFrame(() => {
+            exp.style.opacity = '1';
+        });
+    })
+
+    ele.addEventListener('mousemove', (e) => {
+        exp.style.left = (e.pageX + 30) + 'px';
+        exp.style.top  = (e.pageY + 30) + 'px'; 
+    })
+
+    ele.addEventListener('mouseleave', () => {
+        exp.style.opacity = '0'
+
+        setTimeout(() => {
+            exp.style.display = 'none';
+            exp.style.pointerEvents = 'none';
+        }, 300)
+    })    
+}
+
+export function add_explanation_to_all() {
+    IF.forEach((ele_arr, key) => {
+        ele_arr.forEach((ele) => {
+            console.log(key)
+            add_explanation_on_hover(ele, document.getElementById(`${key}-exp`)!)
+        })
+    })
 }

@@ -2,12 +2,16 @@
 export const IF = new Map <string, HTMLElement[]>([
     ["pcp-4", Array.from(document.getElementsByClassName("pcp-4")) as HTMLElement[]],
     ["pc-to-things", Array.from(document.getElementsByClassName("pc-to-things")) as HTMLElement[]],
+    ["inst-mem-to-pipe", Array.from(document.getElementsByClassName("inst-mem-to-pipe")) as HTMLElement[]]
 ])
 
 export const ID = new Map <string, HTMLElement[]>([
     ["rs1", Array.from(document.getElementsByClassName("rs1")) as HTMLElement[]],
+    ["id-a", Array.from(document.getElementsByClassName("id-a")) as HTMLElement[]],
     ["rs2", Array.from(document.getElementsByClassName("rs2")) as HTMLElement[]],
-    ["id-imm", Array.from(document.getElementsByClassName("id-imm")) as HTMLElement[]],
+    ["id-b", Array.from(document.getElementsByClassName("id-b")) as HTMLElement[]],
+    ["id-imm-b", Array.from(document.getElementsByClassName("id-imm-b")) as HTMLElement[]],
+    ["id-imm-a", Array.from(document.getElementsByClassName("id-imm-a")) as HTMLElement[]],
     ["id-inst", Array.from(document.getElementsByClassName("id-inst")) as HTMLElement[]],
     ["id-rd", Array.from(document.getElementsByClassName("id-rd")) as HTMLElement[]],
     ["id-wb", Array.from(document.getElementsByClassName("id-wb")) as HTMLElement[]],

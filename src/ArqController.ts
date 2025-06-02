@@ -1,5 +1,5 @@
 import { Instruction, InstructionFromStr } from "./Instruction";
-import * as painter from "./arqPaint";
+import * as cable from "./arqCables";
 import { ArqOp } from "./risc-v_enconding";
 
 export default class ArqController {
@@ -21,19 +21,25 @@ export default class ArqController {
     private remove_paints : {() : void} []
 
     private stage_inst_table : HTMLElement[]
+    private pc_pos : number
+
+    private associate_exp_values() {
+        
+    }
 
     constructor() {
         this.insts = []
         this.piped_insts = []
         this.pipe_occupied = [false, false, false, false, false]
         this.insts_on_pipe = 0
+        this.pc_pos = 0
 
-        this.paint_funcs = [painter.paint_if, painter.paint_id, 
-            painter.paint_ex, painter.paint_mem, painter.paint_wb
+        this.paint_funcs = [cable.paint_if, cable.paint_id, 
+            cable.paint_ex, cable.paint_mem, cable.paint_wb
         ]
 
-        this.remove_paints = [painter.remove_paint_if, painter.remove_paint_id, 
-            painter.remove_paint_ex, painter.remove_paint_mem, painter.remove_paint_wb
+        this.remove_paints = [cable.remove_paint_if, cable.remove_paint_id, 
+            cable.remove_paint_ex, cable.remove_paint_mem, cable.remove_paint_wb
         ]
 
         const stage_display_thigs = Array.from(document.getElementsByClassName('center-contents-stage-display')) as HTMLElement[]
@@ -131,6 +137,7 @@ export default class ArqController {
 
         this.paint_piped_instructions()
         this.update_stage_inst_table()
+        this.pc_pos += 4
 
         return false;
     }
