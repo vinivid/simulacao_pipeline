@@ -221,8 +221,24 @@ export function add_explanation_on_hover(ele : HTMLElement, exp : HTMLElement)
     })
 
     ele.addEventListener('mousemove', (e) => {
-        exp.style.left = (e.pageX + 30) + 'px';
-        exp.style.top  = (e.pageY + 30) + 'px'; 
+        const pageWidth = document.documentElement.scrollWidth;
+        const pageHeight = document.documentElement.scrollHeight;
+
+        if (e.pageY > ((4/5) * pageHeight)) {
+            exp.style.top = 'auto'
+            exp.style.bottom = (pageHeight - e.pageY) + 10 + 'px'
+        } else {
+            exp.style.bottom = 'auto'
+            exp.style.top = (e.pageY + 30) + 'px'
+        }
+
+        if (e.pageX > ((4/5) * pageWidth)) {
+            exp.style.left = 'auto'
+            exp.style.right = (pageWidth - e.pageX) + 30 + 'px'
+        } else {
+            exp.style.right = 'auto'
+            exp.style.left = (e.pageX + 30) + 'px'
+        }
     })
 
     ele.addEventListener('mouseleave', () => {

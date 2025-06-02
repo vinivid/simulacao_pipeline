@@ -10,16 +10,16 @@
     <div id="simu-screen">
         <div id="architecture-grid">
         <div id="pipe-stages-display">
-            <span class="center-contents-stage-display">IF</span>
-            <span class="center-contents-stage-display"></span>
-            <span class="center-contents-stage-display">ID</span>
-            <span class="center-contents-stage-display"></span>
-            <span class="center-contents-stage-display">EX</span>
-            <span class="center-contents-stage-display"></span>
-            <span class="center-contents-stage-display">MEM</span>
-            <span class="center-contents-stage-display"></span>
-            <span class="center-contents-stage-display">WB</span>
-            <span class="center-contents-stage-display"></span>
+            <span class="stage-display">IF</span>
+            <span class="stage-display"></span>
+            <span class="stage-display">ID</span>
+            <span class="stage-display"></span>
+            <span class="stage-display">EX</span>
+            <span class="stage-display"></span>
+            <span class="stage-display">MEM</span>
+            <span class="stage-display"></span>
+            <span class="stage-display">WB</span>
+            <span class="stage-display"></span>
         </div>
         <!-- Parte do if -->
 
@@ -40,9 +40,9 @@
             <div id="mux-to-pc" class="bh"></div>
 
         <div id="pc-src" class="mux-symbol">
-            <div>M</div>
-            <div>U</div>
-            <div>X</div>
+            <p class="mux-letter">M</p>
+            <p class="mux-letter">U</p>
+            <p class="mux-letter">X</p>
         </div>
 
             <!-- Cabos do pc até o pipe e a ula -->
@@ -244,7 +244,7 @@
             <!-- M do ex-->
             <div id="ex-m" class="mh ex-m control-cable"></div>
 
-                <div id="ex-wb-exp" class="explanation-box">
+                <div id="ex-m-exp" class="explanation-box">
                     <p>Sinais de controle para escrita na memória.</p>
                     <p></p>
                 </div>
@@ -339,7 +339,7 @@
             <!-- Cabos da inst ex -->
             <div id="alu-c_17-19_14" class="mh ex-inst"></div>
 
-                <div id="ex-alu-res-exp" class="explanation-box">
+                <div id="ex-inst-exp" class="explanation-box">
                     <p>Valores do funct3 e funct7 que indicarão para o bloco ALU CTRL qual operação deve ser efetuada.</p>
                     <p></p>
                 </div>
@@ -352,9 +352,9 @@
         <div id="pc-plus-imm" class="alu-symbol"></div>
 
         <div id="alu-src-mux" class="mux-symbol">
-            <div>M</div>
-            <div>U</div>
-            <div>X</div>
+            <p class="mux-letter">M</p>
+            <p class="mux-letter">U</p>
+            <p class="mux-letter">X</p>
         </div>
         
         <div id="alu-ctrl" class="block-box">
@@ -450,7 +450,7 @@
             <div id="pc-src_2_1" class="qbhr-to-mvb pc-src control-cable"></div>
             <div id="pc-src_2_2-8" class="mv pc-src control-cable"></div>
 
-                <div id="b-targ-exp" class="explanation-box">
+                <div id="pc-src-exp" class="explanation-box">
                     <p>Sinal de controle que indica se o PC ira receber o valor de PC + 4 ou o valor de branch. É 1 somente se a condição de branch for verdadeira.</p>
                     <p></p>
                 </div>
@@ -486,7 +486,7 @@
         <!-- Rd -->
             <div id="ex-rd_24-28_15" class="mh mem-rd"></div>
 
-                <div id="mem-rd-exp" class="explanation-box">
+                <div id="ex-rd-exp" class="explanation-box">
                     <p>Registrado de destino do estado de WB.</p>
                     <p></p>
                 </div>
@@ -523,9 +523,9 @@
             <div id="reg-write_30-31_2" class="qbh reg-write control-cable"></div>
             <div id="reg-write_32_2" class="qbhl-to-qlvb reg-write control-cable"></div>
             <div id="reg-write_32_3-15" class="qrv reg-write control-cable"></div>
-            <div id="reg-write_32_16" class="qrvt-to-bh reg-write control-cable"></div>
-            <div id="reg-write_13-31_16" class="bh reg-write control-cable"></div>
-            <div id="reg-write_12_16" class="bhr-to-mv reg-write control-cable"></div>
+            <div id="reg-write_32_16" class="qrvt-to-qbhl reg-write control-cable"></div>
+            <div id="reg-write_13-31_16" class="qbh reg-write control-cable"></div>
+            <div id="reg-write_12_16" class="qbhr-to-mvt reg-write control-cable"></div>
             <div id="reg-write_12_12-15" class="mv reg-write control-cable"></div>
 
                 <div id="reg-write-exp" class="explanation-box">
@@ -562,7 +562,7 @@
             <div id="wb-alu-b_30_11" class="half-mvb wb-alu"></div>
             <div id="wb-alu-r_30_11" class="half-mhr wb-alu"></div>
 
-                <div id="write-data-exp" class="explanation-box">
+                <div id="wb-alu-exp" class="explanation-box">
                     <p>Valor da operação da ULA.</p>
                     <p></p>
                 </div>
@@ -581,9 +581,9 @@
                 </div>
 
         <div id="data-select-mux" class="mux-symbol">
-            <div>M</div>
-            <div>U</div>
-            <div>X</div>
+            <p class="mux-letter">M</p>
+            <p class="mux-letter">U</p>
+            <p class="mux-letter">X</p>
         </div>
         </div>
         <div id="memory-editor">

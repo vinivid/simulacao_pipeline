@@ -1,5 +1,9 @@
 body {
     background-color: #01010a;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
 }
 
 #simu-screen {
@@ -98,6 +102,7 @@ body {
     opacity: 0;
     display: none;
     pointer-events: none;
+    max-width: 10vw;
     background-color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border: #0056b3 1px solid;
@@ -152,18 +157,11 @@ body {
     justify-content: center;    
 }
 
-/* Telinha de qual instrução ta em tal estado */
-/*
- if = aqua
- id = #f58916
- ex = #eb1a21
- mem = limegreen
- wb = slateblue
-*/
-.center-contents-stage-display {
+.stage-display {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1vw;
 }
 
 #pipe-stages-display {
@@ -187,7 +185,8 @@ body {
     grid-area: a;
     background-color: white;
     color: black;
-    border: black solid 3px;
+    border-bottom: black solid 3px;
+    border-right: black solid 3px;
 }
 
 #pipe-stages-display :nth-child(2) {
@@ -201,8 +200,8 @@ body {
     grid-area: c;
     background-color: white;
     color: black;
-    border-left: black solid 3px;
     border-right: black solid 3px;
+    border-bottom: black solid 3px;
 }
 
 #pipe-stages-display :nth-child(4) {
@@ -216,7 +215,8 @@ body {
     grid-area: e;
     background-color: white;
     color: black;
-    border: black solid 3px;       
+    border-right: black solid 3px;
+    border-bottom: black solid 3px;      
 }
 
 #pipe-stages-display :nth-child(6) {
@@ -229,8 +229,8 @@ body {
 #pipe-stages-display :nth-child(7) {
     grid-area: g;
     background-color: white;
-    border-left: black solid 3px;
     border-right: black solid 3px;
+    border-bottom: black solid 3px;  
 }
 
 #pipe-stages-display :nth-child(8) {
@@ -244,7 +244,8 @@ body {
     grid-area: i;
     background-color: white;
     color: black;     
-    border: black solid 3px;
+    border-right: black solid 3px;
+    border-bottom: black solid 3px; 
 }
 
 #pipe-stages-display :nth-child(10) {
@@ -424,6 +425,11 @@ body {
     clip-path: polygon(70% 100%, 70% 47.5%, 100% 47.5%, 100% 52.5%, 75% 52.5%, 75% 100%);
 }
 
+.qrvt-to-qbhl {
+    background-color: white;
+    clip-path: polygon(75% 0, 75% 75%, 0 75%, 0 70%, 70% 70%, 70% 0);
+}
+
 .qth {
     background-color: white;
     clip-path: polygon(0 20%, 100% 20%, 100% 25.5%, 0 25.5%);
@@ -452,6 +458,11 @@ body {
 .qbhr-to-mvb {
     background-color: white;
     clip-path: polygon(100% 70%, 47.5% 70%, 47.5% 100%, 52.5% 100%, 52.5% 75%, 100% 75%);
+}
+
+.qbhr-to-mvt {
+    background-color: white;
+    clip-path: polygon(100% 75%, 47.5% 75%, 47.5% 0, 52.5% 0, 52.5% 70%, 100% 70%);
 }
 
 .qbh-to-mvb {
@@ -503,13 +514,11 @@ body {
     font-size: 1.1vw;
 }
 
-/* Caixa de entradas e saidas de um blocco */
 .block-box {
     background-color: black;
     border: 0.1vw white solid;
 }
 
-/* Fonte do nome do bloco dentro de um bloco*/
 .block-name {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.9vw;
@@ -519,7 +528,15 @@ body {
     margin: auto
 }
 
-/* Texto da entra/saida de um bloco */
+.mux-letter {
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1vw;
+    color: black;
+    align-content: center;
+    margin: auto
+}
+
 .block-entry-exit {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.8vw;

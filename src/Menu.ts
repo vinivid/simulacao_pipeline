@@ -1,8 +1,10 @@
 import ArqController from "./ArqController";
 import { ArqOpMap, ArqOp } from "./risc-v_enconding"
 
-function getRandomInt(max : number) {
-    return Math.floor(Math.random() * max);
+function getRandomInt(min : number, max : number) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function init_inst_selector() {
@@ -44,7 +46,7 @@ function init_inst_selector() {
                     imm.style.display = 'flex'
                     reg3.style.display = 'none'
                     document.getElementById('shitty-imm')! 
-                        .innerHTML = getRandomInt(32767).toString()
+                        .innerHTML = getRandomInt(-1024, 1024).toString()
 
                     inst_select.children[0].innerHTML = ele.innerHTML
                 })                

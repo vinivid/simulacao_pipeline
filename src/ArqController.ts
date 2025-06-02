@@ -23,10 +23,6 @@ export default class ArqController {
     private stage_inst_table : HTMLElement[]
     private pc_pos : number
 
-    private associate_exp_values() {
-        
-    }
-
     constructor() {
         this.insts = []
         this.piped_insts = []
