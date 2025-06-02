@@ -53,7 +53,10 @@ export function paint_id(op : ArqOp) {
 export function remove_paint_id() {
     paint_cables(ID, "rs1", "white")
     paint_cables(ID, "rs2", "white")
-    paint_cables(ID, "id-imm", "white")
+    paint_cables(ID, "id-a", "white")
+    paint_cables(ID, "id-b", "white")
+    paint_cables(ID, "id-imm-b", "white")
+    paint_cables(ID, "id-imm-a", "white")
     paint_cables(ID, "id-rd", "white")
     paint_cables(ID, "id-pc", "white")    
 }
@@ -235,7 +238,30 @@ export function add_explanation_on_hover(ele : HTMLElement, exp : HTMLElement)
 export function add_explanation_to_all() {
     IF.forEach((ele_arr, key) => {
         ele_arr.forEach((ele) => {
-            console.log(key)
+            add_explanation_on_hover(ele, document.getElementById(`${key}-exp`)!)
+        })
+    })
+
+    ID.forEach((ele_arr, key) => {
+        ele_arr.forEach((ele) => {
+            add_explanation_on_hover(ele, document.getElementById(`${key}-exp`)!)
+        })
+    })
+
+    EX.forEach((ele_arr, key) => {
+        ele_arr.forEach((ele) => {
+            add_explanation_on_hover(ele, document.getElementById(`${key}-exp`)!)
+        })
+    })
+
+    MEM.forEach((ele_arr, key) => {
+        ele_arr.forEach((ele) => {
+            add_explanation_on_hover(ele, document.getElementById(`${key}-exp`)!)
+        })
+    })
+
+    WB.forEach((ele_arr, key) => {
+        ele_arr.forEach((ele) => {
             add_explanation_on_hover(ele, document.getElementById(`${key}-exp`)!)
         })
     })

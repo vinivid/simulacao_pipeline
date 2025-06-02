@@ -33,7 +33,7 @@
             <!-- #### -->
 
             <div id="pcp-4-exp" class="explanation-box">
-                <p>O valor do program counter, que é responsavel por endereçar a memória de instrução</p>
+                <p>O valor do program counter mais quatro, para endereçar a memória no próximo ciclo de clock</p>
                 <p></p>
             </div>
 
@@ -71,7 +71,12 @@
             <div class="block-entry-exit">Endereço</div>
         </div>
 
-        <div id="inst-mem-to-pipe" class="bh"></div>
+        <div id="inst-mem-to-pipe" class="bh inst-mem-to-pipe"></div>
+
+            <div id="inst-mem-to-pipe-exp" class="explanation-box">
+                <p>A instrução que estava no endereço de memória dado pelo PC.</p>
+                <p></p>
+            </div>
 
         <div id="reg-if-id" class="block-box">
             <div class="block-entry-exit">PC</div>
@@ -88,43 +93,109 @@
             <div id="inst-s_11_3" class="mh inst-shower"></div>
             <div id="inst-s_10_15" class="half-mvt inst-shower"></div>
 
-            <!-- Cabos do rs1 -->
+                <div id="inst-shower-exp" class="explanation-box">
+                    <p>A instrução que sera executada.</p>
+                    <p></p>
+                </div>
+
+            <!-- Cabos do rs1 e o A-->
             <div id="rs1_10_7" class="half-mhr rs1"></div>
             <div id="rs1_11_7" class="mh rs1"></div>
-            <div id="rs1_15_7" class="mh rs1"></div>
 
-            <!-- Cabos do rs2 -->
+            <div id="rs1_15_7" class="mh id-a"></div>
+
+                <div id="rs1-exp" class="explanation-box">
+                    <p>A parte da instrução que codifica qual sera a registradora 1 a ser lida, essa região é nomeada rs1.</p>
+                    <p></p>
+                </div>
+
+                <div id="id-a-exp" class="explanation-box">
+                    <p>O valor armazenado na registradora codificada por rs1.</p>
+                    <p></p>
+                </div>
+
+            <!-- Cabos do rs2 e o B-->
             <div id="rs2_10_8" class="half-mhr rs2"></div>
             <div id="rs2_11_8" class="mh rs2"></div>
-            <div id="rs2_15_10" class="mh rs2"></div>
+
+            <div id="rs2_15_10" class="mh id-b"></div>
+
+                <div id="rs2-exp" class="explanation-box">
+                    <p>A parte da instrução que codifica qual sera a registradora 2 a ser lida, essa região é nomeada rs2.</p>
+                    <p></p>
+                </div>
+
+                <div id="id-b-exp" class="explanation-box">
+                    <p>O valor armazenado na registradora codificada por rs2.</p>
+                    <p></p>
+                </div>
 
             <!-- Cabos do Imm-->
-            <div id="id-imm_10_13" class="half-mhr id-imm"></div>
-            <div id="id-imm_11-12_13" class="mh id-imm"></div>
-            <div id="id-imm_15_13" class="mh id-imm"></div>
+            <div id="id-imm_10_13" class="half-mhr id-imm-b"></div>
+            <div id="id-imm_11-12_13" class="mh id-imm-b"></div>
+            <div id="id-imm_15_13" class="mh id-imm-a"></div>
+
+                <div id="id-imm-b-exp" class="explanation-box">
+                    <p>O valor do imediato contido na instrução</p>
+                    <p></p>
+                </div>
+
+                <div id="id-imm-a-exp" class="explanation-box">
+                    <p>O valor do imediato após ser reordenado e shifitado.</p>
+                    <p></p>
+                </div>
 
             <!-- Cabos do inst -->
             <div id="id-inst_10_14" class="half-mhr id-inst"></div>
             <div id="id-inst_11-15_14" class="mh id-inst"></div>
 
+                <div id="id-inst-exp" class="explanation-box">
+                    <p>Os valores de funct3 e funct7, que serão utilizados na ULA</p>
+                </div>
+
             <!-- Cabos do rd-->
             <div id="id-rd_10_15" class="half-mhr id-rd"></div>
             <div id="id-rd_11-15_15" class="mh id-rd"></div>
+                
+                <div id="id-rd-exp" class="explanation-box">
+                    <p>O valor da registradora de destino codificada pela instrução.</p>
+                    <p></p>
+                </div>
 
             <!-- Wb da uc-->
             <div id="id-wb" class="mh id-wb control-cable"></div>
 
+                <div id="id-wb-exp" class="explanation-box">
+                    <p>Sinais de controle para escrita em uma registradra gerado pela unidade de controle a partir da instrução.</p>
+                    <p></p>
+                </div>
+
             <!--M Uc -->
             <div id="id-m" class="mh id-m control-cable"></div>
+
+                <div id="id-m-exp" class="explanation-box">
+                    <p>Sinais de controle para escrita na memória gerado pela unidade de controle a partir da instrução.</p>
+                    <p></p>
+                </div>
 
             <!-- Ex uc-->
             <div id="id-ex" class="mh id-ex control-cable"></div>
 
+                <div id="id-ex-exp" class="explanation-box">
+                    <p>Sinais de controle para controle da UlA gerado pela unidade de controle a partir da instrução.</p>
+                    <p></p>
+                </div>
+                
             <!-- Cabos do PC no id-->
             <div id="id-pc_10_6" class="mh id-pc"></div>
             <div id="id-pc_11_6" class="mh-to-mvt id-pc"></div>
             <div id="id-pc_11_5" class="mvb-to-mhr id-pc"></div>
             <div id="id-pc_12-15_5" class="mh id-pc"></div>
+
+                <div id="id-pc-exp" class="explanation-box">
+                    <p>Valor do program counter.</p>
+                    <p></p>
+                </div>
 
         <div id="bco-reg" class="block-box">
             <div class="block-name">Banco de registradoras</div>
@@ -165,8 +236,18 @@
             <!-- Wb do ex-->
             <div id="ex-wb" class="mh ex-wb control-cable"></div>
 
+                <div id="ex-wb-exp" class="explanation-box">
+                    <p>Sinais de controle para escrita em uma registradora.</p>
+                    <p></p>
+                </div>
+
             <!-- M do ex-->
             <div id="ex-m" class="mh ex-m control-cable"></div>
+
+                <div id="ex-wb-exp" class="explanation-box">
+                    <p>Sinais de controle para escrita na memória.</p>
+                    <p></p>
+                </div>
 
             <!-- Cabos do Ex -->
             <div id="ex_17-21_4" class="qth alu-ctrl control-cable"></div>
@@ -176,6 +257,11 @@
             <div id="ex_l_22_14" class="half-mhl alu-ctrl control-cable"></div>
             <div id="alu-c_20_10-13" class="mv alu-ctrl control-cable"></div>
 
+                <div id="alu-ctrl-exp" class="explanation-box">
+                    <p>Sinal de controle que seleciona qual operação a ULA deve efetuar.</p>
+                    <p></p>
+                </div>
+
             <div id="ex_17-18_4" class="qbh alu-src control-cable"></div>
             <div id="ex_19_4" class="qbh-to-mvb alu-src control-cable"></div>
             <div id="ex_19_5-7" class="mv alu-src control-cable"></div>
@@ -184,16 +270,34 @@
             <div id="ex_r_18_8" class="half-mhr alu-src control-cable"></div>
             <div id="ex_b_18_8" class="half-mvb alu-src control-cable"></div>
             
+                <div id="alu-src-exp" class="explanation-box">
+                    <p>Sinal de controle que seleciona se a ULA ira receber o valor de uma registradora ou de um imediato. 1 Para o imediato, 0 para registradora.</p>
+                    <p></p>
+                </div>
 
             <!-- Cabo do pc -->
             <div id="ex-pc_17_5" class="mh ex-pc"></div>
             <div id="ex-pc_19-22_5" class="bh ex-pc"></div>
 
+                <div id="ex-pc-exp" class="explanation-box">
+                    <p>Valor do program counter.</p>
+                    <p></p>
+                </div>
+
             <!-- ex A -->
             <div id="a_17-19_7" class="mh ex-a"></div>
 
+                <div id="ex-a-exp" class="explanation-box">
+                    <p>Valor da registradora dada por rs1.</p>
+                    <p></p>
+                </div>
+
             <!-- ex Zero -->
             <div id="ex-zero" class="mh ex-zero"></div>
+
+                <div id="ex-zero-exp" class="explanation-box">
+                    <p>Se a operação executada pela ULA resultar em zero o valor deste sinal sera 1.</p>
+                </div>
 
             <!-- B ex -->
             <div id="ex-B_17_10" class="mh ex-b"></div>
@@ -201,18 +305,44 @@
             <div id="ex-B_17_11" class="qlvt-to-mh ex-b"></div>
             <div id="ex-B_18-22_11" class="mh ex-b"></div>
 
+                <div id="ex-b-exp" class="explanation-box">
+                    <p>Valor da registradora rs2, que sera utilizado em uma operação da ULA ou como valor de escrita na memória.</p>
+                    <p></p>
+                </div>
+
             <!-- Imm ex-->
             <div id="ex-imm_17_13" class="mh-to-qrvt ex-imm"></div>
             <div id="ex-imm_17_7-12" class="qrv ex-imm"></div>
             <div id="ex-imm_17_9" class="mh-pos-qrv ex-imm"></div>
             <div id="ex-imm_17_6" class="qrvb-to-mh ex-imm"></div>
 
+                <div id="ex-imm-exp" class="explanation-box">
+                    <p>Valor do imediato, que sera utilizado para uma operação na ULA ou para ser adicionado ao PC.</p>
+                    <p></p>
+                </div>
+
             <!-- alu ex-->
             <div id="ex-alu_19_9" class="bh ex-alu-mux"></div>
+
+                <div id="ex-alu-mux-exp" class="explanation-box">
+                    <p>É o valor do B ou do imediato, dependendo do ALU SRC.</p>
+                    <p></p>
+                </div>
+
             <div id="ex-alu_22_9" class="mh ex-alu-res"></div>
+
+                <div id="ex-alu-res-exp" class="explanation-box">
+                    <p>Valor da operação da ULA.</p>
+                    <p></p>
+                </div>
 
             <!-- Cabos da inst ex -->
             <div id="alu-c_17-19_14" class="mh ex-inst"></div>
+
+                <div id="ex-alu-res-exp" class="explanation-box">
+                    <p>Valores do funct3 e funct7 que indicarão para o bloco ALU CTRL qual operação deve ser efetuada.</p>
+                    <p></p>
+                </div>
 
             <!-- Cabo do rd-->
             <div id="ex-rd_17-22_15" class="mh ex-rd"></div>
@@ -247,6 +377,11 @@
         <!-- Wb mem-->
             <div id="mem-wb_24-28_2" class="mh mem-wb control-cable"></div>
         
+                <div id="mem-wb-exp" class="explanation-box">
+                    <p>Sinais de controle para escrita em uma registradora.</p>
+                    <p></p>
+                </div>
+
         <!-- mem M -->
             <div id="mem-m_24-27_3" class="qth mem-read control-cable"></div>
             <div id="mem-m_28_3" class="qth-to-mvb mem-read control-cable"></div>
@@ -257,19 +392,39 @@
             <div id="mem-m-r_26_12" class="half-mhr mem-read control-cable"></div>
             <div id="mem-m-t_26_12" class="half-mvt mem-read control-cable"></div>
 
+                <div id="mem-read-exp" class="explanation-box">
+                    <p>Sinal de controle MEM READ que idica se a memória de dados sera lida. É igual a 1 nas operações que executam leitura.</p>
+                    <p></p>
+                </div>
+
             <div id="mem-m_24-26_3" class="qbh mem-write control-cable"></div>
             <div id="mem-m_27_3" class="qbh-to-mvb mem-write control-cable"></div>
             <div id="mem-m_27_4-8" class="mv mem-write control-cable"></div>
+
+                <div id="mem-write-exp" class="explanation-box">
+                    <p>Sinal de controle MEM WRITE que idica se o valor passado para a memória no edereço especificado sera escrito. É igual a 1 nas operações que escrevem na memória.</p>
+                    <p></p>
+                </div>
 
             <div id="mem-m-l_24_4" class="half-mhl branch control-cable"></div>
             <div id="mem-m-b_24_4" class="half-mvb branch control-cable"></div>
             <div id="mem-m_24_5-6" class="mv branch control-cable"></div>
             <div id="mem-m-branch_24_7" class="mv-to-qtvr branch control-cable"></div>
 
+                <div id="branch-exp" class="explanation-box">
+                    <p>Sinal de controle BRANCH que idica se é uma operação de branch. É 1 nas operações de branch.</p>
+                    <p></p>
+                </div>
+
         <!-- mem zero-->
             <div id="mem-zero-l_24_8" class="half-mhl mem-zero"></div>
             <div id="mem-zero-t_24_8" class="half-mvt mem-zero"></div>
             <div id="mem-zero_24_7" class="mv-to-qbvr mem-zero"></div>
+
+                <div id="mem-zero-exp" class="explanation-box">
+                    <p>Sinal que idica se a operação da ULA é igual a zero. É utilizado para decidir se sera executado um branch na instrução beq pois quando a subtração de dois numeros é igual a zero eles são iguais.</p>
+                    <p></p>
+                </div>
 
         <!-- Branch target -->
             <div id="b-targ_24_5" class="bh b-targ"></div>
@@ -281,6 +436,11 @@
             <div id="b-targ_1_2-9" class="qlv b-targ"></div>
             <div id="b-targ_1_10" class="qlvt-to-mh b-targ"></div>
 
+                <div id="b-targ-exp" class="explanation-box">
+                    <p>Caso ocorra um branch, este é o valor para o qual o PC ira "pular".</p>
+                    <p></p>
+                </div>
+
         <!-- PC src-->
             <div id="pc-src-l_26_7" class="half-mhl pc-src control-cable"></div>
             <div id="pc-src-t_26_7" class="half-mvt pc-src control-cable"></div>
@@ -290,6 +450,11 @@
             <div id="pc-src_2_1" class="qbhr-to-mvb pc-src control-cable"></div>
             <div id="pc-src_2_2-8" class="mv pc-src control-cable"></div>
 
+                <div id="b-targ-exp" class="explanation-box">
+                    <p>Sinal de controle que indica se o PC ira receber o valor de PC + 4 ou o valor de branch. É 1 somente se a condição de branch for verdadeira.</p>
+                    <p></p>
+                </div>
+
         <!-- Alu ex -->
             <div id="alu-ex-m_24_9" class="mh mem-alu"></div>
             <div id="alu-ex-b_24_9" class="half-mvb mem-alu"></div>
@@ -297,14 +462,34 @@
             <div id="alu-ex-24_13" class="mvt-to-mhr mem-alu"></div>
             <div id="alu-ex-25-28_13" class="mh mem-alu"></div>
 
+                <div id="mem-alu-exp" class="explanation-box">
+                    <p>É o resultado da operação da ULA. Esse resultado vai funcionar como endereço na memória de dados ou como valor a ser escrito em uma registradora no próximo estado.</p>
+                    <p></p>
+                </div>
+
         <!-- B ex-->
             <div id="ex-b_24_11" class="mh mem-b"></div>
 
+                <div id="mem-b-exp" class="explanation-box">
+                    <p>Valor que sera escrito na memória de dados.</p>
+                    <p></p>
+                </div>
+
         <!-- mem-ex -->
             <div id="ex-mem_28_10" class="mh mem-mem"></div>
+            
+                <div id="mem-mem-exp" class="explanation-box">
+                    <p>Valor lido no endereço dado pela operação da ULA.</p>
+                    <p></p>
+                </div>
 
         <!-- Rd -->
             <div id="ex-rd_24-28_15" class="mh mem-rd"></div>
+
+                <div id="mem-rd-exp" class="explanation-box">
+                    <p>Registrado de destino do estado de WB.</p>
+                    <p></p>
+                </div>
 
         <div id="and-branch" class="and-gate"></div>
 
@@ -329,6 +514,11 @@
             <div id="mem-to-reg_31_2" class="qth-to-mvb mem-to-reg control-cable"></div>
             <div id="mem-to-reg_31_3-9" class="mv mem-to-reg control-cable"></div>
 
+                <div id="mem-to-reg-exp" class="explanation-box">
+                    <p>Sinal de controle que indica que sera escrito na registradora de destino o valor da memória. É igual a 1 em operações de Load.</p>
+                    <p></p>
+                </div>
+
             <!-- Reg write -->
             <div id="reg-write_30-31_2" class="qbh reg-write control-cable"></div>
             <div id="reg-write_32_2" class="qbhl-to-qlvb reg-write control-cable"></div>
@@ -338,9 +528,19 @@
             <div id="reg-write_12_16" class="bhr-to-mv reg-write control-cable"></div>
             <div id="reg-write_12_12-15" class="mv reg-write control-cable"></div>
 
+                <div id="reg-write-exp" class="explanation-box">
+                    <p>Sinal de controle que se sera escrito algum valor em uma registradora.</p>
+                    <p></p>
+                </div>
+
             <!-- wb mem-->
             <div id="wb-mem_30_10" class="mh wb-mem"></div>
 
+                <div id="wb-mem-exp" class="explanation-box">
+                    <p>Valor da memória no endereço dado pela operação da ULA.</p>
+                    <p></p>
+                </div>
+                
             <!-- write-data -->
             <div id="write-data_32_10" class="half-bhl-to-qlv write-data"></div>
             <div id="write-data_32_11-15" class="qlv write-data"></div>
@@ -350,12 +550,22 @@
             <div id="write-data_11_11-15" class="qrv write-data"></div>
             <div id="write-data_11_10" class="qrvb-to-mhr write-data"></div>
 
+                <div id="write-data-exp" class="explanation-box">
+                    <p>Dado que possivelmente sera escrito na registradora de destino.</p>
+                    <p></p>
+                </div>
+
             <!-- wb-alu -->
             <div id="wb-alu-l_30_13" class="half-mhl wb-alu"></div>
             <div id="wb-alu-t_30_13" class="half-mvt wb-alu"></div>
             <div id="wb-alu_30_12" class="mv wb-alu"></div>
             <div id="wb-alu-b_30_11" class="half-mvb wb-alu"></div>
             <div id="wb-alu-r_30_11" class="half-mhr wb-alu"></div>
+
+                <div id="write-data-exp" class="explanation-box">
+                    <p>Valor da operação da ULA.</p>
+                    <p></p>
+                </div>
 
             <!-- wb-rd -->
             <div id="rd_30_15" class="mhl-to-qrlvb wb-rd"></div>
@@ -364,6 +574,11 @@
             <div id="rd_11_16" class="qthl-to-qlvt wb-rd"></div>
             <div id="rd_11_10-15" class="qlv wb-rd"></div>
             <div id="rd_11_9" class="qlvb-to-mhr wb-rd"></div>
+
+                <div id="wb-rd-exp" class="explanation-box">
+                    <p>Codificação da registradora de destino RD.</p>
+                    <p></p>
+                </div>
 
         <div id="data-select-mux" class="mux-symbol">
             <div>M</div>
