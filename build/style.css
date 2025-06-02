@@ -102,11 +102,11 @@ body {
     opacity: 0;
     display: none;
     pointer-events: none;
-    max-width: 10vw;
+    max-width: 15vw;
     background-color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: #0056b3 1px solid;
     transition: opacity 0.3s ease;
+    padding: 5px;
     z-index: 100;
 }
 
