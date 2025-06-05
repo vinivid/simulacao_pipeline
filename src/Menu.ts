@@ -197,3 +197,21 @@ export function init_mem_button() {
             }
         })
 }
+
+export function init_exp_button() {
+    const toggle_button = document.getElementById('exp-toggle-button')!;
+    const dropdown = document.getElementById('exp-dropdown')!;
+    let clicked = false
+    
+    toggle_button.addEventListener('click', (e) => {
+        if (!clicked) {
+            e.stopPropagation()
+            console.log('clicked')
+            dropdown.style.display = 'flex'
+            clicked = true
+        } else {
+            dropdown.style.display = 'none'
+            clicked = false
+        }  
+    })
+}

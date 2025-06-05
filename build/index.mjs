@@ -1,7 +1,7 @@
 var A = Object.defineProperty;
 var M = (t, n, s) => n in t ? A(t, n, { enumerable: !0, configurable: !0, writable: !0, value: s }) : t[n] = s;
 var g = (t, n, s) => M(t, typeof n != "symbol" ? n + "" : n, s);
-const h = /* @__PURE__ */ new Map([
+const _ = /* @__PURE__ */ new Map([
   ["pcp-4", Array.from(document.getElementsByClassName("pcp-4"))],
   ["pc-to-things", Array.from(document.getElementsByClassName("pc-to-things"))],
   ["inst-mem-to-pipe", Array.from(document.getElementsByClassName("inst-mem-to-pipe"))]
@@ -175,30 +175,30 @@ function I(t) {
   return v((parseInt(t) >> 0).toString(2).padStart(11, "0"));
 }
 function T(t, n, s, m, a) {
-  const d = x.get(t), c = b.get(s), f = b.get(m), p = b.get(a);
+  const d = x.get(t), c = b.get(s), p = b.get(m), f = b.get(a);
   let y;
-  return t === "sub" ? y = "00100000" : y = "00000000", y + p + f + d + c + n;
+  return t === "sub" ? y = "00100000" : y = "00000000", y + f + p + d + c + n;
 }
 function C(t, n, s, m, a) {
-  const d = x.get(t), c = b.get(s), f = b.get(m);
-  return I(a) + f + d + c + n;
+  const d = x.get(t), c = b.get(s), p = b.get(m);
+  return I(a) + p + d + c + n;
 }
 function H(t, n, s, m, a) {
-  const d = x.get(t), c = b.get(s), f = b.get(m), p = I(a);
-  return p.slice(5, 12) + f + c + d + p.slice(0, 5) + n;
+  const d = x.get(t), c = b.get(s), p = b.get(m), f = I(a);
+  return f.slice(5, 12) + p + c + d + f.slice(0, 5) + n;
 }
 function $(t, n, s, m, a) {
-  const d = x.get(t), c = b.get(s), f = b.get(m), p = I(a);
-  return p[9] + p.slice(5, 11) + f + c + d + p.slice(1, 5) + p[10] + n;
+  const d = x.get(t), c = b.get(s), p = b.get(m), f = I(a);
+  return f[9] + f.slice(5, 11) + p + c + d + f.slice(1, 5) + f[10] + n;
 }
 function e(t, n, s) {
   t.get(n).forEach((m) => m.style.backgroundColor = s);
 }
 function z(t) {
-  e(h, "pcp-4", "aqua"), e(h, "pc-to-things", "aqua");
+  e(_, "pcp-4", "aqua"), e(_, "pc-to-things", "aqua");
 }
 function R() {
-  e(h, "pcp-4", "white"), e(h, "pc-to-things", "white");
+  e(_, "pcp-4", "white"), e(_, "pc-to-things", "white");
 }
 function F(t) {
   t === l.R ? (e(o, "rs1", "#f58916"), e(o, "rs2", "#f58916"), e(o, "id-a", "#f58916"), e(o, "id-b", "#f58916"), e(o, "id-imm-b", "#1b1a29"), e(o, "id-imm-a", "#1b1a29"), e(o, "id-rd", "white"), e(o, "id-pc", "#1b1a29")) : t === l.I || t === l.LI ? (e(o, "rs1", "#f58916"), e(o, "rs2", "#1b1a29"), e(o, "id-a", "#f58916"), e(o, "id-b", "#1b1a29"), e(o, "id-imm-b", "#f58916"), e(o, "id-imm-a", "#f58916"), e(o, "id-rd", "white"), e(o, "id-pc", "#1b1a29")) : (t === l.S || t === l.B) && (e(o, "rs1", "#f58916"), e(o, "rs2", "#f58916"), e(o, "id-a", "#f58916"), e(o, "id-b", "#f58916"), e(o, "id-imm-b", "#f58916"), e(o, "id-imm-a", "#f58916"), e(o, "id-rd", "#1b1a29"), e(o, "id-pc", "#1b1a29"));
@@ -224,7 +224,7 @@ function Y(t) {
 function j() {
   e(u, "mem-to-reg", "#28f793"), e(u, "reg-write", "#28f793"), e(u, "wb-mem", "white"), e(u, "write-data", "white"), e(u, "wb-alu", "white"), e(u, "wb-rd", "white");
 }
-function _(t, n) {
+function h(t, n) {
   t.addEventListener("mouseenter", () => {
     n.style.display = "flex", n.style.pointerEvents = "auto", requestAnimationFrame(() => {
       n.style.opacity = "1";
@@ -238,37 +238,37 @@ function _(t, n) {
     }, 300);
   });
 }
-function G() {
-  h.forEach((t, n) => {
+function P() {
+  _.forEach((t, n) => {
     t.forEach((s) => {
-      _(s, document.getElementById(`${n}-exp`));
+      h(s, document.getElementById(`${n}-exp`));
     });
   }), o.forEach((t, n) => {
     t.forEach((s) => {
-      _(s, document.getElementById(`${n}-exp`));
+      h(s, document.getElementById(`${n}-exp`));
     });
   }), r.forEach((t, n) => {
     t.forEach((s) => {
-      _(s, document.getElementById(`${n}-exp`));
+      h(s, document.getElementById(`${n}-exp`));
     });
   }), i.forEach((t, n) => {
     t.forEach((s) => {
-      _(s, document.getElementById(`${n}-exp`));
+      h(s, document.getElementById(`${n}-exp`));
     });
   }), u.forEach((t, n) => {
     t.forEach((s) => {
-      _(s, document.getElementById(`${n}-exp`));
+      h(s, document.getElementById(`${n}-exp`));
     });
   });
 }
-function J(t, n) {
+function G(t, n) {
   return n === l.R ? T(t[0], n, t[1], t[2], t[3]) : n === l.I ? C(t[0], n, t[1], t[2], t[3]) : n === l.LI ? C(t[0], n, t[1], t[3], t[2]) : n === l.S ? H(t[0], n, t[1], t[3], t[2]) : n === l.B ? $(t[0], n, t[1], t[2], t[3]) : "Erro";
 }
-function K(t) {
-  const n = t.trim(), s = n.split(new RegExp(/[,\s()]+/)).filter(Boolean), m = B.get(s[0]), a = L.IF, d = J(s, m);
+function J(t) {
+  const n = t.trim(), s = n.split(new RegExp(/[,\s()]+/)).filter(Boolean), m = B.get(s[0]), a = L.IF, d = G(s, m);
   return { state: a, binary_repr: d, string_repr: n, inst_op: m };
 }
-class P {
+class K {
   constructor() {
     /* São as instruções todas as instruções colocadas para
     simular */
@@ -312,7 +312,7 @@ class P {
    */
   setInstructions(n) {
     this.insts = [], n.reverse().forEach((s) => {
-      this.insts.push(K(s));
+      this.insts.push(J(s));
     });
   }
   paint_piped_instructions() {
@@ -362,17 +362,17 @@ function Q(t, n) {
   return t = Math.ceil(t), n = Math.floor(n), Math.floor(Math.random() * (n - t + 1)) + t;
 }
 function U() {
-  const t = document.getElementById("inst-select"), n = document.getElementById("reg1-sel"), s = document.getElementById("comma-one"), m = document.getElementById("comma-and-ofsset-1"), a = document.getElementById("comma-and-ofsset-2"), d = document.getElementById("reg2-sel"), c = document.getElementById("comma-two"), f = document.getElementById("shitty-imm"), p = document.getElementById("reg3-sel");
+  const t = document.getElementById("inst-select"), n = document.getElementById("reg1-sel"), s = document.getElementById("comma-one"), m = document.getElementById("comma-and-ofsset-1"), a = document.getElementById("comma-and-ofsset-2"), d = document.getElementById("reg2-sel"), c = document.getElementById("comma-two"), p = document.getElementById("shitty-imm"), f = document.getElementById("reg3-sel");
   Array.from(t.children[1].children).forEach((y) => {
     const E = B.get(y.innerHTML);
     E === l.R ? y.addEventListener("click", () => {
-      n.style.display = "flex", s.style.display = "flex", m.style.display = "none", a.style.display = "none", d.style.display = "flex", c.style.display = "flex", f.style.display = "none", p.style.display = "flex", t.children[0].innerHTML = y.innerHTML;
+      n.style.display = "flex", s.style.display = "flex", m.style.display = "none", a.style.display = "none", d.style.display = "flex", c.style.display = "flex", p.style.display = "none", f.style.display = "flex", t.children[0].innerHTML = y.innerHTML;
     }) : E === l.I ? y.addEventListener("click", () => {
-      n.style.display = "flex", s.style.display = "flex", m.style.display = "none", a.style.display = "none", d.style.display = "flex", c.style.display = "flex", f.style.display = "flex", p.style.display = "none", document.getElementById("shitty-imm").innerHTML = Q(-1024, 1024).toString(), t.children[0].innerHTML = y.innerHTML;
+      n.style.display = "flex", s.style.display = "flex", m.style.display = "none", a.style.display = "none", d.style.display = "flex", c.style.display = "flex", p.style.display = "flex", f.style.display = "none", document.getElementById("shitty-imm").innerHTML = Q(-1024, 1024).toString(), t.children[0].innerHTML = y.innerHTML;
     }) : E === l.LI || E === l.S ? y.addEventListener("click", () => {
-      n.style.display = "flex", s.style.display = "none", m.style.display = "flex", a.style.display = "flex", d.style.display = "flex", c.style.display = "none", f.style.display = "none", p.style.display = "none", t.children[0].innerHTML = y.innerHTML;
+      n.style.display = "flex", s.style.display = "none", m.style.display = "flex", a.style.display = "flex", d.style.display = "flex", c.style.display = "none", p.style.display = "none", f.style.display = "none", t.children[0].innerHTML = y.innerHTML;
     }) : y.addEventListener("click", () => {
-      n.style.display = "flex", s.style.display = "flex", m.style.display = "none", a.style.display = "none", d.style.display = "flex", c.style.display = "flex", f.style.display = "flex", p.style.display = "none", document.getElementById("shitty-imm").innerHTML = "4", t.children[0].innerHTML = y.innerHTML;
+      n.style.display = "flex", s.style.display = "flex", m.style.display = "none", a.style.display = "none", d.style.display = "flex", c.style.display = "flex", p.style.display = "flex", f.style.display = "none", document.getElementById("shitty-imm").innerHTML = "4", t.children[0].innerHTML = y.innerHTML;
     });
   });
 }
@@ -393,26 +393,26 @@ function V() {
       if (m === l.R) {
         const a = document.getElementById("reg1-sel").children[0].innerHTML, d = document.getElementById("reg2-sel").children[0].innerHTML, c = document.getElementById("reg3-sel").children[0].innerHTML;
         if (a !== "" && d !== "" && c !== "") {
-          const f = document.createElement("p"), p = document.createTextNode(`${s} ${a}, ${d}, ${c}`);
-          f.appendChild(p), f.classList.add("center-contents"), n.appendChild(f);
+          const p = document.createElement("p"), f = document.createTextNode(`${s} ${a}, ${d}, ${c}`);
+          p.appendChild(f), p.classList.add("center-contents"), n.appendChild(p);
         }
       } else if (m === l.I) {
         const a = document.getElementById("reg1-sel").children[0].innerHTML, d = document.getElementById("reg2-sel").children[0].innerHTML, c = document.getElementById("shitty-imm").innerHTML;
         if (a !== "" && d !== "") {
-          const f = document.createElement("p"), p = document.createTextNode(`${s} ${a}, ${d}, ${c}`);
-          f.appendChild(p), f.classList.add("center-contents"), n.appendChild(f);
+          const p = document.createElement("p"), f = document.createTextNode(`${s} ${a}, ${d}, ${c}`);
+          p.appendChild(f), p.classList.add("center-contents"), n.appendChild(p);
         }
       } else if (m === l.LI || m === l.S) {
         const a = document.getElementById("reg1-sel").children[0].innerHTML, d = document.getElementById("reg2-sel").children[0].innerHTML;
         if (a !== "" && d !== "") {
-          const c = document.createElement("p"), f = document.createTextNode(`${s} ${a}, 4(${d})`);
-          c.appendChild(f), c.classList.add("center-contents"), n.appendChild(c);
+          const c = document.createElement("p"), p = document.createTextNode(`${s} ${a}, 4(${d})`);
+          c.appendChild(p), c.classList.add("center-contents"), n.appendChild(c);
         }
       } else {
         const a = document.getElementById("reg1-sel").children[0].innerHTML, d = document.getElementById("reg2-sel").children[0].innerHTML;
         if (a !== "" && d !== "") {
-          const c = document.createElement("p"), f = document.createTextNode(`${s} ${a}, ${d}, 4`);
-          c.appendChild(f), c.classList.add("center-contents"), n.appendChild(c);
+          const c = document.createElement("p"), p = document.createTextNode(`${s} ${a}, ${d}, 4`);
+          c.appendChild(p), c.classList.add("center-contents"), n.appendChild(c);
         }
       }
     }
@@ -425,13 +425,13 @@ function Z(t) {
     Array.from(s.children).forEach((a) => m.push(a.innerHTML)), t.setInstructions(m);
   });
 }
-function O() {
+function k() {
   const t = document.getElementById("reset-inst"), n = document.getElementById("insts-added");
   t.addEventListener("click", () => {
     Array.from(n.children).forEach((s) => s.remove());
   });
 }
-function k() {
+function O() {
   U(), w("reg1-sel"), w("reg2-sel"), w("reg3-sel");
 }
 function ee() {
@@ -440,14 +440,22 @@ function ee() {
     t.style.display === "flex" ? t.style.display = "none" : t.style.display = "flex";
   });
 }
+function te() {
+  const t = document.getElementById("exp-toggle-button"), n = document.getElementById("exp-dropdown");
+  let s = !1;
+  t.addEventListener("click", (m) => {
+    s ? (n.style.display = "none", s = !1) : (m.stopPropagation(), console.log("clicked"), n.style.display = "flex", s = !0);
+  });
+}
 ee();
-k();
-V();
 O();
-G();
-const N = new P();
+V();
+k();
+P();
+te();
+const N = new K();
 Z(N);
-h.get("pc-to-things");
+_.get("pc-to-things");
 document.getElementById("pc-to-things-exp");
 document.getElementById("step-button").addEventListener("click", () => {
   N.step();
