@@ -6,6 +6,68 @@
     <title>Como funciona o pipeline</title>
 </head>
 <body>
-    
+    <h1>Uma (breve) explicação sobre pipeline</h1>
+
+    <h2>Arquitetura monociclo</h2>
+    <p>
+        Caso você não esteja familiarizado com esse conceito, preparamos um curto texto apenas para que entenda algumas referências que faremos futuramente.
+    </p>
+    <p>
+        A arquitetura monociclo diz respeito à arquitetura de processadores que trabalham de maneira completamente linear, ou seja, executa etapa por etapa de uma instrução sequencialmente, sendo que a próxima instrução só começará a ser processada quando a atual estiver devidamente finalizada, assim, o tempo de executar um programa será a soma do tempo que cada instrução usada leva para ser executada.
+    </p>
+
+    <h2>Arquitetura pipeline</h2>
+    <p>
+        Agora que você entende minimamente o que é uma arquitetura monociclo, podemos introduzir de maneira simples e lúdica o conceito de pipeline.
+    </p>
+    <p>
+        Podemos pensar em um processador como uma senhora (por simplicidade chamaremos de Sarita), e o programa que ela deseja executar é enrolar 150 brigadeiros para a sua festa de aniversário.
+    </p>
+    <p>
+        Caso sarita quisesse agir como uma arquitetura monociclo, ela precisaria enrolar, passar granulado e por na embalagem cada um dos cinquenta brigadeiros (é trabalhoso demais!). Entretanto, Sarita se inspirou na ideia de arquiteturas pipeline e decidiu chamar seus amigos Vinicius e Raul para ajudá-la, e assim dividir a tarefa por 3. Após alguns minutos de discussão chegaram à seguinte conclusão: sarita enrola, Vinícius passa o granulado e Raul põe na embalagem.  Desse modo, assim que Raul terminasse de embalar o primeiro brigadeiro, Sarita já estaria começando a enrolar o terceiro, aumentando a eficiência do trio.
+    </p>
+    <p>
+        Mas... o quão eficiente isso realmente é?
+    </p>
+    <p>
+        Como o nosso objetivo não é entrar em detalhes, vamos dizer que cada etapa dura exatos 2 minutos para ser executada, isso facilitará (e muito) os cálculos!
+    </p>
+    <p>
+        No caso em que sarita se inspira na arquitetura monociclo ela levaria o tempo de cada etapa somada (6 minutos) vezes 150, o que resultaria em 900 minutos, que dão exatas 15 horas de trabalho ininterrupto.
+    </p>
+    <p>
+        Já quando ela segue o modelo pipeline (dividindo as etapas) teríamos os mesmos 6 minutos do primeiro brigadeiro ser embalado por raul (em termos técnicos, chamamos esse tempo de profundidade do pipeline) e a partir daí, teríamos um brigadeiro pronto a cada tempo de uma etapa, já que assim que Rul terminar de embalar o primeiro brigadeiro, ela já embala o segundo, o terceiro e assim por diante. Por fim, o tempo será 6 minutos somado com o número restante dos brigadeiros multiplicado 2 minutos, sabendo que 6+(149×2) = 304, podemos afirmar que eles deveriam terminar de fazer os brigadeiros em 5 horas e 4 minutos, que, por mais que ainda seja muito tempo de trabalho, já é quase um terço do que seria num sistema monociclo!
+    </p>
+    <p>
+        Com isso, é possível ver que a arquitetura pipeline passa com folga a arquitetura monociclo no quesito de velocidade, com um potencial que pode ser ainda maior quando se divide o processo em mais etapas.
+    </p>
+
+    <h2>Termos técnicos</h2>
+    <p>
+        Agora que você entende o básico de uma arquitetura pipeline, vamos dar uma pequena pincelada em termos técnicos para que você entenda melhor o simulador que irá usar.
+    </p>
+    <p>
+        Etapas:
+        Fetch (IF): etapa que busca as instituições na memória;
+        Decode (ID) : Etapa que transforma a instrução em um número binário (linguagem de máquina);
+        Execute (EX): Etapa que executa operações lógicas e aritméticas;
+        Memory (MEM): Etapa de acesso à memória (para caso queria escrever nela);
+        Write Back (WB): Etapa que escreve o resultado das operações (em registradores ou na memória).
+    </p>
+    <p>
+        Componentes da CPU:
+        ULA: Em essência a “calculadora” do processador, realiza operações lógicas e aritméticas;
+        Registradores: usados para guardar informação sem ser na memória de dados, lembrando que o valor que eles têm é considerado “lixo” até que sejam inicializados, e os dados não ficam salvos após o término do programa;
+        Memória de dados: onde se salva valores que serão usados ou foram obtidos ao executar o programa;
+        Memória de código: onde o programa está armazenado.
+
+    </p>
+
+    <h2>Referência</h2>
+    <p>
+        Caso tenham se interessado q queiram saber mais sobre a organização e arquitetura de computadores, leiam o livro que usamos como principal fonte no projeto:
+        Computer Organization and Design RISC-V Edition - David A. Patterson e John L. Hennessy
+        Disponível em: https://www.cs.sfu.ca/~ashriram/Courses/CS295/assets/books/HandP_RISCV.pdf
+    </p>
 </body>
 </html>
