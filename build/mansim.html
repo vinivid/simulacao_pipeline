@@ -1,11 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manual do simulador</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manual do simulador</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+    }
+    p {
+      text-align: justify;
+      margin: 1rem 0;
+    }
+    ul {
+      margin: 1rem 0;
+      padding-left: 2rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    
+  <div class="container">
+    <h1>Manual de uso do simulador</h1>
+
+    <h2>Memória de Instruções</h2>
+    <p>
+      Para simular as etapas do pipeline no caminho de dados é preciso, antes de tudo, definir o conjunto de instruções a serem executadas. Para tal, o usuário deve pressionar o botão <strong>Mem</strong> e, no retângulo superior da aba aberta, selecionar a instrução que deseja executar, em seguida escolhendo entre 32 registradores (x0-x31) para definir origem, destino e/ou endereço base, conforme os modelos a seguir:
+    </p>
+
+    <ul>
+      <li>add {RegDest}, {RegOrig1}, {RegOrig2}</li>
+      <li>sub {RegDest}, {RegOrig1}, {RegOrig2}</li>
+      <li>xor {RegDest}, {RegOrig1}, {RegOrig2}</li>
+      <li>or {RegDest}, {RegOrig1}, {RegOrig2}</li>
+      <li>and {RegDest}, {RegOrig1}, {RegOrig2}</li>
+      <li>addi {RegDest}, {RegOrig1}, 407</li>
+      <li>xori {RegDest}, {RegOrig1}, 958</li>
+      <li>ori {RegDest}, {RegOrig1}, 195</li>
+      <li>lb {RegDest}, 4({EndBase})</li>
+      <li>lh {RegDest}, 4({EndBase})</li>
+      <li>lw {RegDest}, 4({EndBase})</li>
+      <li>sw {RegOrig}, 4({EndBase})</li>
+      <li>beq {RegOrig1}, {RegOrig2}, 4</li>
+    </ul>
+
+    <p>
+      Após construir a instrução, basta pressionar em <strong>Adicionar</strong> para guardá-la na memória, repetindo o processo para instruções subsequentes. Para apagar a sequência registrada, deve-se utilizar o botão <strong>Reiniciar</strong>.
+    </p>
+
+    <h2>Caminho de Dados</h2>
+    <p>
+      Tendo definido as instruções a serem executadas, pressiona-se o botão <strong>Sim</strong> para iniciar a simulação, apertando <strong>Step</strong> para avançar ciclos de clock, isto é, etapas do pipeline. Durante a execução, os fios e barramentos utilizados em cada etapa serão destacados com cores, enquanto aqueles que não forem importantes ficarão apagados; além disso, no canto inferior esquerdo da tela, é indicado, através de uma tabela, qual instrução está em cada uma das 5 etapas: IF, ID, EX, MEM e WB.
+    </p>
+
+    <p>
+      Colocar o mouse sobre os fios e barramentos fornecerá uma breve descrição dos valores que eles carregam, os quais podem ser sinais de controle ou conteúdos de registradores, por exemplo. O propósito desse simulador é permitir que o usuário visualize quais estruturas da arquitetura são utilizadas por cada instrução, em cada etapa, considerando o paralelismo em nível de instrução do pipeline.
+    </p>
+  </div>
 </body>
 </html>
