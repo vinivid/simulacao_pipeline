@@ -3,7 +3,7 @@ import path from 'path';
 
 export default defineConfig({
   build: {
-    outDir: 'build',
+    outDir: 'docs',
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'MyBundle',
